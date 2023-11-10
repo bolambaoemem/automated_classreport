@@ -39,6 +39,7 @@ namespace automated_classreport
             this.txtpassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtusername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,11 +192,34 @@ namespace automated_classreport
             this.guna2HtmlLabel2.TabIndex = 8;
             this.guna2HtmlLabel2.Text = "Grading System";
             // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Verdana", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button3.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.HoverState.Font = new System.Drawing.Font("Verdana", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Location = new System.Drawing.Point(43, 390);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(125, 20);
+            this.guna2Button3.TabIndex = 9;
+            this.guna2Button3.Text = "Forgot password?";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 455);
+            this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2Button1);
@@ -228,6 +252,7 @@ namespace automated_classreport
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
 

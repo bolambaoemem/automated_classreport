@@ -53,6 +53,7 @@ namespace automated_classreport
             this.ccloseeye = new Guna.UI.WinForms.GunaButton();
             this.seeeye = new Guna.UI.WinForms.GunaButton();
             this.copeneye = new Guna.UI.WinForms.GunaButton();
+            this.errorlabel2 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,9 +180,8 @@ namespace automated_classreport
             this.cpasstxt.Font = new System.Drawing.Font("Verdana", 9F);
             this.cpasstxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cpasstxt.HoverState.Parent = this.cpasstxt;
-            this.cpasstxt.Location = new System.Drawing.Point(399, 349);
+            this.cpasstxt.Location = new System.Drawing.Point(399, 352);
             this.cpasstxt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cpasstxt.MaxLength = 8;
             this.cpasstxt.Name = "cpasstxt";
             this.cpasstxt.PasswordChar = '●';
             this.cpasstxt.PlaceholderText = "Confirm Password";
@@ -306,7 +306,7 @@ namespace automated_classreport
             // 
             this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel7.Location = new System.Drawing.Point(399, 329);
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(399, 332);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
             this.guna2HtmlLabel7.Size = new System.Drawing.Size(117, 16);
             this.guna2HtmlLabel7.TabIndex = 17;
@@ -317,16 +317,18 @@ namespace automated_classreport
             this.errorlabel.AutoSize = true;
             this.errorlabel.Font = new System.Drawing.Font("Verdana", 6.5F, System.Drawing.FontStyle.Italic);
             this.errorlabel.ForeColor = System.Drawing.Color.Maroon;
-            this.errorlabel.Location = new System.Drawing.Point(403, 318);
+            this.errorlabel.Location = new System.Drawing.Point(382, 321);
             this.errorlabel.Name = "errorlabel";
-            this.errorlabel.Size = new System.Drawing.Size(58, 12);
+            this.errorlabel.Size = new System.Drawing.Size(475, 12);
             this.errorlabel.TabIndex = 18;
-            this.errorlabel.Text = "gunaLabel1";
+            this.errorlabel.Text = "Password must be a minimum of 8 characters in length, and it must contain at leas" +
+    "t one uppercase ";
             this.errorlabel.Visible = false;
             // 
             // passwordtxt
             // 
             this.passwordtxt.BorderRadius = 12;
+            this.passwordtxt.CausesValidation = false;
             this.passwordtxt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.passwordtxt.DefaultText = "";
             this.passwordtxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -342,7 +344,6 @@ namespace automated_classreport
             this.passwordtxt.IconRightCursor = System.Windows.Forms.Cursors.Hand;
             this.passwordtxt.Location = new System.Drawing.Point(399, 279);
             this.passwordtxt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.passwordtxt.MaxLength = 8;
             this.passwordtxt.Name = "passwordtxt";
             this.passwordtxt.PasswordChar = '●';
             this.passwordtxt.PlaceholderText = "Password";
@@ -467,11 +468,24 @@ namespace automated_classreport
             this.copeneye.TabIndex = 22;
             this.copeneye.Click += new System.EventHandler(this.copeneye_Click_1);
             // 
+            // errorlabel2
+            // 
+            this.errorlabel2.AutoSize = true;
+            this.errorlabel2.Font = new System.Drawing.Font("Verdana", 6.5F, System.Drawing.FontStyle.Italic);
+            this.errorlabel2.ForeColor = System.Drawing.Color.Maroon;
+            this.errorlabel2.Location = new System.Drawing.Point(535, 336);
+            this.errorlabel2.Name = "errorlabel2";
+            this.errorlabel2.Size = new System.Drawing.Size(151, 12);
+            this.errorlabel2.TabIndex = 23;
+            this.errorlabel2.Text = "letter and one special character";
+            this.errorlabel2.Visible = false;
+            // 
             // registerform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 487);
+            this.Controls.Add(this.errorlabel2);
             this.Controls.Add(this.errorlabel);
             this.Controls.Add(this.guna2HtmlLabel7);
             this.Controls.Add(this.guna2HtmlLabel6);
@@ -530,5 +544,6 @@ namespace automated_classreport
         private Guna.UI.WinForms.GunaButton ccloseeye;
         private Guna.UI.WinForms.GunaButton seeeye;
         private Guna.UI.WinForms.GunaButton copeneye;
+        private Guna.UI.WinForms.GunaLabel errorlabel2;
     }
 }

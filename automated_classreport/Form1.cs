@@ -77,5 +77,12 @@ namespace automated_classreport
         {
             Application.Exit();
         }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+           forgotpass admin = new forgotpass();
+            this.Hide();
+            admin.Show();
+        }
     }
 }

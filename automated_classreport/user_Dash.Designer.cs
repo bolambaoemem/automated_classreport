@@ -29,245 +29,304 @@ namespace automated_classreport
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.gunaSeparator1 = new Guna.UI.WinForms.GunaSeparator();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel4 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel5 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel6 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel7 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel8 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel9 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaPanel10 = new Guna.UI.WinForms.GunaPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.plContent = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.gunaControlBox1 = new Guna.UI.WinForms.GunaControlBox();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.academic_btn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel2.SuspendLayout();
-            this.gunaPanel4.SuspendLayout();
-            this.gunaPanel6.SuspendLayout();
-            this.gunaPanel8.SuspendLayout();
-            this.gunaPanel10.SuspendLayout();
+            this.plContent.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaPanel1
             // 
-            this.gunaPanel1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.gunaPanel1.Controls.Add(this.gunaPanel10);
-            this.gunaPanel1.Controls.Add(this.gunaPanel9);
-            this.gunaPanel1.Controls.Add(this.gunaPanel8);
-            this.gunaPanel1.Controls.Add(this.gunaPanel7);
-            this.gunaPanel1.Controls.Add(this.gunaPanel6);
-            this.gunaPanel1.Controls.Add(this.gunaPanel5);
-            this.gunaPanel1.Controls.Add(this.gunaPanel4);
-            this.gunaPanel1.Controls.Add(this.gunaPanel3);
+            this.gunaPanel1.BackColor = System.Drawing.Color.Gray;
+            this.gunaPanel1.Controls.Add(this.gunaSeparator1);
+            this.gunaPanel1.Controls.Add(this.guna2Button3);
+            this.gunaPanel1.Controls.Add(this.guna2Button2);
+            this.gunaPanel1.Controls.Add(this.guna2Button1);
             this.gunaPanel1.Controls.Add(this.gunaPanel2);
+            this.gunaPanel1.Controls.Add(this.academic_btn);
+            this.gunaPanel1.Controls.Add(this.guna2Button6);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaPanel1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.gunaPanel1.Location = new System.Drawing.Point(0, 49);
             this.gunaPanel1.Name = "gunaPanel1";
-            this.gunaPanel1.Size = new System.Drawing.Size(266, 551);
+            this.gunaPanel1.Size = new System.Drawing.Size(195, 466);
             this.gunaPanel1.TabIndex = 4;
+            this.gunaPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel1_Paint);
+            // 
+            // gunaSeparator1
+            // 
+            this.gunaSeparator1.LineColor = System.Drawing.Color.White;
+            this.gunaSeparator1.Location = new System.Drawing.Point(-3, 115);
+            this.gunaSeparator1.Name = "gunaSeparator1";
+            this.gunaSeparator1.Size = new System.Drawing.Size(227, 10);
+            this.gunaSeparator1.TabIndex = 9;
+            this.gunaSeparator1.Thickness = 2;
             // 
             // gunaPanel2
             // 
+            this.gunaPanel2.BackColor = System.Drawing.Color.White;
+            this.gunaPanel2.Controls.Add(this.guna2HtmlLabel3);
             this.gunaPanel2.Controls.Add(this.guna2PictureBox1);
             this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(266, 169);
+            this.gunaPanel2.Size = new System.Drawing.Size(195, 115);
             this.gunaPanel2.TabIndex = 5;
             // 
-            // gunaPanel3
+            // guna2HtmlLabel3
             // 
-            this.gunaPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel3.Location = new System.Drawing.Point(0, 169);
-            this.gunaPanel3.Name = "gunaPanel3";
-            this.gunaPanel3.Size = new System.Drawing.Size(266, 10);
-            this.gunaPanel3.TabIndex = 6;
-            this.gunaPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel3_Paint);
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Goldenrod;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(74, 93);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(38, 20);
+            this.guna2HtmlLabel3.TabIndex = 3;
+            this.guna2HtmlLabel3.Text = "EGS";
             // 
-            // gunaPanel4
+            // plContent
             // 
-            this.gunaPanel4.Controls.Add(this.guna2Button1);
-            this.gunaPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel4.Location = new System.Drawing.Point(0, 179);
-            this.gunaPanel4.Name = "gunaPanel4";
-            this.gunaPanel4.Size = new System.Drawing.Size(266, 51);
-            this.gunaPanel4.TabIndex = 7;
+            this.plContent.BackColor = System.Drawing.Color.White;
+            this.plContent.Controls.Add(this.guna2HtmlLabel2);
+            this.plContent.Controls.Add(this.guna2HtmlLabel1);
+            this.plContent.Controls.Add(this.guna2PictureBox2);
+            this.plContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.plContent.Location = new System.Drawing.Point(195, 49);
+            this.plContent.Name = "plContent";
+            this.plContent.ShadowDecoration.Parent = this.plContent;
+            this.plContent.Size = new System.Drawing.Size(853, 466);
+            this.plContent.TabIndex = 6;
+            this.plContent.Paint += new System.Windows.Forms.PaintEventHandler(this.plContent_Paint);
             // 
-            // gunaPanel5
+            // guna2HtmlLabel2
             // 
-            this.gunaPanel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel5.Location = new System.Drawing.Point(0, 230);
-            this.gunaPanel5.Name = "gunaPanel5";
-            this.gunaPanel5.Size = new System.Drawing.Size(266, 10);
-            this.gunaPanel5.TabIndex = 8;
+            this.guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Red;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(220, 403);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(410, 34);
+            this.guna2HtmlLabel2.TabIndex = 2;
+            this.guna2HtmlLabel2.Text = "CTU TABOGON EXTENSION";
+            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gunaPanel6
+            // guna2HtmlLabel1
             // 
-            this.gunaPanel6.Controls.Add(this.guna2Button2);
-            this.gunaPanel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel6.Location = new System.Drawing.Point(0, 240);
-            this.gunaPanel6.Name = "gunaPanel6";
-            this.gunaPanel6.Size = new System.Drawing.Size(266, 51);
-            this.gunaPanel6.TabIndex = 9;
+            this.guna2HtmlLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Orange;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(197, 37);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(480, 34);
+            this.guna2HtmlLabel1.TabIndex = 1;
+            this.guna2HtmlLabel1.Text = "ELECTRONIC GRADING SYSTEM";
+            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // gunaPanel7
+            // guna2Panel1
             // 
-            this.gunaPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel7.Location = new System.Drawing.Point(0, 291);
-            this.gunaPanel7.Name = "gunaPanel7";
-            this.gunaPanel7.Size = new System.Drawing.Size(266, 10);
-            this.gunaPanel7.TabIndex = 10;
+            this.guna2Panel1.BackColor = System.Drawing.Color.Orange;
+            this.guna2Panel1.Controls.Add(this.gunaControlBox1);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+            this.guna2Panel1.Size = new System.Drawing.Size(1048, 49);
+            this.guna2Panel1.TabIndex = 7;
             // 
-            // gunaPanel8
+            // gunaControlBox1
             // 
-            this.gunaPanel8.Controls.Add(this.guna2Button3);
-            this.gunaPanel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel8.Location = new System.Drawing.Point(0, 301);
-            this.gunaPanel8.Name = "gunaPanel8";
-            this.gunaPanel8.Size = new System.Drawing.Size(266, 51);
-            this.gunaPanel8.TabIndex = 11;
+            this.gunaControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaControlBox1.AnimationHoverSpeed = 0.07F;
+            this.gunaControlBox1.AnimationSpeed = 0.03F;
+            this.gunaControlBox1.IconColor = System.Drawing.Color.Black;
+            this.gunaControlBox1.IconSize = 15F;
+            this.gunaControlBox1.Location = new System.Drawing.Point(991, 6);
+            this.gunaControlBox1.Name = "gunaControlBox1";
+            this.gunaControlBox1.OnHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+            this.gunaControlBox1.OnHoverIconColor = System.Drawing.Color.White;
+            this.gunaControlBox1.OnPressedColor = System.Drawing.Color.Black;
+            this.gunaControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.gunaControlBox1.TabIndex = 0;
             // 
-            // gunaPanel9
+            // gunaElipse1
             // 
-            this.gunaPanel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel9.Location = new System.Drawing.Point(0, 352);
-            this.gunaPanel9.Name = "gunaPanel9";
-            this.gunaPanel9.Size = new System.Drawing.Size(266, 10);
-            this.gunaPanel9.TabIndex = 12;
+            this.gunaElipse1.Radius = 12;
+            this.gunaElipse1.TargetControl = this;
             // 
-            // gunaPanel10
+            // guna2Panel2
             // 
-            this.gunaPanel10.Controls.Add(this.guna2Button4);
-            this.gunaPanel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaPanel10.Location = new System.Drawing.Point(0, 362);
-            this.gunaPanel10.Name = "gunaPanel10";
-            this.gunaPanel10.Size = new System.Drawing.Size(266, 51);
-            this.gunaPanel10.TabIndex = 13;
+            this.guna2Panel2.BackColor = System.Drawing.Color.DarkOrange;
+            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 515);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
+            this.guna2Panel2.Size = new System.Drawing.Size(1048, 36);
+            this.guna2Panel2.TabIndex = 8;
             // 
-            // guna2Button1
+            // guna2PictureBox2
             // 
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.LightSeaGreen;
-            this.guna2Button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(266, 51);
-            this.guna2Button1.TabIndex = 5;
-            this.guna2Button1.Text = "Academic";
-            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button2.FillColor = System.Drawing.Color.LightSeaGreen;
-            this.guna2Button2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(266, 51);
-            this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Enroll Student";
+            this.guna2PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2PictureBox2.BorderRadius = 12;
+            this.guna2PictureBox2.Image = global::automated_classreport.Properties.Resources.ADMIN_MAIN_2;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(77, 52);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(701, 385);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 3;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // guna2Button3
             // 
+            this.guna2Button3.BorderColor = System.Drawing.Color.White;
+            this.guna2Button3.BorderRadius = 15;
             this.guna2Button3.CheckedState.Parent = this.guna2Button3;
             this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button3.FillColor = System.Drawing.Color.LightSeaGreen;
+            this.guna2Button3.FillColor = System.Drawing.Color.Gray;
             this.guna2Button3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
             this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button3.Image = global::automated_classreport.Properties.Resources.icons8_setting_50__1_;
+            this.guna2Button3.Location = new System.Drawing.Point(17, 308);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(266, 51);
-            this.guna2Button3.TabIndex = 6;
-            this.guna2Button3.Text = "History";
+            this.guna2Button3.Size = new System.Drawing.Size(160, 53);
+            this.guna2Button3.TabIndex = 10;
+            this.guna2Button3.Text = "Settings";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // guna2Button4
+            // guna2Button2
             // 
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Button4.FillColor = System.Drawing.Color.LightSeaGreen;
-            this.guna2Button4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(266, 51);
-            this.guna2Button4.TabIndex = 6;
-            this.guna2Button4.Text = "Settings";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            this.guna2Button2.BorderRadius = 15;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2Button2.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = global::automated_classreport.Properties.Resources.icons8_logout_501;
+            this.guna2Button2.Location = new System.Drawing.Point(0, 401);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(195, 65);
+            this.guna2Button2.TabIndex = 9;
+            this.guna2Button2.Text = "Logout";
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 15;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = global::automated_classreport.Properties.Resources.icons8_person_50;
+            this.guna2Button1.Location = new System.Drawing.Point(17, 200);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(160, 53);
+            this.guna2Button1.TabIndex = 9;
+            this.guna2Button1.Text = "Enroll Student";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click_1);
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PictureBox1.Image = global::automated_classreport.Properties.Resources.ct;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(43, 10);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(266, 169);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(100, 80);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // guna2Panel1
+            // academic_btn
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(266, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(782, 50);
-            this.guna2Panel1.TabIndex = 5;
+            this.academic_btn.BorderRadius = 15;
+            this.academic_btn.CheckedState.Parent = this.academic_btn;
+            this.academic_btn.CustomImages.Parent = this.academic_btn;
+            this.academic_btn.FillColor = System.Drawing.Color.Gray;
+            this.academic_btn.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.academic_btn.ForeColor = System.Drawing.Color.White;
+            this.academic_btn.HoverState.Parent = this.academic_btn;
+            this.academic_btn.Image = global::automated_classreport.Properties.Resources.icons8_folder_50__1_;
+            this.academic_btn.Location = new System.Drawing.Point(17, 146);
+            this.academic_btn.Name = "academic_btn";
+            this.academic_btn.ShadowDecoration.Parent = this.academic_btn;
+            this.academic_btn.Size = new System.Drawing.Size(160, 53);
+            this.academic_btn.TabIndex = 5;
+            this.academic_btn.Text = "Academic";
+            this.academic_btn.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
-            // guna2Separator1
+            // guna2Button6
             // 
-            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Separator1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Separator1.FillColor = System.Drawing.Color.Khaki;
-            this.guna2Separator1.FillThickness = 4;
-            this.guna2Separator1.Location = new System.Drawing.Point(266, 50);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(782, 10);
-            this.guna2Separator1.TabIndex = 6;
+            this.guna2Button6.BorderRadius = 15;
+            this.guna2Button6.CheckedState.Parent = this.guna2Button6;
+            this.guna2Button6.CustomImages.Parent = this.guna2Button6;
+            this.guna2Button6.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2Button6.ForeColor = System.Drawing.Color.White;
+            this.guna2Button6.HoverState.Parent = this.guna2Button6;
+            this.guna2Button6.Image = global::automated_classreport.Properties.Resources.icons8_history_50;
+            this.guna2Button6.Location = new System.Drawing.Point(17, 254);
+            this.guna2Button6.Name = "guna2Button6";
+            this.guna2Button6.ShadowDecoration.Parent = this.guna2Button6;
+            this.guna2Button6.Size = new System.Drawing.Size(160, 53);
+            this.guna2Button6.TabIndex = 7;
+            this.guna2Button6.Text = "History";
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
             // 
             // user_Dash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 551);
-            this.Controls.Add(this.guna2Separator1);
-            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.plContent);
             this.Controls.Add(this.gunaPanel1);
+            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2Panel1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "user_Dash";
             this.Text = "user_Dash";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.user_Dash_Load);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel2.ResumeLayout(false);
-            this.gunaPanel4.ResumeLayout(false);
-            this.gunaPanel6.ResumeLayout(false);
-            this.gunaPanel8.ResumeLayout(false);
-            this.gunaPanel10.ResumeLayout(false);
+            this.gunaPanel2.PerformLayout();
+            this.plContent.ResumeLayout(false);
+            this.plContent.PerformLayout();
+            this.guna2Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -276,21 +335,22 @@ namespace automated_classreport
         #endregion
 
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
-        private Guna.UI.WinForms.GunaPanel gunaPanel4;
-        private Guna.UI.WinForms.GunaPanel gunaPanel3;
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
-        private Guna.UI.WinForms.GunaPanel gunaPanel10;
-        private Guna.UI.WinForms.GunaPanel gunaPanel9;
-        private Guna.UI.WinForms.GunaPanel gunaPanel8;
-        private Guna.UI.WinForms.GunaPanel gunaPanel7;
-        private Guna.UI.WinForms.GunaPanel gunaPanel6;
-        private Guna.UI.WinForms.GunaPanel gunaPanel5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button academic_btn;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2Panel plContent;
+        private Guna.UI2.WinForms.Guna2Button guna2Button6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI.WinForms.GunaControlBox gunaControlBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI.WinForms.GunaSeparator gunaSeparator1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

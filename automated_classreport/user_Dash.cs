@@ -26,8 +26,24 @@ namespace automated_classreport
         private void guna2Button1_Click(object sender, EventArgs e)
         {
 
-            gunaPanel4.BackColor = Color.Black;
-            guna2Button1.BackColor = Color.Transparent;
+            academic_btn.FillColor = Color.White;
+            academic_btn.ForeColor = Color.Gray;
+            academic_btn.Size = new Size(188, 53);
+
+
+            guna2Button1.FillColor = Color.Gray;
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Size = new Size(160, 53);
+
+            guna2Button6.FillColor = Color.Gray;
+            guna2Button6.ForeColor = Color.White;
+            guna2Button6.Size = new Size(160, 53);
+
+            guna2Button3.FillColor = Color.Gray;
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Size = new Size(160, 53);
+
+
 
 
         }
@@ -40,6 +56,84 @@ namespace automated_classreport
         private void guna2Button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gunaPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click_1(object sender, EventArgs e)
+        {
+
+            guna2Button1.FillColor = Color.White;
+            guna2Button1.ForeColor = Color.Gray;
+            guna2Button1.Size = new Size(188, 53);
+
+
+            academic_btn.FillColor = Color.Gray;
+            academic_btn.ForeColor = Color.White;
+            academic_btn.Size = new Size(160, 53);
+
+            guna2Button6.FillColor = Color.Gray;
+            guna2Button6.ForeColor = Color.White;
+            guna2Button6.Size = new Size(160, 53);
+
+            guna2Button3.FillColor = Color.Gray;
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Size = new Size(160, 53);
+
+
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            guna2Button6.FillColor = Color.White;
+            guna2Button6.ForeColor = Color.Gray;
+            guna2Button6.Size = new Size(188, 53);
+
+            academic_btn.FillColor = Color.Gray;
+            academic_btn.ForeColor = Color.White;
+            academic_btn.Size = new Size(160, 53);
+
+            guna2Button1.FillColor = Color.Gray;
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Size = new Size(160, 53);
+
+            guna2Button3.FillColor = Color.Gray;
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Size = new Size(160, 53);
+
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            guna2Button3.FillColor = Color.White;
+            guna2Button3.ForeColor = Color.Gray;
+            guna2Button3.Size = new Size(188, 53);
+
+            academic_btn.FillColor = Color.Gray;
+            academic_btn.ForeColor = Color.White;
+            academic_btn.Size = new Size(160, 53);
+
+            guna2Button1.FillColor = Color.Gray;
+            guna2Button1.ForeColor = Color.White;
+            guna2Button1.Size = new Size(160, 53);
+
+            guna2Button6.FillColor = Color.Gray;
+            guna2Button6.ForeColor = Color.White;
+            guna2Button6.Size = new Size(160, 53);
         }
     }
 }
