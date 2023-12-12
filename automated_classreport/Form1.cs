@@ -53,7 +53,8 @@ namespace automated_classreport
 
                      if (matchedUser != null)
                     {
-                        user_Dash user = new user_Dash();
+                        int Id = matchedUser.accId;
+                        user_Dash user = new user_Dash(Id);
                         this.Hide();
                         user.ShowDialog();
                         //MessageBox.Show("Account is user type", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);

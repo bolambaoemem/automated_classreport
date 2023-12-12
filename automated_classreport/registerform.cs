@@ -38,7 +38,7 @@ namespace automated_classreport
                 string password = passwordtxt.Text;
                 if (password.Length < 8)
                 {
-                    MessageBox.Show("The password must meet the minimum requirements, it should be 8 characters ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The password must meet the minimum requirements, it should be minimum of 8 characters atleast one special character and one Uppercase letter ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -124,50 +124,9 @@ namespace automated_classreport
                 this.cpasstxt.Location = new System.Drawing.Point(399, 352);
                 this.ccloseeye.Location = new System.Drawing.Point(786, 357);
                 this.copeneye.Location = new System.Drawing.Point(786, 357);
-
-            }
-            if (password.Length == 8 || password.Length > 8)
-            {
-
-                bool isValidPassword = CheckPasswordCriteria(password);
-
-                if (!isValidPassword)
-                {
-
-                    errorlabel.Visible = true;
-                    errorlabel2.Visible = true;
-                    errorlabel.Text = "Password must be a minimum of 8 characters in length, and it must contain at least one uppercase letter and one special character";
-                    errorlabel2.Text = "letter and one special character";
-                    //passwordtxt.BorderColor = Color.Red;
-                    if (i == 0)
-                    {
-                        i = 1;
-                        guna2HtmlLabel7.Location = new Point(guna2HtmlLabel7.Location.X + 0, guna2HtmlLabel7.Location.Y + 12);
-                        cpasstxt.Location = new Point(cpasstxt.Location.X + 0, cpasstxt.Location.Y + 12);
-                        ccloseeye.Location = new Point(ccloseeye.Location.X + 0, ccloseeye.Location.Y + 12);
-                        copeneye.Location = new Point(copeneye.Location.X + 0, copeneye.Location.Y + 12);
-
-                    }
-
-                }
                 
-
-                else
-                {
-                    //this.guna2HtmlLabel7.Location = new System.Drawing.Point(100, 100);
-                    //passwordtxt.BorderColor = Color.FromArgb(94, 148, 255);
-                    i = 0;
-                    this.guna2HtmlLabel7.Location = new System.Drawing.Point(399, 332);
-                    this.cpasstxt.Location = new System.Drawing.Point(399, 352);
-                    this.ccloseeye.Location = new System.Drawing.Point(786, 357);
-                    this.copeneye.Location = new System.Drawing.Point(786, 357);
-                    errorlabel.Visible = false;
-                    errorlabel.Text = string.Empty;
-                    errorlabel2.Visible = false;
-                    errorlabel2.Text = string.Empty;
-                    
-                }
             }
+           
            
            
         }
@@ -256,7 +215,48 @@ namespace automated_classreport
 
         private void cpasstxt_TextChanged(object sender, EventArgs e)
         {
-            
+            string password = passwordtxt.Text;
+
+                bool isValidPassword = CheckPasswordCriteria(password);
+
+                if (password.Length < 8 || !isValidPassword)
+                {
+
+                    errorlabel.Visible = true;
+                    errorlabel2.Visible = true;
+                    errorlabel.Text = "Password must be a minimum of 8 characters in length, and it must contain at least one uppercase letter and one special character";
+                    errorlabel2.Text = "letter and one special character";
+                cpasstxt.Text = String.Empty;
+                    if (i == 0)
+                    {
+                        i = 1;
+                        guna2HtmlLabel7.Location = new Point(guna2HtmlLabel7.Location.X + 0, guna2HtmlLabel7.Location.Y + 12);
+                        cpasstxt.Location = new Point(cpasstxt.Location.X + 0, cpasstxt.Location.Y + 12);
+                        ccloseeye.Location = new Point(ccloseeye.Location.X + 0, ccloseeye.Location.Y + 12);
+                        copeneye.Location = new Point(copeneye.Location.X + 0, copeneye.Location.Y + 12);
+
+                    }
+
+                }
+
+
+            else
+            {
+                //this.guna2HtmlLabel7.Location = new System.Drawing.Point(100, 100);
+                //passwordtxt.BorderColor = Color.FromArgb(94, 148, 255);
+                i = 0;
+                this.guna2HtmlLabel7.Location = new System.Drawing.Point(399, 332);
+                this.cpasstxt.Location = new System.Drawing.Point(399, 352);
+                this.ccloseeye.Location = new System.Drawing.Point(786, 357);
+                this.copeneye.Location = new System.Drawing.Point(786, 357);
+                errorlabel.Visible = false;
+                errorlabel.Text = string.Empty;
+                errorlabel2.Visible = false;
+                errorlabel2.Text = string.Empty;
+
+
+
+            }
         }
     }
 

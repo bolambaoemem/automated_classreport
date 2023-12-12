@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +48,24 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\..\Downloads\guna dlls\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -61,6 +82,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\history.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\history_Report_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\history_Report_frm.Designer.cs">
+      <DependentUpon>history_Report_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="update_Academic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="update_Academic.Designer.cs">
+      <DependentUpon>update_Academic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_Academic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_Academic.Designer.cs">
+      <DependentUpon>add_Academic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_wgt_term.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_wgt_term.Designer.cs">
+      <DependentUpon>add_wgt_term.cs</DependentUpon>
+    </Compile>
+    <Compile Include="add_Wgt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_Wgt.Designer.cs">
+      <DependentUpon>add_Wgt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class_Record.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="class_Record.Designer.cs">
+      <DependentUpon>class_Record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="class_Report_content.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="class_Report_content.Designer.cs">
+      <DependentUpon>class_Report_content.cs</DependentUpon>
+    </Compile>
+    <Compile Include="create_Acad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="create_Acad.Designer.cs">
+      <DependentUpon>create_Acad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="enroll_Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enroll_Student.Designer.cs">
+      <DependentUpon>enroll_Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\class_Record.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\high_Score.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,8 +160,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\semester.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Student.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\user_account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="final_Ratings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="final_Ratings.Designer.cs">
+      <DependentUpon>final_Ratings.cs</DependentUpon>
     </Compile>
     <Compile Include="forgotpass.cs">
       <SubType>Form</SubType>
@@ -91,6 +187,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="history_Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="history_Frm.Designer.cs">
+      <DependentUpon>history_Frm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registerform.cs">
@@ -99,17 +201,80 @@
     <Compile Include="registerform.Designer.cs">
       <DependentUpon>registerform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\midterm_Report_frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\midterm_Report_frm.Designer.cs">
+      <DependentUpon>midterm_Report_frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\test_form_print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\test_form_print.Designer.cs">
+      <DependentUpon>test_form_print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setting_Frm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setting_Frm.Designer.cs">
+      <DependentUpon>setting_Frm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="test_Score.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="test_Score.Designer.cs">
+      <DependentUpon>test_Score.cs</DependentUpon>
+    </Compile>
     <Compile Include="user_Dash.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="user_Dash.Designer.cs">
       <DependentUpon>user_Dash.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\classTermViewmodel.cs" />
+    <Compile Include="ViewModel\classViewModel.cs" />
+    <Compile Include="ViewModel\collegiatemfViewmodel.cs" />
+    <Compile Include="ViewModel\highViewModel.cs" />
+    <Compile Include="ViewModel\studendtViewModel.cs" />
+    <EmbeddedResource Include="Report\history_forprint.rdlc" />
+    <EmbeddedResource Include="Report\history_Report_frm.resx">
+      <DependentUpon>history_Report_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="update_Academic.resx">
+      <DependentUpon>update_Academic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_Academic.resx">
+      <DependentUpon>add_Academic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_wgt_term.resx">
+      <DependentUpon>add_wgt_term.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="add_Wgt.resx">
+      <DependentUpon>add_Wgt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="class_Record.resx">
+      <DependentUpon>class_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="class_Report_content.resx">
+      <DependentUpon>class_Report_content.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="create_Acad.resx">
+      <DependentUpon>create_Acad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enroll_Student.resx">
+      <DependentUpon>enroll_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="final_Ratings.resx">
+      <DependentUpon>final_Ratings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forgotpass.resx">
       <DependentUpon>forgotpass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="history_Frm.resx">
+      <DependentUpon>history_Frm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +289,23 @@
     <EmbeddedResource Include="registerform.resx">
       <DependentUpon>registerform.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\finalRatingReport.rdlc" />
+    <EmbeddedResource Include="Report\forfinalrating_report.rdlc" />
+    <EmbeddedResource Include="Report\midtermcolReport.rdlc" />
+    <EmbeddedResource Include="Report\midterm_Report_frm.resx">
+      <DependentUpon>midterm_Report_frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Report1.rdlc" />
+    <EmbeddedResource Include="Report\reportforTest.rdlc" />
+    <EmbeddedResource Include="Report\test_form_print.resx">
+      <DependentUpon>test_form_print.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setting_Frm.resx">
+      <DependentUpon>setting_Frm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test_Score.resx">
+      <DependentUpon>test_Score.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user_Dash.resx">
       <DependentUpon>user_Dash.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +317,18 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\automated_classreport.Entities.class_Record.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.Entities.high_Score.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.Entities.semester.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.Entities.Student.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.classTermViewmodel.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.classTermViewmodel1.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.classTermViewmodel2.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.classViewModel.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.classViewModel1.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.collegiatemfViewmodel.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.highViewModel.datasource" />
+    <None Include="Properties\DataSources\automated_classreport.ViewModel.studendtViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,9 +351,7 @@
   <ItemGroup>
     <None Include="Resources\ct.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
@@ -174,6 +366,17 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-delete-24.png" />
+    <None Include="Resources\icons8-eye-501.png" />
+    <None Include="Resources\icons8-delete-100.png" />
+    <None Include="Resources\icons8-menu-vertical-50.png" />
+    <None Include="Resources\images_%285%29.jpeg.jpg" />
+    <None Include="Resources\images_%287%29.jpeg.jpg" />
+    <None Include="Resources\Picsart_23-11-16_21-31-21-176.jpg" />
+    <None Include="Resources\Picsart_23-11-18_12-33-56-738.jpg" />
+    <None Include="Resources\icons8-arrow-back-30.png" />
+    <None Include="Resources\icons8-create-folder-48.png" />
+    <None Include="Resources\folder.jpg" />
     <None Include="Resources\ADMIN-MAIN-2.png" />
     <None Include="Resources\icons8-folder-50 %281%29.png" />
     <None Include="Resources\icons8-person-50.png" />
@@ -190,4 +393,10 @@
     <None Include="Resources\icons8-closed-eye-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
 </Project>

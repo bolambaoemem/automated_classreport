@@ -26,5 +26,10 @@ namespace automated_classreport.Entities
         }
     
         public virtual DbSet<user_account> user_account { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<semester> semesters { get; set; }
+        public virtual DbSet<class_Record> class_Record { get; set; }
+        public virtual DbSet<high_Score> high_Score { get; set; }
+        public virtual DbSet<history> histories { get; set; }
     }
 }

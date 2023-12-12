@@ -4,7 +4,97 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="gradingsysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="gradingsysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="class_Record">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem" Type="varchar" MaxLength="255" />
+          <Property Name="subject" Type="varchar" MaxLength="255" />
+          <Property Name="course" Type="varchar" MaxLength="255" />
+          <Property Name="teach_Id" Type="int" />
+          <Property Name="column_1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_8" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_9" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_10" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="stud_Id" Type="int" />
+          <Property Name="high_score_ID" Type="int" />
+          <Property Name="typeof_column" Type="varchar" MaxLength="255" />
+          <Property Name="term_exam" Type="varchar" MaxLength="255" />
+          <Property Name="wgt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="term_Score" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="term_total_wgt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="type_total" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="high_Score">
+          <Key>
+            <PropertyRef Name="high_ID" />
+          </Key>
+          <Property Name="high_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sem" Type="varchar" MaxLength="255" />
+          <Property Name="subject" Type="varchar" MaxLength="255" />
+          <Property Name="course" Type="varchar" MaxLength="255" />
+          <Property Name="teach_Id" Type="int" />
+          <Property Name="column_1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_4" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_5" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_6" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_7" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_8" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_9" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="column_10" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="typeof_column" Type="varchar" MaxLength="255" />
+          <Property Name="term_exam" Type="varchar" MaxLength="255" />
+          <Property Name="wgt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="term_Score" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="term_total_wgt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="type_total" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="his_Id" />
+          </Key>
+          <Property Name="his_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teach_id" Type="int" />
+          <Property Name="sem_Id" Type="int" />
+          <Property Name="history" Type="date" />
+          <Property Name="semName" Type="varchar" MaxLength="255" />
+          <Property Name="sem_mean" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="sem_Id" />
+          </Key>
+          <Property Name="sem_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teach_id" Type="int" />
+          <Property Name="sem_Name" Type="varchar" MaxLength="255" />
+          <Property Name="sem_Mean" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="t_Id" />
+          </Key>
+          <Property Name="t_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="teach_id" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="subject" Type="varchar" MaxLength="50" />
+          <Property Name="course_year" Type="varchar" MaxLength="50" />
+          <Property Name="sem_Id" Type="int" />
+        </EntityType>
         <EntityType Name="user_account">
           <Key>
             <PropertyRef Name="accId" />
@@ -17,10 +107,14 @@
           <Property Name="acc_password" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityContainer Name="gradingsysModelStoreContainer">
+          <EntitySet Name="class_Record" EntityType="Self.class_Record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="high_Score" EntityType="Self.high_Score" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="history" EntityType="Self.history" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="semester" EntityType="Self.semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user_account" EntityType="Self.user_account" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gradingsysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -37,7 +131,102 @@
         </EntityType>
         <EntityContainer Name="gradingsysEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="user_account" EntityType="Self.user_account" />
+          <EntitySet Name="Students" EntityType="gradingsysModel.Student" />
+          <EntitySet Name="semesters" EntityType="gradingsysModel.semester" />
+          <EntitySet Name="class_Record" EntityType="gradingsysModel.class_Record" />
+          <EntitySet Name="high_Score" EntityType="gradingsysModel.high_Score" />
+          <EntitySet Name="histories" EntityType="gradingsysModel.history" />
         </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="t_Id" />
+          </Key>
+          <Property Name="t_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="teach_id" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="course_year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sem_Id" Type="Int32" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="sem_Id" />
+          </Key>
+          <Property Name="sem_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teach_id" Type="Int32" />
+          <Property Name="sem_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sem_Mean" Type="Int32" />
+        </EntityType>
+        <EntityType Name="class_Record">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="teach_Id" Type="Int32" />
+          <Property Name="column_1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_2" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_3" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_4" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_5" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_6" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_7" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_8" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_9" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_10" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="stud_Id" Type="Int32" />
+          <Property Name="high_score_ID" Type="Int32" />
+          <Property Name="typeof_column" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="term_exam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="wgt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="term_Score" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="term_total_wgt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="type_total" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="high_Score">
+          <Key>
+            <PropertyRef Name="high_ID" />
+          </Key>
+          <Property Name="high_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sem" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="subject" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="teach_Id" Type="Int32" />
+          <Property Name="column_1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_2" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_3" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_4" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_5" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_6" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_7" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_8" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_9" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="column_10" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="typeof_column" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="term_exam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="wgt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="total" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="term_Score" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="term_total_wgt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="type_total" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="his_Id" />
+          </Key>
+          <Property Name="his_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teach_id" Type="Int32" />
+          <Property Name="sem_Id" Type="Int32" />
+          <Property Name="history1" Type="DateTime" Precision="0" />
+          <Property Name="semName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sem_mean" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -53,6 +242,101 @@
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="acc_password" ColumnName="acc_password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="gradingsysModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="sem_Id" ColumnName="sem_Id" />
+                <ScalarProperty Name="course_year" ColumnName="course_year" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="teach_id" ColumnName="teach_id" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="t_Id" ColumnName="t_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="semesters">
+            <EntityTypeMapping TypeName="gradingsysModel.semester">
+              <MappingFragment StoreEntitySet="semester">
+                <ScalarProperty Name="sem_Mean" ColumnName="sem_Mean" />
+                <ScalarProperty Name="sem_Name" ColumnName="sem_Name" />
+                <ScalarProperty Name="teach_id" ColumnName="teach_id" />
+                <ScalarProperty Name="sem_Id" ColumnName="sem_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="class_Record">
+            <EntityTypeMapping TypeName="gradingsysModel.class_Record">
+              <MappingFragment StoreEntitySet="class_Record">
+                <ScalarProperty Name="type_total" ColumnName="type_total" />
+                <ScalarProperty Name="term_total_wgt" ColumnName="term_total_wgt" />
+                <ScalarProperty Name="term_Score" ColumnName="term_Score" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="wgt" ColumnName="wgt" />
+                <ScalarProperty Name="term_exam" ColumnName="term_exam" />
+                <ScalarProperty Name="typeof_column" ColumnName="typeof_column" />
+                <ScalarProperty Name="high_score_ID" ColumnName="high_score_ID" />
+                <ScalarProperty Name="stud_Id" ColumnName="stud_Id" />
+                <ScalarProperty Name="column_10" ColumnName="column_10" />
+                <ScalarProperty Name="column_9" ColumnName="column_9" />
+                <ScalarProperty Name="column_8" ColumnName="column_8" />
+                <ScalarProperty Name="column_7" ColumnName="column_7" />
+                <ScalarProperty Name="column_6" ColumnName="column_6" />
+                <ScalarProperty Name="column_5" ColumnName="column_5" />
+                <ScalarProperty Name="column_4" ColumnName="column_4" />
+                <ScalarProperty Name="column_3" ColumnName="column_3" />
+                <ScalarProperty Name="column_2" ColumnName="column_2" />
+                <ScalarProperty Name="column_1" ColumnName="column_1" />
+                <ScalarProperty Name="teach_Id" ColumnName="teach_Id" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="high_Score">
+            <EntityTypeMapping TypeName="gradingsysModel.high_Score">
+              <MappingFragment StoreEntitySet="high_Score">
+                <ScalarProperty Name="type_total" ColumnName="type_total" />
+                <ScalarProperty Name="term_total_wgt" ColumnName="term_total_wgt" />
+                <ScalarProperty Name="term_Score" ColumnName="term_Score" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="wgt" ColumnName="wgt" />
+                <ScalarProperty Name="term_exam" ColumnName="term_exam" />
+                <ScalarProperty Name="typeof_column" ColumnName="typeof_column" />
+                <ScalarProperty Name="column_10" ColumnName="column_10" />
+                <ScalarProperty Name="column_9" ColumnName="column_9" />
+                <ScalarProperty Name="column_8" ColumnName="column_8" />
+                <ScalarProperty Name="column_7" ColumnName="column_7" />
+                <ScalarProperty Name="column_6" ColumnName="column_6" />
+                <ScalarProperty Name="column_5" ColumnName="column_5" />
+                <ScalarProperty Name="column_4" ColumnName="column_4" />
+                <ScalarProperty Name="column_3" ColumnName="column_3" />
+                <ScalarProperty Name="column_2" ColumnName="column_2" />
+                <ScalarProperty Name="column_1" ColumnName="column_1" />
+                <ScalarProperty Name="teach_Id" ColumnName="teach_Id" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="sem" ColumnName="sem" />
+                <ScalarProperty Name="high_ID" ColumnName="high_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="histories">
+            <EntityTypeMapping TypeName="gradingsysModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="sem_mean" ColumnName="sem_mean" />
+                <ScalarProperty Name="semName" ColumnName="semName" />
+                <ScalarProperty Name="history1" ColumnName="history" />
+                <ScalarProperty Name="sem_Id" ColumnName="sem_Id" />
+                <ScalarProperty Name="teach_id" ColumnName="teach_id" />
+                <ScalarProperty Name="his_Id" ColumnName="his_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
