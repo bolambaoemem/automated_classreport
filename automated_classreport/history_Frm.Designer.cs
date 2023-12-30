@@ -40,18 +40,19 @@ namespace automated_classreport
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.view = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semmeanDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.view = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.collegiatemfViewmodelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.collegiatemfViewmodelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -145,6 +146,43 @@ namespace automated_classreport
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // semIDDataGridViewTextBoxColumn
+            // 
+            this.semIDDataGridViewTextBoxColumn.DataPropertyName = "sem_ID";
+            this.semIDDataGridViewTextBoxColumn.HeaderText = "sem_ID";
+            this.semIDDataGridViewTextBoxColumn.Name = "semIDDataGridViewTextBoxColumn";
+            this.semIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.semIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // semmeanDataGridViewTextBoxColumn
+            // 
+            this.semmeanDataGridViewTextBoxColumn.DataPropertyName = "sem_mean";
+            this.semmeanDataGridViewTextBoxColumn.HeaderText = "Semester";
+            this.semmeanDataGridViewTextBoxColumn.Name = "semmeanDataGridViewTextBoxColumn";
+            this.semmeanDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // semNameDataGridViewTextBoxColumn
+            // 
+            this.semNameDataGridViewTextBoxColumn.DataPropertyName = "semName";
+            this.semNameDataGridViewTextBoxColumn.HeaderText = "Semester Name";
+            this.semNameDataGridViewTextBoxColumn.Name = "semNameDataGridViewTextBoxColumn";
+            this.semNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // view
             // 
             this.view.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -173,6 +211,10 @@ namespace automated_classreport
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Width = 5;
+            // 
+            // collegiatemfViewmodelBindingSource
+            // 
+            this.collegiatemfViewmodelBindingSource.DataSource = typeof(automated_classreport.ViewModel.collegiatemfViewmodel);
             // 
             // guna2HtmlLabel1
             // 
@@ -245,46 +287,29 @@ namespace automated_classreport
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             // 
-            // iDDataGridViewTextBoxColumn
+            // guna2ComboBox2
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // semIDDataGridViewTextBoxColumn
-            // 
-            this.semIDDataGridViewTextBoxColumn.DataPropertyName = "sem_ID";
-            this.semIDDataGridViewTextBoxColumn.HeaderText = "sem_ID";
-            this.semIDDataGridViewTextBoxColumn.Name = "semIDDataGridViewTextBoxColumn";
-            this.semIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.semIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // semmeanDataGridViewTextBoxColumn
-            // 
-            this.semmeanDataGridViewTextBoxColumn.DataPropertyName = "sem_mean";
-            this.semmeanDataGridViewTextBoxColumn.HeaderText = "Semester";
-            this.semmeanDataGridViewTextBoxColumn.Name = "semmeanDataGridViewTextBoxColumn";
-            this.semmeanDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // semNameDataGridViewTextBoxColumn
-            // 
-            this.semNameDataGridViewTextBoxColumn.DataPropertyName = "semName";
-            this.semNameDataGridViewTextBoxColumn.HeaderText = "Semester Name";
-            this.semNameDataGridViewTextBoxColumn.Name = "semNameDataGridViewTextBoxColumn";
-            this.semNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // collegiatemfViewmodelBindingSource
-            // 
-            this.collegiatemfViewmodelBindingSource.DataSource = typeof(automated_classreport.ViewModel.collegiatemfViewmodel);
+            this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox2.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox2.FocusedState.Parent = this.guna2ComboBox2;
+            this.guna2ComboBox2.Font = new System.Drawing.Font("Verdana", 10F);
+            this.guna2ComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox2.FormattingEnabled = true;
+            this.guna2ComboBox2.HoverState.Parent = this.guna2ComboBox2;
+            this.guna2ComboBox2.ItemHeight = 30;
+            this.guna2ComboBox2.Items.AddRange(new object[] {
+            "Lecture",
+            "Laboratory"});
+            this.guna2ComboBox2.ItemsAppearance.Parent = this.guna2ComboBox2;
+            this.guna2ComboBox2.Location = new System.Drawing.Point(51, 67);
+            this.guna2ComboBox2.Name = "guna2ComboBox2";
+            this.guna2ComboBox2.ShadowDecoration.Parent = this.guna2ComboBox2;
+            this.guna2ComboBox2.Size = new System.Drawing.Size(194, 36);
+            this.guna2ComboBox2.TabIndex = 44;
+            this.guna2ComboBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2ComboBox2.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox2_SelectedIndexChanged);
             // 
             // history_Frm
             // 
@@ -292,6 +317,7 @@ namespace automated_classreport
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.guna2ComboBox2);
             this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.guna2DataGridView1);
@@ -324,5 +350,6 @@ namespace automated_classreport
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn view;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
     }
 }

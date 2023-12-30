@@ -52,6 +52,8 @@ namespace automated_classreport
                      if (matchedUser != null)
                     {
                         // Assuming this code is inside an event handler or a method
+                        matchedUser.brute_stat = null;
+                        _context.SaveChanges();
                         DialogResult result = MessageBox.Show("Your password : " + matchedUser.acc_password + ". Please remember it.\n\nDo you want to proceed to the login page?", "Success!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                         if (result == DialogResult.Yes)

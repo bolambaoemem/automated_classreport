@@ -32,8 +32,11 @@ namespace automated_classreport
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            var student = _context.Students.ToList();
-            gunaDataGridView1.DataSource = student;
+            int SEm = Convert.ToInt32(semister.SelectedValue);
+            var course_tb = course.Text.Trim();
+            var subject_tb = subject.Text.Trim();
+            gunaDataGridView1.DataSource = _context.Students.Where(q => q.teach_id == _id && q.course_year == course_tb && q.subject == subject_tb && q.sem_Id == SEm).OrderBy(q => q.LastName).ToList();
+
 
             gunaDataGridView1.ReadOnly = false;
             guna2Button3.Visible = true;

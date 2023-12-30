@@ -97,6 +97,7 @@ namespace automated_classreport
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaTextBox5 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.testpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classTermViewmodelBindingSource)).BeginInit();
@@ -106,6 +107,7 @@ namespace automated_classreport
             // testpanel
             // 
             this.testpanel.BackColor = System.Drawing.SystemColors.Control;
+            this.testpanel.Controls.Add(this.guna2ComboBox3);
             this.testpanel.Controls.Add(this.guna2TextBox6);
             this.testpanel.Controls.Add(this.gunaControlBox1);
             this.testpanel.Controls.Add(this.guna2Button5);
@@ -1062,6 +1064,30 @@ namespace automated_classreport
             this.gunaElipse1.Radius = 12;
             this.gunaElipse1.TargetControl = this;
             // 
+            // guna2ComboBox3
+            // 
+            this.guna2ComboBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox3.BorderRadius = 12;
+            this.guna2ComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox3.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox3.FocusedState.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox3.FormattingEnabled = true;
+            this.guna2ComboBox3.HoverState.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.ItemHeight = 30;
+            this.guna2ComboBox3.Items.AddRange(new object[] {
+            "Lecture",
+            "Laboratoty"});
+            this.guna2ComboBox3.ItemsAppearance.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Location = new System.Drawing.Point(575, 288);
+            this.guna2ComboBox3.Name = "guna2ComboBox3";
+            this.guna2ComboBox3.ShadowDecoration.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Size = new System.Drawing.Size(237, 36);
+            this.guna2ComboBox3.TabIndex = 63;
+            this.guna2ComboBox3.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox3_SelectedIndexChanged);
+            // 
             // test_Score
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1146,5 +1172,6 @@ namespace automated_classreport
         private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
     }
 }

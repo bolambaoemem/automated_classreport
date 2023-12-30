@@ -469,7 +469,6 @@ namespace automated_classreport
             this.ClientSize = new System.Drawing.Size(1323, 529);
             this.Controls.Add(this.guna2Button4);
             this.Controls.Add(this.gunaDataGridView1);
-            this.Controls.Add(this.update);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.save);
             this.Controls.Add(this.semister);
@@ -481,6 +480,7 @@ namespace automated_classreport
             this.Controls.Add(this.gunaSem);
             this.Controls.Add(this.guna2Button2);
             this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.update);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

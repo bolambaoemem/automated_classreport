@@ -19,6 +19,7 @@ namespace automated_classreport
         gradingsysEntities _context = new gradingsysEntities();
         int _id;
         string _sem;
+        string mount;
         public final_Ratings()
         {
             InitializeComponent();
@@ -141,7 +142,7 @@ namespace automated_classreport
             var datas = (
             from cr in _context.class_Record
             join st in _context.Students on cr.stud_Id equals st.t_Id
-            where cr.teach_Id ==_id && cr.sem ==sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString()
+            where cr.teach_Id ==_id && cr.sem ==sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString() && cr.mount == mount
             group new { cr, st } by st.t_Id into studentGroup
             select new classTermViewmodel
 {
@@ -151,15 +152,15 @@ namespace automated_classreport
                         .FirstOrDefault(),
 
     column_1 = studentGroup.SelectMany(s => _context.class_Record
-                                                                    .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                                    .Select(q => Math.Round((q.total ?? 0), 1))
+                                                                 .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                                    .Select(q => Math.Round((q.set_Grade ?? 0), 1))
                                                                     .DefaultIfEmpty(0))
                                              .FirstOrDefault(),
 
-    column_3 = studentGroup.Select(s =>_context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+    column_3 = studentGroup.Select(s => _context.class_Record
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -169,16 +170,16 @@ namespace automated_classreport
 
 
     column_2 = studentGroup.SelectMany(s => _context.class_Record
-                                                .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                .Select(q => (decimal?)q.total ?? 0)
+                                                .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                .Select(q => (decimal?)q.set_Grade ?? 0)
                                                 .DefaultIfEmpty(0))
-                        .FirstOrDefault(),
+                                                .FirstOrDefault(),
 
 
     column_4 = studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -186,15 +187,15 @@ namespace automated_classreport
                                             .FirstOrDefault())
                                         .FirstOrDefault(),
     column_5 = studentGroup.SelectMany(s => _context.class_Record
-                                                .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                .Select(q => (decimal?)q.total ?? 0)
+                                                .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                .Select(q => (decimal?)q.set_Grade ?? 0)
                                                 .DefaultIfEmpty(0))
                                                 .FirstOrDefault(),
 
     column_6 = studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -203,15 +204,15 @@ namespace automated_classreport
                                         .FirstOrDefault(),
 
                 term_Score = studentGroup.SelectMany(s => _context.class_Record
-                                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                            .Select(q => (decimal?)q.total ?? 0)
+                                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                            .Select(q => (decimal?)q.set_Grade ?? 0)
                                                             .DefaultIfEmpty(0))
-                                                .FirstOrDefault(),
+                                                            .FirstOrDefault(),
 
                 type_total = studentGroup.Select(s => _context.class_Record
-                                                       .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                       .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                           .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                                       .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                       .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                           .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                            .Select(hs => hs.wgt ?? 0)
                                                            .DefaultIfEmpty()
                                                            .FirstOrDefault() / 100))
@@ -220,14 +221,14 @@ namespace automated_classreport
                                         .FirstOrDefault(),
 
                 column_7 = studentGroup.SelectMany(s => _context.class_Record
-                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                                               .Select(q => (decimal?)q.term_Score ?? 0)
                                               .DefaultIfEmpty(0))
-                                                .FirstOrDefault(),
+                                              .FirstOrDefault(),
 
     column_8 = Math.Round(
                  studentGroup.SelectMany(s => _context.class_Record
-                                                     .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                                                     .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                                                      .Select(q => ((decimal?)q.type_total ?? 0))
                                                      .DefaultIfEmpty(0))
                                                      .FirstOrDefault(),
@@ -235,9 +236,9 @@ namespace automated_classreport
              ),
     column_9 = 
                         (studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -247,9 +248,9 @@ namespace automated_classreport
                       +
 
                        studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -258,20 +259,20 @@ namespace automated_classreport
                                         .FirstOrDefault()
                     +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
                                            .DefaultIfEmpty()
                                            .FirstOrDefault())
                                         .FirstOrDefault()
-                                         +
+                     +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -280,14 +281,14 @@ namespace automated_classreport
                                         .FirstOrDefault()
                         +
                         studentGroup.SelectMany(s => _context.class_Record
-                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                             .Select(q => q.type_total ?? 0)
                             .DefaultIfEmpty(0)
                         ).FirstOrDefault()
 
                         ),
                  
-            column_10 = 0,
+                             column_10 = 0,
                             term_total_wgt = 0,
 
 }
@@ -295,7 +296,9 @@ namespace automated_classreport
 
             foreach (var data in datas)
             {
+                data.column_1 = (int)Math.Round(data.column_1);
                 data.column_9 = (int)Math.Round(data.column_9);
+
                 if (data.column_9 == 100)
                 {
                     data.column_10 = 95;
@@ -551,7 +554,7 @@ namespace automated_classreport
             var datas = (
                 from cr in _context.class_Record
                 join st in _context.Students on cr.stud_Id equals st.t_Id
-                where cr.teach_Id == _id && cr.sem == sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString()
+                where cr.teach_Id == _id && cr.sem == sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString() && cr.mount == mount
                 group new { cr, st } by st.t_Id into studentGroup
                 select new classTermViewmodel
 {
@@ -563,15 +566,15 @@ namespace automated_classreport
                       .FirstOrDefault(),
 
   column_1 = studentGroup.SelectMany(s => _context.class_Record
-                                                                  .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                                                  .Select(q => Math.Round((q.total ?? 0), 1))
+                                                                  .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                                                  .Select(q => Math.Round((q.set_Grade ?? 0), 1))
                                                                   .DefaultIfEmpty(0))
                                            .FirstOrDefault(),
 
   column_3 = studentGroup.Select(s => _context.class_Record
-                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                          .Select(q => (q.total ?? 0) * (_context.high_Score
-                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                          .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                               .Select(hs => hs.wgt ?? 0)
                                               .DefaultIfEmpty()
                                               .FirstOrDefault() / 100))
@@ -581,16 +584,16 @@ namespace automated_classreport
 
 
   column_2 = studentGroup.SelectMany(s => _context.class_Record
-                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                              .Select(q => (decimal?)q.total ?? 0)
+                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                              .Select(q => (decimal?)q.set_Grade ?? 0)
                                               .DefaultIfEmpty(0))
                       .FirstOrDefault(),
 
 
   column_4 = studentGroup.Select(s => _context.class_Record
-                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                          .Select(q => (q.total ?? 0) * (_context.high_Score
-                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                          .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                               .Select(hs => hs.wgt ?? 0)
                                               .DefaultIfEmpty()
                                               .FirstOrDefault() / 100))
@@ -598,15 +601,15 @@ namespace automated_classreport
                                           .FirstOrDefault())
                                       .FirstOrDefault(),
   column_5 = studentGroup.SelectMany(s => _context.class_Record
-                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                              .Select(q => (decimal?)q.total ?? 0)
+                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                              .Select(q => (decimal?)q.set_Grade ?? 0)
                                               .DefaultIfEmpty(0))
                                               .FirstOrDefault(),
 
   column_6 = studentGroup.Select(s => _context.class_Record
-                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                         .Select(q => (q.total ?? 0) * (_context.high_Score
-                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                         .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                              .Select(hs => hs.wgt ?? 0)
                                              .DefaultIfEmpty()
                                              .FirstOrDefault() / 100))
@@ -614,15 +617,15 @@ namespace automated_classreport
                                          .FirstOrDefault())
                                       .FirstOrDefault(),
     term_Score = studentGroup.SelectMany(s => _context.class_Record
-                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                              .Select(q => (decimal?)q.total ?? 0)
+                                              .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                              .Select(q => (decimal?)q.set_Grade ?? 0)
                                               .DefaultIfEmpty(0))
                                                 .FirstOrDefault(),
 
     type_total = studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -631,14 +634,14 @@ namespace automated_classreport
                                         .FirstOrDefault(),
 
     column_7 = studentGroup.SelectMany(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                                             .Select(q => (decimal?)q.term_Score ?? 0)
                                             .DefaultIfEmpty(0))
                                               .FirstOrDefault(),
 
   column_8 = Math.Round(
                studentGroup.SelectMany(s => _context.class_Record
-                                                   .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                                                   .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                                                    .Select(q => ((decimal?)q.type_total ?? 0))
                                                    .DefaultIfEmpty(0))
                                                    .FirstOrDefault(),
@@ -646,9 +649,9 @@ namespace automated_classreport
            ),
   column_9 =
                       (studentGroup.Select(s => _context.class_Record
-                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                          .Select(q => (q.total ?? 0) * (_context.high_Score
-                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                          .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                               .Select(hs => hs.wgt ?? 0)
                                               .DefaultIfEmpty()
                                               .FirstOrDefault() / 100))
@@ -658,9 +661,9 @@ namespace automated_classreport
                     +
 
                      studentGroup.Select(s => _context.class_Record
-                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                          .Select(q => (q.total ?? 0) * (_context.high_Score
-                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                          .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                              .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                               .Select(hs => hs.wgt ?? 0)
                                               .DefaultIfEmpty()
                                               .FirstOrDefault() / 100))
@@ -669,9 +672,9 @@ namespace automated_classreport
                                       .FirstOrDefault()
                   +
                      studentGroup.Select(s => _context.class_Record
-                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                         .Select(q => (q.total ?? 0) * (_context.high_Score
-                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                         .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                              .Select(hs => hs.wgt ?? 0)
                                              .DefaultIfEmpty()
                                              .FirstOrDefault() / 100))
@@ -680,9 +683,9 @@ namespace automated_classreport
                                       .FirstOrDefault()
                                         +
                      studentGroup.Select(s => _context.class_Record
-                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                         .Select(q => (q.total ?? 0) * (_context.high_Score
-                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                         .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                         .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                             .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                              .Select(hs => hs.wgt ?? 0)
                                              .DefaultIfEmpty()
                                              .FirstOrDefault() / 100))
@@ -691,7 +694,7 @@ namespace automated_classreport
                                       .FirstOrDefault()
                       +
                       studentGroup.SelectMany(s => _context.class_Record
-                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                          .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                           .Select(q => q.type_total ?? 0)
                           .DefaultIfEmpty(0)
                       ).FirstOrDefault()
@@ -959,11 +962,11 @@ namespace automated_classreport
             var subjects = guna2ComboBox2.SelectedValue;
             int sem_Id = _context.semesters.Where(q => q.sem_Name == _sem).Select(s => s.sem_Id).FirstOrDefault();
             var jyz = _context.class_Record
-                .Where(q => q.term_exam == "Midterm" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                .Where(q => q.term_exam == "Midterm" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                 .Select(s => s.wgt)
                 .FirstOrDefault() ?? 0; // If jyz is null, default to 0
 
-            var jy = _context.high_Score.Where(q => q.term_exam == "Midterm" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id).ToList();
+            var jy = _context.high_Score.Where(q => q.term_exam == "Midterm" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount).ToList();
 
             List<ReportParameter> parameters = new List<ReportParameter>();
 
@@ -1027,11 +1030,11 @@ namespace automated_classreport
             var subjects = guna2ComboBox2.SelectedValue;
             int sem_Id = _context.semesters.Where(q => q.sem_Name == _sem).Select(s => s.sem_Id).FirstOrDefault();
             var jyz = _context.class_Record
-                .Where(q => q.term_exam == "Final" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                .Where(q => q.term_exam == "Final" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                 .Select(s => s.wgt)
                 .FirstOrDefault() ?? 0; // If jyz is null, default to 0
 
-            var jy = _context.high_Score.Where(q => q.term_exam == "Final" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id).ToList();
+            var jy = _context.high_Score.Where(q => q.term_exam == "Final" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount).ToList();
 
             List<ReportParameter> parameters = new List<ReportParameter>();
 
@@ -1091,7 +1094,7 @@ namespace automated_classreport
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-       
+ 
             guna2TextBox3.Text = "Midterm";
             guna2Button3.FillColor = Color.MediumTurquoise;
             guna2Button1.FillColor = Color.MediumTurquoise;
@@ -1136,7 +1139,7 @@ namespace automated_classreport
             var datas = (
             from cr in _context.class_Record
             join st in _context.Students on cr.stud_Id equals st.t_Id
-            where cr.teach_Id == _id && cr.sem == sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString()
+            where cr.teach_Id == _id && cr.sem == sem_Id.ToString() && cr.course == courses.ToString() && cr.subject == subjects.ToString() && cr.mount == mount
             group new { cr, st } by st.t_Id into studentGroup
             select new classTermViewmodel
             {
@@ -1146,9 +1149,9 @@ namespace automated_classreport
                         .FirstOrDefault(),
                 column_1 =
                         (studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -1158,9 +1161,9 @@ namespace automated_classreport
                       +
 
                        studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -1169,9 +1172,9 @@ namespace automated_classreport
                                         .FirstOrDefault()
                     +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -1180,9 +1183,9 @@ namespace automated_classreport
                                         .FirstOrDefault()
                                           +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Final" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -1191,7 +1194,7 @@ namespace automated_classreport
                                         .FirstOrDefault()
                         +
                         studentGroup.SelectMany(s => _context.class_Record
-                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Final" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                             .Select(q => q.type_total ?? 0)
                             .DefaultIfEmpty(0)
                         ).FirstOrDefault()
@@ -1200,9 +1203,9 @@ namespace automated_classreport
 
                 column_9 =
                         (studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Quizzes" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -1212,9 +1215,9 @@ namespace automated_classreport
                       +
 
                        studentGroup.Select(s => _context.class_Record
-                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                            .Select(q => (q.total ?? 0) * (_context.high_Score
-                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Performance" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                            .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                 .Select(hs => hs.wgt ?? 0)
                                                 .DefaultIfEmpty()
                                                 .FirstOrDefault() / 100))
@@ -1223,9 +1226,9 @@ namespace automated_classreport
                                         .FirstOrDefault()
                     +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Oral" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -1234,9 +1237,9 @@ namespace automated_classreport
                                         .FirstOrDefault()
                                          +
                        studentGroup.Select(s => _context.class_Record
-                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
-                                           .Select(q => (q.total ?? 0) * (_context.high_Score
-                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id)
+                                           .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Project" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
+                                           .Select(q => (q.set_Grade ?? 0) * (_context.high_Score
+                                               .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == courses.ToString() && hs.subject == subjects.ToString() && hs.sem == sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
                                                .FirstOrDefault() / 100))
@@ -1245,7 +1248,7 @@ namespace automated_classreport
                                         .FirstOrDefault()
                         +
                         studentGroup.SelectMany(s => _context.class_Record
-                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id)
+                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == courses.ToString() && q.subject == subjects.ToString() && q.sem == sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                             .Select(q => q.type_total ?? 0)
                             .DefaultIfEmpty(0)
                         ).FirstOrDefault()
@@ -1785,7 +1788,7 @@ namespace automated_classreport
                 String semNames = guna2HtmlLabel4.Text.Trim();
                 String term = guna2TextBox3.Text.Trim();
 
-                midterm_Report_frm frm = new midterm_Report_frm(_id, courses.ToString(), subjects.ToString(), sem_Id, semmean, semNames, term);
+                midterm_Report_frm frm = new midterm_Report_frm(_id, courses.ToString(), subjects.ToString(), sem_Id, semmean, semNames, term,mount);
                 frm.ShowDialog();
             }
         }
@@ -1797,6 +1800,19 @@ namespace automated_classreport
             guna2Button2.FillColor = Color.MediumTurquoise;
             guna2Button3.FillColor = Color.MediumTurquoise;
 
+        }
+
+        private void guna2ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var mon = guna2ComboBox3.SelectedIndex;
+            if (mon == 0)
+            {
+                mount = "lec";
+            }
+            else
+            {
+                mount = "lab";
+            }
         }
     }
 }

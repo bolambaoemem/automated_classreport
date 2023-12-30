@@ -114,7 +114,27 @@ namespace automated_classreport
            
             string password = passwordtxt.Text;
             // Check if password is at least 8 characters long
-            if (password.Length <=0 )
+            if (password.Length > 0)
+            {
+
+                errorlabel.Visible = true;
+                errorlabel2.Visible = true;
+                errorlabel.Text = "Password must be a minimum of 8 characters in length, and it must contain at least one uppercase letter and one special character";
+                errorlabel2.Text = "letter and one special character";
+                cpasstxt.Text = String.Empty;
+                if (i == 0)
+                {
+                    i = 1;
+                    guna2HtmlLabel7.Location = new Point(guna2HtmlLabel7.Location.X + 0, guna2HtmlLabel7.Location.Y + 12);
+                    cpasstxt.Location = new Point(cpasstxt.Location.X + 0, cpasstxt.Location.Y + 12);
+                    ccloseeye.Location = new Point(ccloseeye.Location.X + 0, ccloseeye.Location.Y + 12);
+                    copeneye.Location = new Point(copeneye.Location.X + 0, copeneye.Location.Y + 12);
+
+                }
+
+            }
+
+           else
             {
                 i = 0;
                 errorlabel.Visible = false;

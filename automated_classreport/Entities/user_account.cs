@@ -20,5 +20,7 @@ namespace automated_classreport.Entities
         public string email { get; set; }
         public string username { get; set; }
         public string acc_password { get; set; }
+        public Nullable<int> brute_count { get; set; }
+        public string brute_stat { get; set; }
     }
 }

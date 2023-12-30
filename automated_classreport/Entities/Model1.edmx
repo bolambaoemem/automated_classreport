@@ -33,6 +33,9 @@
           <Property Name="term_Score" Type="decimal" Precision="10" Scale="2" />
           <Property Name="term_total_wgt" Type="decimal" Precision="10" Scale="2" />
           <Property Name="type_total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="set_Grade" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="mount" Type="varchar" MaxLength="255" />
+          <Property Name="trem_wgt" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="high_Score">
           <Key>
@@ -60,6 +63,7 @@
           <Property Name="term_Score" Type="decimal" Precision="10" Scale="2" />
           <Property Name="term_total_wgt" Type="decimal" Precision="10" Scale="2" />
           <Property Name="type_total" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="mount" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="history">
           <Key>
@@ -105,6 +109,8 @@
           <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="acc_password" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="brute_count" Type="int" />
+          <Property Name="brute_stat" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="gradingsysModelStoreContainer">
           <EntitySet Name="class_Record" EntityType="Self.class_Record" Schema="dbo" store:Type="Tables" />
@@ -118,24 +124,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="gradingsysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="user_account">
-          <Key>
-            <PropertyRef Name="accId" />
-          </Key>
-          <Property Name="accId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="lname" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="username" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="acc_password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="gradingsysEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="user_account" EntityType="Self.user_account" />
           <EntitySet Name="Students" EntityType="gradingsysModel.Student" />
           <EntitySet Name="semesters" EntityType="gradingsysModel.semester" />
+          <EntitySet Name="histories" EntityType="gradingsysModel.history" />
+          <EntitySet Name="user_account" EntityType="gradingsysModel.user_account" />
           <EntitySet Name="class_Record" EntityType="gradingsysModel.class_Record" />
           <EntitySet Name="high_Score" EntityType="gradingsysModel.high_Score" />
-          <EntitySet Name="histories" EntityType="gradingsysModel.history" />
         </EntityContainer>
         <EntityType Name="Student">
           <Key>
@@ -159,6 +154,30 @@
           <Property Name="teach_id" Type="Int32" />
           <Property Name="sem_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="sem_Mean" Type="Int32" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="his_Id" />
+          </Key>
+          <Property Name="his_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teach_id" Type="Int32" />
+          <Property Name="sem_Id" Type="Int32" />
+          <Property Name="history1" Type="DateTime" Precision="0" />
+          <Property Name="semName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="sem_mean" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user_account">
+          <Key>
+            <PropertyRef Name="accId" />
+          </Key>
+          <Property Name="accId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="acc_password" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="brute_count" Type="Int32" />
+          <Property Name="brute_stat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="class_Record">
           <Key>
@@ -188,6 +207,9 @@
           <Property Name="term_Score" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="term_total_wgt" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="type_total" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="set_Grade" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="mount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="trem_wgt" Type="Decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="high_Score">
           <Key>
@@ -215,17 +237,7 @@
           <Property Name="term_Score" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="term_total_wgt" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="type_total" Type="Decimal" Precision="10" Scale="2" />
-        </EntityType>
-        <EntityType Name="history">
-          <Key>
-            <PropertyRef Name="his_Id" />
-          </Key>
-          <Property Name="his_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="teach_id" Type="Int32" />
-          <Property Name="sem_Id" Type="Int32" />
-          <Property Name="history1" Type="DateTime" Precision="0" />
-          <Property Name="semName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="sem_mean" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="mount" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -233,18 +245,6 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="gradingsysModelStoreContainer" CdmEntityContainer="gradingsysEntities">
-          <EntitySetMapping Name="user_account">
-            <EntityTypeMapping TypeName="gradingsysModel.user_account">
-              <MappingFragment StoreEntitySet="user_account">
-                <ScalarProperty Name="accId" ColumnName="accId" />
-                <ScalarProperty Name="fname" ColumnName="fname" />
-                <ScalarProperty Name="lname" ColumnName="lname" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="acc_password" ColumnName="acc_password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="gradingsysModel.Student">
               <MappingFragment StoreEntitySet="Student">
@@ -270,9 +270,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="histories">
+            <EntityTypeMapping TypeName="gradingsysModel.history">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="sem_mean" ColumnName="sem_mean" />
+                <ScalarProperty Name="semName" ColumnName="semName" />
+                <ScalarProperty Name="history1" ColumnName="history" />
+                <ScalarProperty Name="sem_Id" ColumnName="sem_Id" />
+                <ScalarProperty Name="teach_id" ColumnName="teach_id" />
+                <ScalarProperty Name="his_Id" ColumnName="his_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_account">
+            <EntityTypeMapping TypeName="gradingsysModel.user_account">
+              <MappingFragment StoreEntitySet="user_account">
+                <ScalarProperty Name="brute_stat" ColumnName="brute_stat" />
+                <ScalarProperty Name="brute_count" ColumnName="brute_count" />
+                <ScalarProperty Name="acc_password" ColumnName="acc_password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="accId" ColumnName="accId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="class_Record">
             <EntityTypeMapping TypeName="gradingsysModel.class_Record">
               <MappingFragment StoreEntitySet="class_Record">
+                <ScalarProperty Name="trem_wgt" ColumnName="trem_wgt" />
+                <ScalarProperty Name="mount" ColumnName="mount" />
+                <ScalarProperty Name="set_Grade" ColumnName="set_Grade" />
                 <ScalarProperty Name="type_total" ColumnName="type_total" />
                 <ScalarProperty Name="term_total_wgt" ColumnName="term_total_wgt" />
                 <ScalarProperty Name="term_Score" ColumnName="term_Score" />
@@ -303,6 +332,7 @@
           <EntitySetMapping Name="high_Score">
             <EntityTypeMapping TypeName="gradingsysModel.high_Score">
               <MappingFragment StoreEntitySet="high_Score">
+                <ScalarProperty Name="mount" ColumnName="mount" />
                 <ScalarProperty Name="type_total" ColumnName="type_total" />
                 <ScalarProperty Name="term_total_wgt" ColumnName="term_total_wgt" />
                 <ScalarProperty Name="term_Score" ColumnName="term_Score" />
@@ -325,18 +355,6 @@
                 <ScalarProperty Name="subject" ColumnName="subject" />
                 <ScalarProperty Name="sem" ColumnName="sem" />
                 <ScalarProperty Name="high_ID" ColumnName="high_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="histories">
-            <EntityTypeMapping TypeName="gradingsysModel.history">
-              <MappingFragment StoreEntitySet="history">
-                <ScalarProperty Name="sem_mean" ColumnName="sem_mean" />
-                <ScalarProperty Name="semName" ColumnName="semName" />
-                <ScalarProperty Name="history1" ColumnName="history" />
-                <ScalarProperty Name="sem_Id" ColumnName="sem_Id" />
-                <ScalarProperty Name="teach_id" ColumnName="teach_id" />
-                <ScalarProperty Name="his_Id" ColumnName="his_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

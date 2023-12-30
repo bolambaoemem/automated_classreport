@@ -20,6 +20,7 @@ namespace automated_classreport
         int _id;
         string _sem;
         string term;
+        string mount;
         public test_Score()
         {
             InitializeComponent();
@@ -51,7 +52,7 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var groupedStudents = _context.class_Record
-                        .FirstOrDefault(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null);
+                        .FirstOrDefault(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null && q.mount == mount);
                     if (groupedStudents != null)
                     {
                         setdata();
@@ -95,7 +96,7 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var groupedStudents = _context.class_Record
-                        .FirstOrDefault(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null);
+                        .FirstOrDefault(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null && q.mount == mount);
                     if (groupedStudents != null)
                     {
                         setdatas();
@@ -139,13 +140,13 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var groupedStudents = _context.class_Record
-                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null)
+                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null && q.mount == mount)
                         .GroupBy(q => q.stud_Id)
                         .ToList();
 
                     guna2TextBox3.Text = groupedStudents.Count.ToString();
                     guna2TextBox9.Text = ((int)_context.high_Score
-                                .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null)
+                                .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null && q.mount == mount)
                                 .Select(s => (decimal?)s.term_Score ?? 0)
                                 .DefaultIfEmpty(0)
                                 .FirstOrDefault()
@@ -204,13 +205,13 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var groupedStudents = _context.class_Record
-                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null)
+                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null && q.mount == mount)
                         .GroupBy(q => q.stud_Id)
                         .ToList();
 
                     guna2TextBox3.Text = groupedStudents.Count.ToString();
                     guna2TextBox9.Text =((int) _context.high_Score
-                                .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null)
+                                .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Final" && q.term_Score != null && q.mount == mount)
                                 .Select(s => (decimal?)s.term_Score ?? 0)
                                 .DefaultIfEmpty(0)
                                 .FirstOrDefault())
@@ -266,7 +267,7 @@ namespace automated_classreport
             {
                 decimal left = scores[middle];
                 decimal right = scores[middle + 1];
-                return Math.Round((left + right) / 2);
+                return Math.Round(left);
             }
             else
             {
@@ -389,7 +390,7 @@ namespace automated_classreport
                     var datas = (
                                     from cr in _context.class_Record
                                     join st in _context.Students on cr.stud_Id equals st.t_Id
-                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Midterm" && cr.term_Score != null
+                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Midterm" && cr.term_Score != null && cr.mount == mount
                                     group new { cr, st } by st.t_Id into studentGroup
                                     select new classTermViewmodel
                                     {
@@ -446,7 +447,7 @@ namespace automated_classreport
                     var datas = (
                                     from cr in _context.class_Record
                                     join st in _context.Students on cr.stud_Id equals st.t_Id
-                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Final" && cr.term_Score != null
+                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Final" && cr.term_Score != null && cr.mount == mount
                                     group new { cr, st } by st.t_Id into studentGroup
                                     select new classTermViewmodel
                                     {
@@ -497,12 +498,24 @@ namespace automated_classreport
             var low_score = guna2TextBox8.Text.Trim();
             var score = guna2TextBox9.Text.Trim();
 
-            test_form_print pr = new test_form_print(_id,term,subject.ToString(),course.ToString(),semister_Name,test_given,test_submit,num_takingtest,high_score,med_score,low_score,score);
+            test_form_print pr = new test_form_print(_id,term,subject.ToString(),course.ToString(),semister_Name,test_given,test_submit,num_takingtest,high_score,med_score,low_score,score,mount);
             pr.ShowDialog();
 
 
 
         }
 
+        private void guna2ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var mon = guna2ComboBox3.SelectedIndex;
+            if (mon == 0)
+            {
+                mount = "lec";
+            }
+            else {
+                mount = "lab";
+
+            }
+        }
     }
 }

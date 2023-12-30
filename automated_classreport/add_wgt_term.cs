@@ -23,24 +23,26 @@ namespace automated_classreport
         string _subject;
         string _course;
         string _termname;
+        string _mount;
         public add_wgt_term()
         {
             InitializeComponent();
         }
-        public add_wgt_term(int id, int sem, string subject, string course,string termname) : this()
+        public add_wgt_term(int id, int sem, string subject, string course,string termname, string mount) : this()
         {
             _id = id;
             _sem = sem;
             _subject = subject;
             _course = course;
             _termname = termname;
-
+            _mount = mount;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
 
             string termwgt = wgt_term.Text.Trim();
+            Decimal termg = Convert.ToDecimal(wgt_term.Text.Trim());
             List<int> student_info = _context.Students.Where(q => q.teach_id == _id && q.course_year == _course && q.subject == _subject && q.sem_Id == _sem).Select(s=>s.t_Id).ToList();
             foreach (int studentId in student_info)
             {
@@ -55,14 +57,21 @@ namespace automated_classreport
                         subject = _subject,
                         sem = _sem.ToString(),
                         wgt = Convert.ToInt32(termwgt),
-                        typeof_column = GetColumnName(term)
+                        typeof_column = GetColumnName(term),
+                        mount = _mount
 
                     };
 
                     _context.class_Record.Add(record);
                     _context.SaveChanges();
                 }
+
             }
+            //Entities.high_Score hih = new Entities.high_Score
+            //{
+
+
+            //};
 
 
             OnForm2Closed(); // Trigger the Form2Closed event

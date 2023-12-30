@@ -18,6 +18,7 @@ namespace automated_classreport
         gradingsysEntities _context = new gradingsysEntities();
         int _id;
         string monthname;
+        string mount;
         private DataView originalDataView;
         public history_Frm()
         {
@@ -49,7 +50,7 @@ namespace automated_classreport
                  
                     var idValue = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value;
 
-                    history_Report_frm pnl = new history_Report_frm(Convert.ToInt32(idValue), _id);
+                    history_Report_frm pnl = new history_Report_frm(Convert.ToInt32(idValue), _id,mount);
                     pnl.ShowDialog();
                    
                 }
@@ -226,6 +227,16 @@ namespace automated_classreport
             return table;
         }
 
-
+        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var mon = guna2ComboBox2.SelectedIndex;
+            if (mon == 0)
+            {
+                mount = "lec";
+            }
+            else {
+                mount = "lec";
+            }
+        }
     }
 }

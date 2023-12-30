@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="03609a6ed8524d0e8ac7bc65914b3917" Name="Diagram1">
-        <EntityTypeShape EntityType="gradingsysModel.user_account" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="gradingsysModel.Student" Width="1.5" PointX="2.375" PointY="0.5" />
-        <EntityTypeShape EntityType="gradingsysModel.semester" Width="1.5" PointX="8" PointY="1.75" />
-        <EntityTypeShape EntityType="gradingsysModel.class_Record" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="gradingsysModel.high_Score" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="gradingsysModel.history" Width="1.5" PointX="10.125" PointY="1.625" />
+        <EntityTypeShape EntityType="gradingsysModel.semester" Width="1.5" PointX="8.25" PointY="0.5" />
+        <EntityTypeShape EntityType="gradingsysModel.history" Width="1.5" PointX="10.125" PointY="0.5" />
+        <EntityTypeShape EntityType="gradingsysModel.user_account" Width="1.5" PointX="0.5" PointY="0.625" />
+        <EntityTypeShape EntityType="gradingsysModel.class_Record" Width="1.5" PointX="4.25" PointY="0.5" />
+        <EntityTypeShape EntityType="gradingsysModel.high_Score" Width="1.5" PointX="6.375" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

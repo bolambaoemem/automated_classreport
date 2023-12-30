@@ -23,11 +23,12 @@ namespace automated_classreport
         string _course;
         string _termname;
         string type ;
+        string _mount;
         public add_Wgt()
         {
             InitializeComponent();
         }
-        public add_Wgt(int id, int sem, string subject, string course, string termname,string _type) :this()
+        public add_Wgt(int id, int sem, string subject, string course, string termname,string _type,string mount) :this()
         {
             _id = id;
             _sem = sem;
@@ -35,6 +36,7 @@ namespace automated_classreport
             _course = course;
             _termname = termname;
             type = _type;
+            _mount = mount;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace automated_classreport
         }
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
+            Decimal twgt =Math.Round( _context.class_Record.Where(q => q.teach_Id == _id && q.sem == _sem.ToString() && q.subject == _subject && q.course == _course && q.term_exam ==_termname).Select(s => (decimal)s.wgt).FirstOrDefault(),2);
 
             high_Score high = new high_Score
             {
@@ -54,6 +56,8 @@ namespace automated_classreport
                 subject = _subject,
                 typeof_column = type,
                 wgt = Convert.ToDecimal(guna2TextBox2.Text.Trim()),
+                type_total = twgt,
+                mount = _mount
             };
 
             _context.high_Score.Add(high);

@@ -36,5 +36,6 @@ namespace automated_classreport.Entities
         public Nullable<decimal> term_Score { get; set; }
         public Nullable<decimal> term_total_wgt { get; set; }
         public Nullable<decimal> type_total { get; set; }
+        public string mount { get; set; }
     }
 }

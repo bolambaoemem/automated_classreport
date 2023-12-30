@@ -43,16 +43,19 @@ namespace automated_classreport
                 if (txtusername.Text == string.Empty && txtpassword.Text == string.Empty)
                 {
                     MessageBox.Show("Please fill up the field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
                     string userna = txtusername.Text.Trim();
                     string pass = txtpassword.Text.Trim();
 
-                    var matchedUser = _context.user_account.Where(a => a.username == userna && a.acc_password == pass).FirstOrDefault();
+                    var matchedUser = _context.user_account.Where(a => a.username == userna && a.acc_password == pass && a.brute_stat != "no").FirstOrDefault();
 
                      if (matchedUser != null)
                     {
+                        matchedUser.brute_count = null;
+                        _context.SaveChanges();
                         int Id = matchedUser.accId;
                         user_Dash user = new user_Dash(Id);
                         this.Hide();
@@ -62,9 +65,53 @@ namespace automated_classreport
                     }
                     else
                     {
-                        MessageBox.Show("Username and Password is not registered.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        var matchedUsers = _context.user_account.Where(a => a.username == userna && a.brute_stat != "no").FirstOrDefault();
 
+                        if (matchedUsers != null)
+                        {
+                            if (matchedUsers.brute_count.ToString() == "NULL")
+                            {
+                                matchedUsers.brute_count = 1;
+                                _context.SaveChanges();
+                         
+                            }
+                            else {
+                                int attempt = Convert.ToInt32(matchedUsers.brute_count);
+                                if (attempt < 5)
+                                {
+                                    matchedUsers.brute_count = attempt + 1;
+                                    _context.SaveChanges();
+
+                                }
+                                else {
+                                    matchedUsers.brute_stat = "no";
+                                    _context.SaveChanges();
+                                    MessageBox.Show("You already attempted 5 times in these account, These account will be temporarily locked to open these used the forget password Thank you", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+                            MessageBox.Show("Wrong Password.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        else {
+                            var matchedUserr = _context.user_account.Where(a => a.username == userna).FirstOrDefault();
+                            if (matchedUserr == null)
+                            {
+                                MessageBox.Show("Username and Password is not registered.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Youre account is temporarily locked, Please use the forget password to unlocked youre account.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
+                       
+                    }
+                   
 
                 }
             }

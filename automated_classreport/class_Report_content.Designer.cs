@@ -38,13 +38,21 @@ namespace automated_classreport
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
@@ -96,30 +104,6 @@ namespace automated_classreport
             this.highViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.totalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teachIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column4DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column5DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column6DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column7DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column8DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column9DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column10DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.highscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeofcolumnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termexamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wgtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termtotalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termScoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typetotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -151,6 +135,35 @@ namespace automated_classreport
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.btn_term = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teachIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column4DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column5DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column6DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column7DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column8DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column9DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column10DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.highscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeofcolumnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termexamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wgtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termtotalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termScoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typetotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middlenameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studendtViewModelBindingSource)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -689,19 +702,18 @@ namespace automated_classreport
             this.termScoreDataGridViewTextBoxColumn,
             this.typetotalDataGridViewTextBoxColumn});
             this.record_Table.DataSource = this.highViewModelBindingSource;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.record_Table.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.record_Table.DefaultCellStyle = dataGridViewCellStyle13;
             this.record_Table.EnableHeadersVisualStyles = false;
             this.record_Table.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.record_Table.Location = new System.Drawing.Point(281, 238);
             this.record_Table.Name = "record_Table";
-            this.record_Table.ReadOnly = true;
             this.record_Table.RowHeadersVisible = false;
             this.record_Table.RowTemplate.Height = 21;
             this.record_Table.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -721,7 +733,7 @@ namespace automated_classreport
             this.record_Table.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.record_Table.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.record_Table.ThemeStyle.HeaderStyle.Height = 21;
-            this.record_Table.ThemeStyle.ReadOnly = true;
+            this.record_Table.ThemeStyle.ReadOnly = false;
             this.record_Table.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.record_Table.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.record_Table.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -737,7 +749,6 @@ namespace automated_classreport
             this.highIDDataGridViewTextBoxColumn.DataPropertyName = "high_ID";
             this.highIDDataGridViewTextBoxColumn.HeaderText = "high_ID";
             this.highIDDataGridViewTextBoxColumn.Name = "highIDDataGridViewTextBoxColumn";
-            this.highIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.highIDDataGridViewTextBoxColumn.Visible = false;
             // 
             // semDataGridViewTextBoxColumn
@@ -745,7 +756,6 @@ namespace automated_classreport
             this.semDataGridViewTextBoxColumn.DataPropertyName = "sem";
             this.semDataGridViewTextBoxColumn.HeaderText = "sem";
             this.semDataGridViewTextBoxColumn.Name = "semDataGridViewTextBoxColumn";
-            this.semDataGridViewTextBoxColumn.ReadOnly = true;
             this.semDataGridViewTextBoxColumn.Visible = false;
             // 
             // subjectDataGridViewTextBoxColumn
@@ -753,7 +763,6 @@ namespace automated_classreport
             this.subjectDataGridViewTextBoxColumn.DataPropertyName = "subject";
             this.subjectDataGridViewTextBoxColumn.HeaderText = "subject";
             this.subjectDataGridViewTextBoxColumn.Name = "subjectDataGridViewTextBoxColumn";
-            this.subjectDataGridViewTextBoxColumn.ReadOnly = true;
             this.subjectDataGridViewTextBoxColumn.Visible = false;
             // 
             // courseDataGridViewTextBoxColumn
@@ -761,7 +770,6 @@ namespace automated_classreport
             this.courseDataGridViewTextBoxColumn.DataPropertyName = "course";
             this.courseDataGridViewTextBoxColumn.HeaderText = "course";
             this.courseDataGridViewTextBoxColumn.Name = "courseDataGridViewTextBoxColumn";
-            this.courseDataGridViewTextBoxColumn.ReadOnly = true;
             this.courseDataGridViewTextBoxColumn.Visible = false;
             // 
             // teachIdDataGridViewTextBoxColumn
@@ -769,7 +777,6 @@ namespace automated_classreport
             this.teachIdDataGridViewTextBoxColumn.DataPropertyName = "teach_Id";
             this.teachIdDataGridViewTextBoxColumn.HeaderText = "teach_Id";
             this.teachIdDataGridViewTextBoxColumn.Name = "teachIdDataGridViewTextBoxColumn";
-            this.teachIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.teachIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // column1DataGridViewTextBoxColumn
@@ -777,82 +784,76 @@ namespace automated_classreport
             this.column1DataGridViewTextBoxColumn.DataPropertyName = "column_1";
             this.column1DataGridViewTextBoxColumn.HeaderText = "1";
             this.column1DataGridViewTextBoxColumn.Name = "column1DataGridViewTextBoxColumn";
-            this.column1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column2DataGridViewTextBoxColumn
             // 
             this.column2DataGridViewTextBoxColumn.DataPropertyName = "column_2";
             this.column2DataGridViewTextBoxColumn.HeaderText = "2";
             this.column2DataGridViewTextBoxColumn.Name = "column2DataGridViewTextBoxColumn";
-            this.column2DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column3DataGridViewTextBoxColumn
             // 
             this.column3DataGridViewTextBoxColumn.DataPropertyName = "column_3";
             this.column3DataGridViewTextBoxColumn.HeaderText = "3";
             this.column3DataGridViewTextBoxColumn.Name = "column3DataGridViewTextBoxColumn";
-            this.column3DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column4DataGridViewTextBoxColumn
             // 
             this.column4DataGridViewTextBoxColumn.DataPropertyName = "column_4";
             this.column4DataGridViewTextBoxColumn.HeaderText = "4";
             this.column4DataGridViewTextBoxColumn.Name = "column4DataGridViewTextBoxColumn";
-            this.column4DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column5DataGridViewTextBoxColumn
             // 
             this.column5DataGridViewTextBoxColumn.DataPropertyName = "column_5";
             this.column5DataGridViewTextBoxColumn.HeaderText = "5";
             this.column5DataGridViewTextBoxColumn.Name = "column5DataGridViewTextBoxColumn";
-            this.column5DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column6DataGridViewTextBoxColumn
             // 
             this.column6DataGridViewTextBoxColumn.DataPropertyName = "column_6";
             this.column6DataGridViewTextBoxColumn.HeaderText = "6";
             this.column6DataGridViewTextBoxColumn.Name = "column6DataGridViewTextBoxColumn";
-            this.column6DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column7DataGridViewTextBoxColumn
             // 
             this.column7DataGridViewTextBoxColumn.DataPropertyName = "column_7";
             this.column7DataGridViewTextBoxColumn.HeaderText = "7";
             this.column7DataGridViewTextBoxColumn.Name = "column7DataGridViewTextBoxColumn";
-            this.column7DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column8DataGridViewTextBoxColumn
             // 
             this.column8DataGridViewTextBoxColumn.DataPropertyName = "column_8";
             this.column8DataGridViewTextBoxColumn.HeaderText = "8";
             this.column8DataGridViewTextBoxColumn.Name = "column8DataGridViewTextBoxColumn";
-            this.column8DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column9DataGridViewTextBoxColumn
             // 
             this.column9DataGridViewTextBoxColumn.DataPropertyName = "column_9";
             this.column9DataGridViewTextBoxColumn.HeaderText = "9";
             this.column9DataGridViewTextBoxColumn.Name = "column9DataGridViewTextBoxColumn";
-            this.column9DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // column10DataGridViewTextBoxColumn
             // 
             this.column10DataGridViewTextBoxColumn.DataPropertyName = "column_10";
             this.column10DataGridViewTextBoxColumn.HeaderText = "10";
             this.column10DataGridViewTextBoxColumn.Name = "column10DataGridViewTextBoxColumn";
-            this.column10DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // typeofcolumnDataGridViewTextBoxColumn
             // 
             this.typeofcolumnDataGridViewTextBoxColumn.DataPropertyName = "typeof_column";
             this.typeofcolumnDataGridViewTextBoxColumn.HeaderText = "typeof_column";
             this.typeofcolumnDataGridViewTextBoxColumn.Name = "typeofcolumnDataGridViewTextBoxColumn";
-            this.typeofcolumnDataGridViewTextBoxColumn.ReadOnly = true;
             this.typeofcolumnDataGridViewTextBoxColumn.Visible = false;
             // 
             // totalDataGridViewTextBoxColumn
             // 
             this.totalDataGridViewTextBoxColumn.DataPropertyName = "total";
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.totalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.totalDataGridViewTextBoxColumn.HeaderText = "Total";
             this.totalDataGridViewTextBoxColumn.Name = "totalDataGridViewTextBoxColumn";
             this.totalDataGridViewTextBoxColumn.ReadOnly = true;
@@ -860,28 +861,40 @@ namespace automated_classreport
             // wgtDataGridViewTextBoxColumn
             // 
             this.wgtDataGridViewTextBoxColumn.DataPropertyName = "wgt";
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
+            this.wgtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.wgtDataGridViewTextBoxColumn.HeaderText = "Wgt";
             this.wgtDataGridViewTextBoxColumn.Name = "wgtDataGridViewTextBoxColumn";
-            this.wgtDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // termexamDataGridViewTextBoxColumn
             // 
             this.termexamDataGridViewTextBoxColumn.DataPropertyName = "term_exam";
             this.termexamDataGridViewTextBoxColumn.HeaderText = "term_exam";
             this.termexamDataGridViewTextBoxColumn.Name = "termexamDataGridViewTextBoxColumn";
-            this.termexamDataGridViewTextBoxColumn.ReadOnly = true;
             this.termexamDataGridViewTextBoxColumn.Visible = false;
             // 
             // termScoreDataGridViewTextBoxColumn
             // 
             this.termScoreDataGridViewTextBoxColumn.DataPropertyName = "term_Score";
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            this.termScoreDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.termScoreDataGridViewTextBoxColumn.HeaderText = "M.E";
             this.termScoreDataGridViewTextBoxColumn.Name = "termScoreDataGridViewTextBoxColumn";
-            this.termScoreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // typetotalDataGridViewTextBoxColumn
             // 
             this.typetotalDataGridViewTextBoxColumn.DataPropertyName = "type_total";
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            this.typetotalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.typetotalDataGridViewTextBoxColumn.HeaderText = "Wgt";
             this.typetotalDataGridViewTextBoxColumn.Name = "typetotalDataGridViewTextBoxColumn";
             this.typetotalDataGridViewTextBoxColumn.ReadOnly = true;
@@ -903,22 +916,22 @@ namespace automated_classreport
             this.guna2DataGridView1.AllowUserToDeleteRows = false;
             this.guna2DataGridView1.AllowUserToResizeColumns = false;
             this.guna2DataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
             this.guna2DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2DataGridView1.AutoGenerateColumns = false;
             this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.guna2DataGridView1.ColumnHeadersHeight = 21;
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DataGridView1.ColumnHeadersVisible = false;
@@ -942,21 +955,24 @@ namespace automated_classreport
             this.highscoreDataGridViewTextBoxColumn,
             this.typeofcolumnDataGridViewTextBoxColumn1,
             this.termexamDataGridViewTextBoxColumn1,
-            this.totalDataGridViewTextBoxColumn1,
             this.wgtDataGridViewTextBoxColumn1,
+            this.totalDataGridViewTextBoxColumn1,
             this.termtotalwgtDataGridViewTextBoxColumn,
             this.termScoreDataGridViewTextBoxColumn1,
-            this.typetotalDataGridViewTextBoxColumn1});
+            this.typetotalDataGridViewTextBoxColumn1,
+            this.lastnameDataGridViewTextBoxColumn1,
+            this.firstnameDataGridViewTextBoxColumn1,
+            this.middlenameDataGridViewTextBoxColumn1});
             this.guna2DataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.guna2DataGridView1.DataSource = this.classViewModelBindingSource;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.White;
             this.guna2DataGridView1.Location = new System.Drawing.Point(281, 300);
@@ -994,186 +1010,6 @@ namespace automated_classreport
             this.guna2DataGridView1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2DataGridView1_Scroll);
             this.guna2DataGridView1.SelectionChanged += new System.EventHandler(this.guna2DataGridView1_SelectionChanged);
             // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // semDataGridViewTextBoxColumn1
-            // 
-            this.semDataGridViewTextBoxColumn1.DataPropertyName = "sem";
-            this.semDataGridViewTextBoxColumn1.HeaderText = "sem";
-            this.semDataGridViewTextBoxColumn1.Name = "semDataGridViewTextBoxColumn1";
-            this.semDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.semDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // subjectDataGridViewTextBoxColumn1
-            // 
-            this.subjectDataGridViewTextBoxColumn1.DataPropertyName = "subject";
-            this.subjectDataGridViewTextBoxColumn1.HeaderText = "subject";
-            this.subjectDataGridViewTextBoxColumn1.Name = "subjectDataGridViewTextBoxColumn1";
-            this.subjectDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.subjectDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // courseDataGridViewTextBoxColumn1
-            // 
-            this.courseDataGridViewTextBoxColumn1.DataPropertyName = "course";
-            this.courseDataGridViewTextBoxColumn1.HeaderText = "course";
-            this.courseDataGridViewTextBoxColumn1.Name = "courseDataGridViewTextBoxColumn1";
-            this.courseDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.courseDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // teachIdDataGridViewTextBoxColumn1
-            // 
-            this.teachIdDataGridViewTextBoxColumn1.DataPropertyName = "teach_Id";
-            this.teachIdDataGridViewTextBoxColumn1.HeaderText = "teach_Id";
-            this.teachIdDataGridViewTextBoxColumn1.Name = "teachIdDataGridViewTextBoxColumn1";
-            this.teachIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.teachIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // column1DataGridViewTextBoxColumn1
-            // 
-            this.column1DataGridViewTextBoxColumn1.DataPropertyName = "column_1";
-            this.column1DataGridViewTextBoxColumn1.HeaderText = "1";
-            this.column1DataGridViewTextBoxColumn1.Name = "column1DataGridViewTextBoxColumn1";
-            this.column1DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column2DataGridViewTextBoxColumn1
-            // 
-            this.column2DataGridViewTextBoxColumn1.DataPropertyName = "column_2";
-            this.column2DataGridViewTextBoxColumn1.HeaderText = "2";
-            this.column2DataGridViewTextBoxColumn1.Name = "column2DataGridViewTextBoxColumn1";
-            this.column2DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column3DataGridViewTextBoxColumn1
-            // 
-            this.column3DataGridViewTextBoxColumn1.DataPropertyName = "column_3";
-            this.column3DataGridViewTextBoxColumn1.HeaderText = "3";
-            this.column3DataGridViewTextBoxColumn1.Name = "column3DataGridViewTextBoxColumn1";
-            this.column3DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column4DataGridViewTextBoxColumn1
-            // 
-            this.column4DataGridViewTextBoxColumn1.DataPropertyName = "column_4";
-            this.column4DataGridViewTextBoxColumn1.HeaderText = "4";
-            this.column4DataGridViewTextBoxColumn1.Name = "column4DataGridViewTextBoxColumn1";
-            this.column4DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column5DataGridViewTextBoxColumn1
-            // 
-            this.column5DataGridViewTextBoxColumn1.DataPropertyName = "column_5";
-            this.column5DataGridViewTextBoxColumn1.HeaderText = "5";
-            this.column5DataGridViewTextBoxColumn1.Name = "column5DataGridViewTextBoxColumn1";
-            this.column5DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column6DataGridViewTextBoxColumn1
-            // 
-            this.column6DataGridViewTextBoxColumn1.DataPropertyName = "column_6";
-            this.column6DataGridViewTextBoxColumn1.HeaderText = "6";
-            this.column6DataGridViewTextBoxColumn1.Name = "column6DataGridViewTextBoxColumn1";
-            this.column6DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column7DataGridViewTextBoxColumn1
-            // 
-            this.column7DataGridViewTextBoxColumn1.DataPropertyName = "column_7";
-            this.column7DataGridViewTextBoxColumn1.HeaderText = "7";
-            this.column7DataGridViewTextBoxColumn1.Name = "column7DataGridViewTextBoxColumn1";
-            this.column7DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column8DataGridViewTextBoxColumn1
-            // 
-            this.column8DataGridViewTextBoxColumn1.DataPropertyName = "column_8";
-            this.column8DataGridViewTextBoxColumn1.HeaderText = "8";
-            this.column8DataGridViewTextBoxColumn1.Name = "column8DataGridViewTextBoxColumn1";
-            this.column8DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column9DataGridViewTextBoxColumn1
-            // 
-            this.column9DataGridViewTextBoxColumn1.DataPropertyName = "column_9";
-            this.column9DataGridViewTextBoxColumn1.HeaderText = "9";
-            this.column9DataGridViewTextBoxColumn1.Name = "column9DataGridViewTextBoxColumn1";
-            this.column9DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column10DataGridViewTextBoxColumn1
-            // 
-            this.column10DataGridViewTextBoxColumn1.DataPropertyName = "column_10";
-            this.column10DataGridViewTextBoxColumn1.HeaderText = "10";
-            this.column10DataGridViewTextBoxColumn1.Name = "column10DataGridViewTextBoxColumn1";
-            this.column10DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // studIdDataGridViewTextBoxColumn
-            // 
-            this.studIdDataGridViewTextBoxColumn.DataPropertyName = "stud_Id";
-            this.studIdDataGridViewTextBoxColumn.HeaderText = "stud_Id";
-            this.studIdDataGridViewTextBoxColumn.Name = "studIdDataGridViewTextBoxColumn";
-            this.studIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.studIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // highscoreDataGridViewTextBoxColumn
-            // 
-            this.highscoreDataGridViewTextBoxColumn.DataPropertyName = "high_score";
-            this.highscoreDataGridViewTextBoxColumn.HeaderText = "high_score";
-            this.highscoreDataGridViewTextBoxColumn.Name = "highscoreDataGridViewTextBoxColumn";
-            this.highscoreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.highscoreDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // typeofcolumnDataGridViewTextBoxColumn1
-            // 
-            this.typeofcolumnDataGridViewTextBoxColumn1.DataPropertyName = "typeof_column";
-            this.typeofcolumnDataGridViewTextBoxColumn1.HeaderText = "typeof_column";
-            this.typeofcolumnDataGridViewTextBoxColumn1.Name = "typeofcolumnDataGridViewTextBoxColumn1";
-            this.typeofcolumnDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.typeofcolumnDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // termexamDataGridViewTextBoxColumn1
-            // 
-            this.termexamDataGridViewTextBoxColumn1.DataPropertyName = "term_exam";
-            this.termexamDataGridViewTextBoxColumn1.HeaderText = "term_exam";
-            this.termexamDataGridViewTextBoxColumn1.Name = "termexamDataGridViewTextBoxColumn1";
-            this.termexamDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.termexamDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // wgtDataGridViewTextBoxColumn1
-            // 
-            this.wgtDataGridViewTextBoxColumn1.DataPropertyName = "wgt";
-            this.wgtDataGridViewTextBoxColumn1.HeaderText = "Wgt";
-            this.wgtDataGridViewTextBoxColumn1.Name = "wgtDataGridViewTextBoxColumn1";
-            this.wgtDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // termtotalwgtDataGridViewTextBoxColumn
-            // 
-            this.termtotalwgtDataGridViewTextBoxColumn.DataPropertyName = "term_total_wgt";
-            this.termtotalwgtDataGridViewTextBoxColumn.HeaderText = "term_total_wgt";
-            this.termtotalwgtDataGridViewTextBoxColumn.Name = "termtotalwgtDataGridViewTextBoxColumn";
-            this.termtotalwgtDataGridViewTextBoxColumn.ReadOnly = true;
-            this.termtotalwgtDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // termScoreDataGridViewTextBoxColumn1
-            // 
-            this.termScoreDataGridViewTextBoxColumn1.DataPropertyName = "term_Score";
-            this.termScoreDataGridViewTextBoxColumn1.HeaderText = "term_Score";
-            this.termScoreDataGridViewTextBoxColumn1.Name = "termScoreDataGridViewTextBoxColumn1";
-            this.termScoreDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.termScoreDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // typetotalDataGridViewTextBoxColumn1
-            // 
-            this.typetotalDataGridViewTextBoxColumn1.DataPropertyName = "type_total";
-            this.typetotalDataGridViewTextBoxColumn1.HeaderText = "type_total";
-            this.typetotalDataGridViewTextBoxColumn1.Name = "typetotalDataGridViewTextBoxColumn1";
-            this.typetotalDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.typetotalDataGridViewTextBoxColumn1.Visible = false;
-            // 
             // classViewModelBindingSource
             // 
             this.classViewModelBindingSource.DataSource = typeof(automated_classreport.ViewModel.classViewModel);
@@ -1184,22 +1020,22 @@ namespace automated_classreport
             this.guna2DataGridView2.AllowUserToDeleteRows = false;
             this.guna2DataGridView2.AllowUserToResizeColumns = false;
             this.guna2DataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.guna2DataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2DataGridView2.AutoGenerateColumns = false;
             this.guna2DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.guna2DataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.guna2DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.guna2DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.guna2DataGridView2.ColumnHeadersHeight = 21;
             this.guna2DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.guna2DataGridView2.ColumnHeadersVisible = false;
@@ -1230,14 +1066,14 @@ namespace automated_classreport
             this.typetotalDataGridViewTextBoxColumn2});
             this.guna2DataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.guna2DataGridView2.DataSource = this.classTermViewmodelBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView2.DefaultCellStyle = dataGridViewCellStyle23;
             this.guna2DataGridView2.EnableHeadersVisualStyles = false;
             this.guna2DataGridView2.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView2.Location = new System.Drawing.Point(876, 300);
@@ -1454,6 +1290,11 @@ namespace automated_classreport
             // termScoreDataGridViewTextBoxColumn2
             // 
             this.termScoreDataGridViewTextBoxColumn2.DataPropertyName = "term_Score";
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.White;
+            this.termScoreDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle21;
             this.termScoreDataGridViewTextBoxColumn2.HeaderText = "M.E";
             this.termScoreDataGridViewTextBoxColumn2.Name = "termScoreDataGridViewTextBoxColumn2";
             this.termScoreDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1461,6 +1302,11 @@ namespace automated_classreport
             // typetotalDataGridViewTextBoxColumn2
             // 
             this.typetotalDataGridViewTextBoxColumn2.DataPropertyName = "type_total";
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.White;
+            this.typetotalDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle22;
             this.typetotalDataGridViewTextBoxColumn2.HeaderText = "Wgt";
             this.typetotalDataGridViewTextBoxColumn2.Name = "typetotalDataGridViewTextBoxColumn2";
             this.typetotalDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1534,12 +1380,267 @@ namespace automated_classreport
             this.guna2HtmlLabel3.Text = "Highest Possible Score:";
             this.guna2HtmlLabel3.Visible = false;
             // 
+            // guna2ComboBox3
+            // 
+            this.guna2ComboBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2ComboBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox3.BorderRadius = 12;
+            this.guna2ComboBox3.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox3.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox3.FocusedState.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2ComboBox3.ForeColor = System.Drawing.Color.Orange;
+            this.guna2ComboBox3.FormattingEnabled = true;
+            this.guna2ComboBox3.HoverState.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.ItemHeight = 30;
+            this.guna2ComboBox3.Items.AddRange(new object[] {
+            "LECTURE",
+            "LABORATORY"});
+            this.guna2ComboBox3.ItemsAppearance.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Location = new System.Drawing.Point(422, 61);
+            this.guna2ComboBox3.Name = "guna2ComboBox3";
+            this.guna2ComboBox3.ShadowDecoration.Parent = this.guna2ComboBox3;
+            this.guna2ComboBox3.Size = new System.Drawing.Size(241, 36);
+            this.guna2ComboBox3.TabIndex = 40;
+            this.guna2ComboBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.guna2ComboBox3.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox3_SelectedIndexChanged);
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Orange;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(529, 31);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(33, 25);
+            this.guna2HtmlLabel2.TabIndex = 41;
+            this.guna2HtmlLabel2.Text = "for";
+            // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // semDataGridViewTextBoxColumn1
+            // 
+            this.semDataGridViewTextBoxColumn1.DataPropertyName = "sem";
+            this.semDataGridViewTextBoxColumn1.HeaderText = "sem";
+            this.semDataGridViewTextBoxColumn1.Name = "semDataGridViewTextBoxColumn1";
+            this.semDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.semDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // subjectDataGridViewTextBoxColumn1
+            // 
+            this.subjectDataGridViewTextBoxColumn1.DataPropertyName = "subject";
+            this.subjectDataGridViewTextBoxColumn1.HeaderText = "subject";
+            this.subjectDataGridViewTextBoxColumn1.Name = "subjectDataGridViewTextBoxColumn1";
+            this.subjectDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.subjectDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // courseDataGridViewTextBoxColumn1
+            // 
+            this.courseDataGridViewTextBoxColumn1.DataPropertyName = "course";
+            this.courseDataGridViewTextBoxColumn1.HeaderText = "course";
+            this.courseDataGridViewTextBoxColumn1.Name = "courseDataGridViewTextBoxColumn1";
+            this.courseDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.courseDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // teachIdDataGridViewTextBoxColumn1
+            // 
+            this.teachIdDataGridViewTextBoxColumn1.DataPropertyName = "teach_Id";
+            this.teachIdDataGridViewTextBoxColumn1.HeaderText = "teach_Id";
+            this.teachIdDataGridViewTextBoxColumn1.Name = "teachIdDataGridViewTextBoxColumn1";
+            this.teachIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.teachIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // column1DataGridViewTextBoxColumn1
+            // 
+            this.column1DataGridViewTextBoxColumn1.DataPropertyName = "column_1";
+            this.column1DataGridViewTextBoxColumn1.HeaderText = "1";
+            this.column1DataGridViewTextBoxColumn1.Name = "column1DataGridViewTextBoxColumn1";
+            this.column1DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column2DataGridViewTextBoxColumn1
+            // 
+            this.column2DataGridViewTextBoxColumn1.DataPropertyName = "column_2";
+            this.column2DataGridViewTextBoxColumn1.HeaderText = "2";
+            this.column2DataGridViewTextBoxColumn1.Name = "column2DataGridViewTextBoxColumn1";
+            this.column2DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column3DataGridViewTextBoxColumn1
+            // 
+            this.column3DataGridViewTextBoxColumn1.DataPropertyName = "column_3";
+            this.column3DataGridViewTextBoxColumn1.HeaderText = "3";
+            this.column3DataGridViewTextBoxColumn1.Name = "column3DataGridViewTextBoxColumn1";
+            this.column3DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column4DataGridViewTextBoxColumn1
+            // 
+            this.column4DataGridViewTextBoxColumn1.DataPropertyName = "column_4";
+            this.column4DataGridViewTextBoxColumn1.HeaderText = "4";
+            this.column4DataGridViewTextBoxColumn1.Name = "column4DataGridViewTextBoxColumn1";
+            this.column4DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column5DataGridViewTextBoxColumn1
+            // 
+            this.column5DataGridViewTextBoxColumn1.DataPropertyName = "column_5";
+            this.column5DataGridViewTextBoxColumn1.HeaderText = "5";
+            this.column5DataGridViewTextBoxColumn1.Name = "column5DataGridViewTextBoxColumn1";
+            this.column5DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column6DataGridViewTextBoxColumn1
+            // 
+            this.column6DataGridViewTextBoxColumn1.DataPropertyName = "column_6";
+            this.column6DataGridViewTextBoxColumn1.HeaderText = "6";
+            this.column6DataGridViewTextBoxColumn1.Name = "column6DataGridViewTextBoxColumn1";
+            this.column6DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column7DataGridViewTextBoxColumn1
+            // 
+            this.column7DataGridViewTextBoxColumn1.DataPropertyName = "column_7";
+            this.column7DataGridViewTextBoxColumn1.HeaderText = "7";
+            this.column7DataGridViewTextBoxColumn1.Name = "column7DataGridViewTextBoxColumn1";
+            this.column7DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column8DataGridViewTextBoxColumn1
+            // 
+            this.column8DataGridViewTextBoxColumn1.DataPropertyName = "column_8";
+            this.column8DataGridViewTextBoxColumn1.HeaderText = "8";
+            this.column8DataGridViewTextBoxColumn1.Name = "column8DataGridViewTextBoxColumn1";
+            this.column8DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column9DataGridViewTextBoxColumn1
+            // 
+            this.column9DataGridViewTextBoxColumn1.DataPropertyName = "column_9";
+            this.column9DataGridViewTextBoxColumn1.HeaderText = "9";
+            this.column9DataGridViewTextBoxColumn1.Name = "column9DataGridViewTextBoxColumn1";
+            this.column9DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column10DataGridViewTextBoxColumn1
+            // 
+            this.column10DataGridViewTextBoxColumn1.DataPropertyName = "column_10";
+            this.column10DataGridViewTextBoxColumn1.HeaderText = "10";
+            this.column10DataGridViewTextBoxColumn1.Name = "column10DataGridViewTextBoxColumn1";
+            this.column10DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // studIdDataGridViewTextBoxColumn
+            // 
+            this.studIdDataGridViewTextBoxColumn.DataPropertyName = "stud_Id";
+            this.studIdDataGridViewTextBoxColumn.HeaderText = "stud_Id";
+            this.studIdDataGridViewTextBoxColumn.Name = "studIdDataGridViewTextBoxColumn";
+            this.studIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.studIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // highscoreDataGridViewTextBoxColumn
+            // 
+            this.highscoreDataGridViewTextBoxColumn.DataPropertyName = "high_score";
+            this.highscoreDataGridViewTextBoxColumn.HeaderText = "high_score";
+            this.highscoreDataGridViewTextBoxColumn.Name = "highscoreDataGridViewTextBoxColumn";
+            this.highscoreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.highscoreDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // typeofcolumnDataGridViewTextBoxColumn1
+            // 
+            this.typeofcolumnDataGridViewTextBoxColumn1.DataPropertyName = "typeof_column";
+            this.typeofcolumnDataGridViewTextBoxColumn1.HeaderText = "typeof_column";
+            this.typeofcolumnDataGridViewTextBoxColumn1.Name = "typeofcolumnDataGridViewTextBoxColumn1";
+            this.typeofcolumnDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typeofcolumnDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // termexamDataGridViewTextBoxColumn1
+            // 
+            this.termexamDataGridViewTextBoxColumn1.DataPropertyName = "term_exam";
+            this.termexamDataGridViewTextBoxColumn1.HeaderText = "term_exam";
+            this.termexamDataGridViewTextBoxColumn1.Name = "termexamDataGridViewTextBoxColumn1";
+            this.termexamDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.termexamDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // wgtDataGridViewTextBoxColumn1
+            // 
+            this.wgtDataGridViewTextBoxColumn1.DataPropertyName = "wgt";
+            this.wgtDataGridViewTextBoxColumn1.HeaderText = "wgt";
+            this.wgtDataGridViewTextBoxColumn1.Name = "wgtDataGridViewTextBoxColumn1";
+            this.wgtDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.wgtDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.totalDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // termtotalwgtDataGridViewTextBoxColumn
+            // 
+            this.termtotalwgtDataGridViewTextBoxColumn.DataPropertyName = "term_total_wgt";
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            this.termtotalwgtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.termtotalwgtDataGridViewTextBoxColumn.HeaderText = "Wgt";
+            this.termtotalwgtDataGridViewTextBoxColumn.Name = "termtotalwgtDataGridViewTextBoxColumn";
+            this.termtotalwgtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // termScoreDataGridViewTextBoxColumn1
+            // 
+            this.termScoreDataGridViewTextBoxColumn1.DataPropertyName = "term_Score";
+            this.termScoreDataGridViewTextBoxColumn1.HeaderText = "term_Score";
+            this.termScoreDataGridViewTextBoxColumn1.Name = "termScoreDataGridViewTextBoxColumn1";
+            this.termScoreDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.termScoreDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // typetotalDataGridViewTextBoxColumn1
+            // 
+            this.typetotalDataGridViewTextBoxColumn1.DataPropertyName = "type_total";
+            this.typetotalDataGridViewTextBoxColumn1.HeaderText = "type_total";
+            this.typetotalDataGridViewTextBoxColumn1.Name = "typetotalDataGridViewTextBoxColumn1";
+            this.typetotalDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typetotalDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastnameDataGridViewTextBoxColumn1
+            // 
+            this.lastnameDataGridViewTextBoxColumn1.DataPropertyName = "lastname";
+            this.lastnameDataGridViewTextBoxColumn1.HeaderText = "lastname";
+            this.lastnameDataGridViewTextBoxColumn1.Name = "lastnameDataGridViewTextBoxColumn1";
+            this.lastnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.lastnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // firstnameDataGridViewTextBoxColumn1
+            // 
+            this.firstnameDataGridViewTextBoxColumn1.DataPropertyName = "firstname";
+            this.firstnameDataGridViewTextBoxColumn1.HeaderText = "firstname";
+            this.firstnameDataGridViewTextBoxColumn1.Name = "firstnameDataGridViewTextBoxColumn1";
+            this.firstnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.firstnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // middlenameDataGridViewTextBoxColumn1
+            // 
+            this.middlenameDataGridViewTextBoxColumn1.DataPropertyName = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn1.HeaderText = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn1.Name = "middlenameDataGridViewTextBoxColumn1";
+            this.middlenameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.middlenameDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // class_Report_content
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(975, 514);
+            this.Controls.Add(this.guna2HtmlLabel2);
+            this.Controls.Add(this.guna2ComboBox3);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2Button9);
             this.Controls.Add(this.guna2Button8);
@@ -1605,6 +1706,23 @@ namespace automated_classreport
         private Guna.UI2.WinForms.Guna2DataGridView record_Table;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalwgtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource highViewModelBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalwgtDataGridViewTextBoxColumn1;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
+        private Guna.UI2.WinForms.Guna2Button guna2Button8;
+        private Guna.UI2.WinForms.Guna2Button guna2Button9;
+        private Guna.UI2.WinForms.Guna2Button btn_term;
+        private System.Windows.Forms.BindingSource classTermViewmodelBindingSource;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource classViewModelBindingSource;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn highIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn semDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn;
@@ -1624,41 +1742,8 @@ namespace automated_classreport
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wgtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn termexamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalwgtDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn termScoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typetotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource highViewModelBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalwgtDataGridViewTextBoxColumn1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button8;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2Button btn_term;
-        private System.Windows.Forms.BindingSource classViewModelBindingSource;
-        private System.Windows.Forms.BindingSource classTermViewmodelBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn semDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teachIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column3DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column4DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column5DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column6DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column7DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column8DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column9DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn column10DataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn highscoreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeofcolumnDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn termexamDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn wgtDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn termtotalwgtDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn termScoreDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typetotalDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn semDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn2;
@@ -1683,11 +1768,32 @@ namespace automated_classreport
         private System.Windows.Forms.DataGridViewTextBoxColumn termtotalwgtDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn termScoreDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn typetotalDataGridViewTextBoxColumn2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn semDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subjectDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn courseDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teachIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column1DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column2DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column3DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column4DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column5DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column6DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column7DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column8DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column9DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn column10DataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn highscoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeofcolumnDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn termexamDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn wgtDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn termtotalwgtDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn termScoreDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typetotalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn1;
     }
 }

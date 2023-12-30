@@ -30,11 +30,12 @@ namespace automated_classreport.Report
         string _low_score;
          string _score;
         string _mean;
+        string mount;
         public test_form_print()
         {
             InitializeComponent();
         }
-        public test_form_print(int id,string term,string subject,string course,string semister_Name,string test_given,string test_submit,string num_takingtest,string high_score,string med_score,string low_score,string score):this()
+        public test_form_print(int id,string term,string subject,string course,string semister_Name,string test_given,string test_submit,string num_takingtest,string high_score,string med_score,string low_score,string score,string _mount):this()
         {
              _id = id;
             _term = term;
@@ -48,6 +49,7 @@ namespace automated_classreport.Report
             _med_score = med_score;
             _low_score = low_score;
             _score = score;
+            mount = _mount;
         }
 
 
@@ -101,7 +103,7 @@ namespace automated_classreport.Report
                     var data = (
                                     from cr in _context.class_Record
                                     join st in _context.Students on cr.stud_Id equals st.t_Id
-                                    where cr.teach_Id == _id && cr.subject == _subject && cr.course == _courses && cr.sem == name_Sem.ToString() && cr.term_exam == _term 
+                                    where cr.teach_Id == _id && cr.subject == _subject && cr.course == _courses && cr.sem == name_Sem.ToString() && cr.term_exam == _term && cr.mount == mount
                                     group new { cr, st } by st.t_Id into studentGroup
                                     select new classTermViewmodel
                                     {

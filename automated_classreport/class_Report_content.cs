@@ -20,6 +20,7 @@ namespace automated_classreport
         List<int> editedRowIds = new List<int>();
         int high=1;
         String Semister_name;
+        String mount;
         int _id;
         bool isquiz = false;
         bool isoral = false;
@@ -117,7 +118,7 @@ namespace automated_classreport
                 }
                 int sem_Id = _context.semesters.Where(q => q.sem_Name == semister_Name).Select(s => s.sem_Id).FirstOrDefault();
 
-                form3 = new add_Wgt(_id, sem_Id, subjects.ToString(), course.ToString(), term_exas,type_ofbtn);
+                form3 = new add_Wgt(_id, sem_Id, subjects.ToString(), course.ToString(), term_exas,type_ofbtn,mount);
                 form3.Form3Closed += Form3_FormClosed;
                 form3.ShowDialog();
             }
@@ -188,22 +189,7 @@ namespace automated_classreport
                         existingEntity.column_9 = Convert.ToDecimal(record_Table.Rows[rowIndex].Cells[13].Value ?? 0);
                         existingEntity.column_10 = Convert.ToDecimal(record_Table.Rows[rowIndex].Cells[14].Value ?? 0);
                         existingEntity.total = Convert.ToDecimal(existingEntity.column_1 + existingEntity.column_2 + existingEntity.column_3 + existingEntity.column_4 + existingEntity.column_5 + existingEntity.column_6 + existingEntity.column_7 + existingEntity.column_8 + existingEntity.column_9 + existingEntity.column_10 ?? 0);
-                        var dta = _context.high_Score.FirstOrDefault(q => q.high_ID == rowId);
-
-                        if (dta != null)
-                        {
-                            // Assuming the code to retrieve the weight is correct and the corresponding table is _context.high_Record
-                            var wgt = _context.high_Score.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == dta.typeof_column);
-
-                            if (wgt != null)
-                            {
-                                existingEntity.type_total = Math.Round(Convert.ToDecimal(existingEntity.term_Score * (wgt.wgt / 100) ?? 0),1);
-                            }
-                            else
-                            {
-                                existingEntity.type_total = 0;
-                            }
-                        }
+           
                         _context.SaveChanges();
                       
                         //highViewModelBindingSource.DataSource = _context.high_Score.Where(q => q.high_ID == rowId).FirstOrDefault();
@@ -253,9 +239,27 @@ namespace automated_classreport
                         existingEntity.column_9 = Convert.ToDecimal(guna2DataGridView1.Rows[rowIndex].Cells[13].Value ?? 0);
                         existingEntity.column_10 = Convert.ToDecimal(guna2DataGridView1.Rows[rowIndex].Cells[14].Value ?? 0);
                         existingEntity.total = Convert.ToDecimal(existingEntity.column_1 + existingEntity.column_2 + existingEntity.column_3 + existingEntity.column_4 + existingEntity.column_5 + existingEntity.column_6 + existingEntity.column_7 + existingEntity.column_8 + existingEntity.column_9 + existingEntity.column_10 ?? 0);
+                        var dta = _context.class_Record.FirstOrDefault(q => q.ID == rowId);
+
+                        if (dta != null)
+                        {
+                            // Assuming the code to retrieve the weight is correct and the corresponding table is _context.high_Record
+                            var wgt = _context.high_Score.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == dta.typeof_column);
+
+                            if (wgt != null)
+                            {
+                                existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total /wgt.total) * wgt.wgt ?? 0), 1);
+                            }
+                            else
+                            {
+                                existingEntity.term_total_wgt = 0;
+                            }
+                        
+                        }
                         _context.SaveChanges();
+                        SetGrade(existingEntity.total, rowId);
                         MessageBox.Show("Successfully Added");
-                        refresh_datagrid();
+                        RefreshData();
 
 
 
@@ -277,6 +281,268 @@ namespace automated_classreport
                 MessageBox.Show($"Error updating the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void SetGrade(decimal? total, int IDrow)
+        {
+            try
+            {
+                if (total.HasValue)
+                {
+                 
+                    var dta = _context.class_Record.FirstOrDefault(q => q.ID == IDrow);
+                    int gtotal = (int)Math.Round(dta.term_total_wgt ?? 0, 0);
+
+                    if (gtotal == 100)
+                    {
+                        dta.set_Grade = 95;
+
+                    }
+                    else if (gtotal == 99)
+                    {
+                        dta.set_Grade = 94;
+               
+                    }
+                    else if (gtotal == 98)
+                    {
+                        dta.set_Grade = 93;
+ 
+                    }
+                    else if (gtotal == 97)
+                    {
+                        dta.set_Grade = 92;
+                    }
+                    else if (gtotal == 96)
+                    {
+                        dta.set_Grade = 91;
+                      
+                    }
+                    else if (gtotal == 95)
+                    {
+                        dta.set_Grade = 90;
+                      
+                    }
+
+                    else if (gtotal >= 93 && gtotal <= 94)
+                    {
+                        dta.set_Grade = 89;
+                     
+
+                    }
+                    else if (gtotal >= 91 && gtotal <= 92)
+                    {
+                        dta.set_Grade = 88;
+                   
+                    }
+
+                    else if (gtotal >= 89 && gtotal <= 90)
+                    {
+                        dta.set_Grade = 87;
+
+                    }
+                    else if (gtotal >= 87 && gtotal <= 88)
+                    {
+                        dta.set_Grade = 86;
+                    }
+
+                    else if (gtotal >= 85 && gtotal <= 86)
+                    {
+                        dta.set_Grade = 85;
+                      
+
+                    }
+                    else if (gtotal >= 83 && gtotal <= 84)
+                    {
+                        dta.set_Grade = 84;
+    
+                    }
+
+                    else if (gtotal >= 81 && gtotal <= 82)
+                    {
+                        dta.set_Grade = 83;
+               
+
+                    }
+                    else if (gtotal >= 79 && gtotal <= 80)
+                    {
+                        dta.set_Grade = 82;
+              
+                    }
+
+                    else if (gtotal >= 77 && gtotal <= 78)
+                    {
+                        dta.set_Grade = 81;
+                
+
+                    }
+                    else if (gtotal >= 75 && gtotal <= 76)
+                    {
+                        dta.set_Grade = 80;
+                     
+                    }
+
+                    else if (gtotal >= 70 && gtotal <= 74)
+                    {
+                        dta.set_Grade = 79;
+                 
+
+                    }
+                    else if (gtotal >= 65 && gtotal <= 69)
+                    {
+                        dta.set_Grade = 78;
+                  
+                    }
+
+                    else if (gtotal >= 60 && gtotal <= 64)
+                    {
+                        dta.set_Grade = 77;
+                   
+
+                    }
+                    else if (gtotal >= 55 && gtotal <= 59)
+                    {
+                        dta.set_Grade = 76;
+                     
+                    }
+
+                    else if (gtotal >= 50 && gtotal <= 54)
+                    {
+                        dta.set_Grade = 75;
+                     
+
+                    }
+                    else if (gtotal >= 47 && gtotal <= 49)
+                    {
+                        dta.set_Grade = 74;
+                      
+                    }
+
+                    else if (gtotal >= 44 && gtotal <= 46)
+                    {
+                        dta.set_Grade = 73;
+                       
+
+                    }
+                    else if (gtotal >= 41 && gtotal <= 43)
+                    {
+                        dta.set_Grade = 72;
+                    
+                    }
+
+                    else if (gtotal >= 38 && gtotal <= 40)
+                    {
+                        dta.set_Grade = 71;
+                  
+
+                    }
+                    else if (gtotal >= 35 && gtotal <= 37)
+                    {
+                        dta.set_Grade = 70;
+                
+                    }
+
+                    else if (gtotal >= 32 && gtotal <= 34)
+                    {
+                        dta.set_Grade = 69;
+                    
+
+                    }
+                    else if (gtotal >= 29 && gtotal <= 31)
+                    {
+                        dta.set_Grade = 68;
+                      
+                    }
+
+                    else if (gtotal >= 26 && gtotal <= 28)
+                    {
+                        dta.set_Grade = 67;
+                      
+
+                    }
+                    else if (gtotal >= 23 && gtotal <= 25)
+                    {
+                        dta.set_Grade = 66;
+                      
+                    }
+
+                    else if (gtotal >= 20 && gtotal <= 22)
+                    {
+                        dta.set_Grade = 65;
+                       
+
+                    }
+                    else if (gtotal >= 18 && gtotal <= 19)
+                    {
+                        dta.set_Grade = 64;
+                        
+                    }
+
+                    else if (gtotal >= 16 && gtotal <= 17)
+                    {
+                        dta.set_Grade = 63;
+                  
+
+                    }
+                    else if (gtotal >= 14 && gtotal <= 15)
+                    {
+                        dta.set_Grade = 62;
+                    
+                    }
+
+                    else if (gtotal >= 12 && gtotal <= 13)
+                    {
+                        dta.set_Grade = 61;
+                  
+
+                    }
+                    else if (gtotal >= 10 && gtotal <= 11)
+                    {
+                        dta.set_Grade = 60;
+                      
+                    }
+
+                    else if (gtotal >= 8 && gtotal <= 9)
+                    {
+                        dta.set_Grade = 59;
+                       
+
+                    }
+                    else if (gtotal >= 6 && gtotal <= 7)
+                    {
+                        dta.set_Grade = 58;
+                     
+                    }
+                    else if (gtotal >= 4 && gtotal <= 5)
+                    {
+                        dta.set_Grade = 57;
+                      
+                    }
+
+                    else if (gtotal >= 2 && gtotal <= 3)
+                    {
+                        dta.set_Grade = 56;
+                       
+
+                    }
+                    else if (gtotal >= 0 && gtotal <= 1)
+                    {
+                        dta.set_Grade = 55;
+                      
+                    }
+
+
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Total is null. Cannot set grade.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error setting grade: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -430,85 +696,97 @@ namespace automated_classreport
            var semister_Name = sem_txtbx.Text.Trim();
             var subjects = guna2ComboBox1.SelectedValue;
             var course = guna2ComboBox2.SelectedValue;
+      
             string typec = "Quizzes";
             string term_ex = "Midterm";
-
+   
             if (!string.IsNullOrEmpty(semister_Name) && subjects != null && course != null)
             {
-                int sem_Id = _context.semesters.Where(q => q.sem_Name == semister_Name).Select(s => s.sem_Id).FirstOrDefault();
-                var check_class = _context.class_Record
-                    .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == sem_Id.ToString() && q.term_exam == term_ex)
-                    .ToList();
-
-                if (check_class.Count > 0)
+                if (guna2ComboBox3.SelectedIndex != -1)
                 {
-                    gunaDataGridView1.Visible = true;
-                    guna2DataGridView1.Visible = true;
-                    guna2HtmlLabel3.Visible = true;
-                    guna2DataGridView2.Visible = true;
-                    guna2TextBox2.Visible = true;
-                    btn_term.Visible = true;
-                    record_Table.Visible = true;
-                    guna2Button4.Visible = true;
-                    guna2Button3.Visible = true;
-                    guna2Button6.Visible = true;
-                    guna2Button5.Visible = true;
-                    guna2Button7.Visible = true;
-                    guna2TextBox2.Visible = true;
-                    guna2Button4.FillColor = Color.Orange;
-                    guna2Button3.FillColor = Color.DarkKhaki;
-                    guna2Button5.FillColor = Color.DarkKhaki;
-                    guna2Button6.FillColor = Color.DarkKhaki;
-                    changedataonclickbtn(typec);
+                    int sem_Id = _context.semesters.Where(q => q.sem_Name == semister_Name).Select(s => s.sem_Id).FirstOrDefault();
+                    var check_class = _context.class_Record
+                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == sem_Id.ToString() && q.term_exam == term_ex && q.mount == mount)
+                        .ToList();
 
-                }
-                else
-                {
-                    // No data found, prompt the user
-                    var result = MessageBox.Show("No data found. Do you want to create data?", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (result == DialogResult.Yes)
+                    if (check_class.Count > 0)
                     {
+                        type = "Quizzes";
+                        gunaDataGridView1.Visible = true;
                         guna2DataGridView1.Visible = true;
-                        record_Table.Visible = true;
+                        guna2HtmlLabel3.Visible = true;
+                        guna2DataGridView2.Visible = true;
+                        guna2TextBox2.Visible = true;
                         btn_term.Visible = true;
-                        guna2Button4.FillColor = Color.Orange;
-                        guna2Button3.FillColor = Color.DarkKhaki;
-                        guna2Button5.FillColor = Color.DarkKhaki;
-                        guna2Button6.FillColor = Color.DarkKhaki;
+                        record_Table.Visible = true;
                         guna2Button4.Visible = true;
                         guna2Button3.Visible = true;
-                        guna2Button5.Visible = true;
                         guna2Button6.Visible = true;
+                        guna2Button5.Visible = true;
                         guna2Button7.Visible = true;
                         guna2TextBox2.Visible = true;
-                        type = "Quizzes";
                         guna2Button4.FillColor = Color.Orange;
                         guna2Button3.FillColor = Color.DarkKhaki;
                         guna2Button5.FillColor = Color.DarkKhaki;
                         guna2Button6.FillColor = Color.DarkKhaki;
                         changedataonclickbtn(typec);
-                        form2 = new add_wgt_term(_id,sem_Id,subjects.ToString(),course.ToString(),term_ex);
-                        form2.Form2Closed += Form2_FormClosed;
-                        form2.ShowDialog();
+
                     }
                     else
                     {
-                        gunaDataGridView1.Visible = false;
-                        guna2DataGridView1.Visible = false;
-                        guna2HtmlLabel3.Visible = false;
-                        guna2DataGridView2.Visible = false;
-                        guna2TextBox2.Visible = false;
-                        btn_term.Visible = false;
-                        record_Table.Visible = false;
-                        guna2Button4.Visible = false;
-                        guna2Button3.Visible = false;
-                        guna2Button6.Visible = false;
-                        guna2Button5.Visible = false;
-                        guna2Button7.Visible = false;
-                        guna2TextBox2.Visible = false;
+                        // No data found, prompt the user
+                        var result = MessageBox.Show("No data found. Do you want to create data?", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            guna2DataGridView1.Visible = true;
+                            record_Table.Visible = true;
+                            btn_term.Visible = true;
+                            guna2Button4.FillColor = Color.Orange;
+                            guna2Button3.FillColor = Color.DarkKhaki;
+                            guna2Button5.FillColor = Color.DarkKhaki;
+                            guna2Button6.FillColor = Color.DarkKhaki;
+                            guna2Button4.Visible = true;
+                            guna2Button3.Visible = true;
+                            guna2Button5.Visible = true;
+                            guna2Button6.Visible = true;
+                            guna2Button7.Visible = true;
+                            guna2TextBox2.Visible = true;
+                            type = "Quizzes";
+                            guna2Button4.FillColor = Color.Orange;
+                            guna2Button3.FillColor = Color.DarkKhaki;
+                            guna2Button5.FillColor = Color.DarkKhaki;
+                            guna2Button6.FillColor = Color.DarkKhaki;
+                            changedataonclickbtn(typec);
+                            form2 = new add_wgt_term(_id, sem_Id, subjects.ToString(), course.ToString(), term_ex,mount);
+                            form2.Form2Closed += Form2_FormClosed;
+                            form2.ShowDialog();
+                        }
+                        else
+                        {
+                            gunaDataGridView1.Visible = false;
+                            guna2DataGridView1.Visible = false;
+                            guna2HtmlLabel3.Visible = false;
+                            guna2DataGridView2.Visible = false;
+                            guna2TextBox2.Visible = false;
+                            btn_term.Visible = false;
+                            record_Table.Visible = false;
+                            guna2Button4.Visible = false;
+                            guna2Button3.Visible = false;
+                            guna2Button6.Visible = false;
+                            guna2Button5.Visible = false;
+                            guna2Button7.Visible = false;
+                            guna2TextBox2.Visible = false;
+                        }
                     }
                 }
+                else {
+
+                    MessageBox.Show("Please select what class record type it is", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            
+            
             }
             else
             {
@@ -563,7 +841,8 @@ namespace automated_classreport
                                  ct.course == course &&
                                  ct.sem == sem_Id.ToString() &&
                                  ct.term_exam == term_Type && 
-                                 ct.typeof_column == type
+                                 ct.typeof_column == type && 
+                                 ct.mount == mount
                            orderby st.LastName
                            select new classViewModel
                            {
@@ -583,7 +862,7 @@ namespace automated_classreport
                                column_9 = ct.column_9 != null ? (decimal)ct.column_9 : 0,
                                column_10 = ct.column_10 != null ? (decimal)ct.column_10 : 0,
                                stud_Id = ct.stud_Id != null ? (decimal)ct.stud_Id : 0,
-                               wgt = ct.wgt != null ? (decimal)ct.wgt : 0,
+                               term_total_wgt = ct.term_total_wgt != null ? (decimal)ct.term_total_wgt : 0,
                                total = ct.total != null ? (decimal)ct.total : 0,
                                lastname = st.LastName,
                                firstname = st.FirstName,
@@ -598,7 +877,8 @@ namespace automated_classreport
                             q.course == course &&
                             q.sem == sem_Id.ToString() &&
                             q.term_exam == term_Type &&
-                            q.typeof_column == type)
+                            q.typeof_column == type && 
+                            q.mount == mount)
                 .ToList();
 
             highViewModelBindingSource.DataSource = getdatas;
@@ -610,7 +890,8 @@ namespace automated_classreport
                                    crs.course == course &&
                                    crs.sem == sem_Id.ToString() &&
                                    crs.term_exam == term_Type &&
-                                   crs.typeof_column == "Quizzes"
+                                   crs.typeof_column == "Quizzes" &&
+                                   crs.mount == mount
                              orderby st.LastName
                              select new classTermViewmodel
                              {
@@ -721,7 +1002,8 @@ namespace automated_classreport
                                 q.course == course &&
                                 q.sem == sem_Id.ToString() &&
                                 q.term_exam == term_exis &&
-                                q.typeof_column == type_ofbtn)
+                                q.typeof_column == type_ofbtn && 
+                                q.mount == mount)
                                  .ToList();
 
             highViewModelBindingSource.DataSource = getdata;
@@ -732,7 +1014,8 @@ namespace automated_classreport
                                   ct.course == course &&
                                   ct.sem == sem_Id.ToString() &&
                                   ct.term_exam == term_exis &&
-                                  ct.typeof_column == type_ofbtn
+                                  ct.typeof_column == type_ofbtn &&
+                                  ct.mount == mount
                             orderby st.LastName
                             select new classViewModel
                             {
@@ -792,7 +1075,8 @@ namespace automated_classreport
                             q.course == course &&
                             q.sem == sem_Id.ToString() &&
                             q.term_exam == term_Type &&
-                            q.typeof_column == getbtn)
+                            q.typeof_column == getbtn &&
+                            q.mount == mount)
                 .ToList();
 
             highViewModelBindingSource.DataSource = getdata;
@@ -804,7 +1088,8 @@ namespace automated_classreport
                                  crs.course == course &&
                                  crs.sem == sem_Id.ToString() &&
                                  crs.term_exam == term_Type &&
-                                 crs.typeof_column == getbtn
+                                 crs.typeof_column == getbtn &&
+                                 crs.mount == mount
                            orderby st.LastName
                            select new classViewModel
                            {
@@ -824,7 +1109,7 @@ namespace automated_classreport
                                column_9 = crs.column_9 != null ? (decimal)crs.column_9 : 0,
                                column_10 = crs.column_10 != null ? (decimal)crs.column_10 : 0,
                                stud_Id = crs.stud_Id != null ? (decimal)crs.stud_Id : 0,
-                               wgt = crs.wgt != null ? (decimal)crs.wgt : 0,
+                               term_total_wgt = crs.term_total_wgt != null ? (decimal)crs.term_total_wgt : 0,
                                total = crs.total != null ? (decimal)crs.total : 0,
                                lastname = st.LastName,
                                firstname = st.FirstName,
@@ -841,7 +1126,8 @@ namespace automated_classreport
                                    cr.course == course &&
                                    cr.sem == sem_Id.ToString() &&
                                    cr.term_exam == term_Type &&
-                                   cr.typeof_column == "Quizzes"
+                                   cr.typeof_column == "Quizzes" &&
+                                   cr.mount == mount    
                                    orderby st.LastName
                              select new classTermViewmodel
                              {
@@ -955,75 +1241,83 @@ namespace automated_classreport
 
             if (!string.IsNullOrEmpty(semister_Name) && subjects != null && course != null)
             {
-                int sem_Id = _context.semesters.Where(q => q.sem_Name == semister_Name).Select(s => s.sem_Id).FirstOrDefault();
-                var check_class = _context.class_Record
-                    .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == sem_Id.ToString() && q.term_exam == term_ex)
-                    .ToList();
-
-                if (check_class.Count > 0)
+                if (guna2ComboBox3.SelectedIndex != -1)
                 {
-                    gunaDataGridView1.Visible = true;
-                    guna2DataGridView1.Visible = true;
-                    guna2HtmlLabel3.Visible = true;
-                    guna2DataGridView2.Visible = true;
-                    guna2TextBox2.Visible = true;
-                    btn_term.Visible = true;
-                    record_Table.Visible = true;
-                    guna2Button4.Visible = true;
-                    guna2Button3.Visible = true;
-                    guna2Button6.Visible = true;
-                    guna2Button5.Visible = true;
-                    guna2Button7.Visible = true;
-                    guna2TextBox2.Visible = true;
-                    guna2Button4.FillColor = Color.Orange;
-                    guna2Button3.FillColor = Color.DarkKhaki;
-                    guna2Button5.FillColor = Color.DarkKhaki;
-                    guna2Button6.FillColor = Color.DarkKhaki;
-                    changedataonclickbtn(typec);
-                }
-                else
-                {
-                    // No data found, prompt the user
-                    var result = MessageBox.Show("No data found. Do you want to create data?", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    int sem_Id = _context.semesters.Where(q => q.sem_Name == semister_Name).Select(s => s.sem_Id).FirstOrDefault();
+                    var check_class = _context.class_Record
+                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == sem_Id.ToString() && q.term_exam == term_ex && q.mount == mount)
+                        .ToList();
 
-                    if (result == DialogResult.Yes)
+                    if (check_class.Count > 0)
                     {
+                        gunaDataGridView1.Visible = true;
                         guna2DataGridView1.Visible = true;
-                        record_Table.Visible = true;
+                        guna2HtmlLabel3.Visible = true;
+                        guna2DataGridView2.Visible = true;
+                        guna2TextBox2.Visible = true;
                         btn_term.Visible = true;
+                        record_Table.Visible = true;
+                        guna2Button4.Visible = true;
+                        guna2Button3.Visible = true;
+                        guna2Button6.Visible = true;
+                        guna2Button5.Visible = true;
+                        guna2Button7.Visible = true;
+                        guna2TextBox2.Visible = true;
                         guna2Button4.FillColor = Color.Orange;
                         guna2Button3.FillColor = Color.DarkKhaki;
                         guna2Button5.FillColor = Color.DarkKhaki;
                         guna2Button6.FillColor = Color.DarkKhaki;
-                        guna2Button4.Visible = true;
-                        guna2Button3.Visible = true;
-                        guna2Button5.Visible = true;
-                        guna2Button6.Visible = true;
-                        guna2Button7.Visible = true;
-                        guna2TextBox2.Visible = true;
-                        type = "Quizzes";
                         changedataonclickbtn(typec);
-                        form2 = new add_wgt_term(_id, sem_Id, subjects.ToString(), course.ToString(), term_ex);
-                        form2.Form2Closed += Form2_FormClosed;
-                        form2.ShowDialog();
-                     
                     }
                     else
                     {
-                        gunaDataGridView1.Visible = false;
-                        guna2DataGridView1.Visible = false;
-                        guna2HtmlLabel3.Visible = false;
-                        guna2DataGridView2.Visible = false;
-                        guna2TextBox2.Visible = false;
-                        btn_term.Visible = false;
-                        record_Table.Visible = false;
-                        guna2Button4.Visible = false;
-                        guna2Button3.Visible = false;
-                        guna2Button6.Visible = false;
-                        guna2Button5.Visible = false;
-                        guna2Button7.Visible = false;
-                        guna2TextBox2.Visible = false;
+                        // No data found, prompt the user
+                        var result = MessageBox.Show("No data found. Do you want to create data?", "No Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+                            guna2DataGridView1.Visible = true;
+                            record_Table.Visible = true;
+                            btn_term.Visible = true;
+                            guna2Button4.FillColor = Color.Orange;
+                            guna2Button3.FillColor = Color.DarkKhaki;
+                            guna2Button5.FillColor = Color.DarkKhaki;
+                            guna2Button6.FillColor = Color.DarkKhaki;
+                            guna2Button4.Visible = true;
+                            guna2Button3.Visible = true;
+                            guna2Button5.Visible = true;
+                            guna2Button6.Visible = true;
+                            guna2Button7.Visible = true;
+                            guna2TextBox2.Visible = true;
+                            type = "Quizzes";
+                            changedataonclickbtn(typec);
+                            form2 = new add_wgt_term(_id, sem_Id, subjects.ToString(), course.ToString(), term_ex, mount);
+                            form2.Form2Closed += Form2_FormClosed;
+                            form2.ShowDialog();
+
+                        }
+                        else
+                        {
+                            gunaDataGridView1.Visible = false;
+                            guna2DataGridView1.Visible = false;
+                            guna2HtmlLabel3.Visible = false;
+                            guna2DataGridView2.Visible = false;
+                            guna2TextBox2.Visible = false;
+                            btn_term.Visible = false;
+                            record_Table.Visible = false;
+                            guna2Button4.Visible = false;
+                            guna2Button3.Visible = false;
+                            guna2Button6.Visible = false;
+                            guna2Button5.Visible = false;
+                            guna2Button7.Visible = false;
+                            guna2TextBox2.Visible = false;
+                        }
                     }
+                }
+                else {
+
+                    MessageBox.Show("Please select what class record type it is", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 }
             }
             else
@@ -1091,7 +1385,7 @@ namespace automated_classreport
 
                         _context.SaveChanges();
 
-
+                        settermgrade(existingEntity.term_Score, rowId);
                         MessageBox.Show("Successfully Added");
 
 
@@ -1117,6 +1411,269 @@ namespace automated_classreport
                 MessageBox.Show($"Error updating the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void settermgrade(decimal? total, int IDrow)
+        {
+            try
+            {
+                if (total.HasValue)
+                {
+
+                    var dta = _context.class_Record.FirstOrDefault(q => q.ID == IDrow);
+                    int gtotal = (int)Math.Round(dta.term_Score ?? 0, 0);
+
+                    if (gtotal == 100)
+                    {
+                        dta.trem_wgt = 95;
+
+                    }
+                    else if (gtotal == 99)
+                    {
+                        dta.trem_wgt = 94;
+
+                    }
+                    else if (gtotal == 98)
+                    {
+                        dta.trem_wgt = 93;
+
+                    }
+                    else if (gtotal == 97)
+                    {
+                        dta.trem_wgt = 92;
+                    }
+                    else if (gtotal == 96)
+                    {
+                        dta.trem_wgt = 91;
+
+                    }
+                    else if (gtotal == 95)
+                    {
+                        dta.trem_wgt = 90;
+
+                    }
+
+                    else if (gtotal >= 93 && gtotal <= 94)
+                    {
+                        dta.trem_wgt = 89;
+
+
+                    }
+                    else if (gtotal >= 91 && gtotal <= 92)
+                    {
+                        dta.trem_wgt = 88;
+
+                    }
+
+                    else if (gtotal >= 89 && gtotal <= 90)
+                    {
+                        dta.trem_wgt = 87;
+
+                    }
+                    else if (gtotal >= 87 && gtotal <= 88)
+                    {
+                        dta.trem_wgt = 86;
+                    }
+
+                    else if (gtotal >= 85 && gtotal <= 86)
+                    {
+                        dta.trem_wgt = 85;
+
+
+                    }
+                    else if (gtotal >= 83 && gtotal <= 84)
+                    {
+                        dta.trem_wgt = 84;
+
+                    }
+
+                    else if (gtotal >= 81 && gtotal <= 82)
+                    {
+                        dta.trem_wgt = 83;
+
+
+                    }
+                    else if (gtotal >= 79 && gtotal <= 80)
+                    {
+                        dta.trem_wgt = 82;
+
+                    }
+
+                    else if (gtotal >= 77 && gtotal <= 78)
+                    {
+                        dta.trem_wgt = 81;
+
+
+                    }
+                    else if (gtotal >= 75 && gtotal <= 76)
+                    {
+                        dta.trem_wgt = 80;
+
+                    }
+
+                    else if (gtotal >= 70 && gtotal <= 74)
+                    {
+                        dta.trem_wgt = 79;
+
+
+                    }
+                    else if (gtotal >= 65 && gtotal <= 69)
+                    {
+                        dta.trem_wgt = 78;
+
+                    }
+
+                    else if (gtotal >= 60 && gtotal <= 64)
+                    {
+                        dta.trem_wgt = 77;
+
+
+                    }
+                    else if (gtotal >= 55 && gtotal <= 59)
+                    {
+                        dta.trem_wgt = 76;
+
+                    }
+
+                    else if (gtotal >= 50 && gtotal <= 54)
+                    {
+                        dta.trem_wgt = 75;
+
+
+                    }
+                    else if (gtotal >= 47 && gtotal <= 49)
+                    {
+                        dta.trem_wgt = 74;
+
+                    }
+
+                    else if (gtotal >= 44 && gtotal <= 46)
+                    {
+                        dta.trem_wgt = 73;
+
+
+                    }
+                    else if (gtotal >= 41 && gtotal <= 43)
+                    {
+                        dta.trem_wgt = 72;
+
+                    }
+
+                    else if (gtotal >= 38 && gtotal <= 40)
+                    {
+                        dta.trem_wgt = 71;
+
+
+                    }
+                    else if (gtotal >= 35 && gtotal <= 37)
+                    {
+                        dta.trem_wgt = 70;
+
+                    }
+
+                    else if (gtotal >= 32 && gtotal <= 34)
+                    {
+                        dta.trem_wgt = 69;
+
+
+                    }
+                    else if (gtotal >= 29 && gtotal <= 31)
+                    {
+                        dta.trem_wgt = 68;
+
+                    }
+
+                    else if (gtotal >= 26 && gtotal <= 28)
+                    {
+                        dta.trem_wgt = 67;
+
+
+                    }
+                    else if (gtotal >= 23 && gtotal <= 25)
+                    {
+                        dta.trem_wgt = 66;
+
+                    }
+
+                    else if (gtotal >= 20 && gtotal <= 22)
+                    {
+                        dta.trem_wgt = 65;
+
+
+                    }
+                    else if (gtotal >= 18 && gtotal <= 19)
+                    {
+                        dta.trem_wgt = 64;
+
+                    }
+
+                    else if (gtotal >= 16 && gtotal <= 17)
+                    {
+                        dta.trem_wgt = 63;
+
+
+                    }
+                    else if (gtotal >= 14 && gtotal <= 15)
+                    {
+                        dta.trem_wgt = 62;
+
+                    }
+
+                    else if (gtotal >= 12 && gtotal <= 13)
+                    {
+                        dta.trem_wgt = 61;
+
+
+                    }
+                    else if (gtotal >= 10 && gtotal <= 11)
+                    {
+                        dta.trem_wgt = 60;
+
+                    }
+
+                    else if (gtotal >= 8 && gtotal <= 9)
+                    {
+                        dta.trem_wgt = 59;
+
+
+                    }
+                    else if (gtotal >= 6 && gtotal <= 7)
+                    {
+                        dta.trem_wgt = 58;
+
+                    }
+                    else if (gtotal >= 4 && gtotal <= 5)
+                    {
+                        dta.trem_wgt = 57;
+
+                    }
+
+                    else if (gtotal >= 2 && gtotal <= 3)
+                    {
+                        dta.trem_wgt = 56;
+
+
+                    }
+                    else if (gtotal >= 0 && gtotal <= 1)
+                    {
+                        dta.trem_wgt = 55;
+
+                    }
+
+
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Total is null. Cannot set grade.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error setting grade: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         private void gunaDataGridView1_Scroll(object sender, ScrollEventArgs e)
         {
@@ -1233,6 +1790,20 @@ namespace automated_classreport
         private void guna2DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void guna2ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var moun = guna2ComboBox3.SelectedIndex;
+            if (moun == 0)
+            {
+                mount = "lec";
+
+            }
+            else {
+
+                mount = "lab";
+            }
         }
     }
 }
