@@ -265,9 +265,10 @@ namespace automated_classreport
 
             if (count % 2 == 0)
             {
-                decimal left = scores[middle];
-                decimal right = scores[middle + 1];
-                return Math.Round(left);
+                //decimal left = scores[middle];
+                //decimal right = scores[middle + 1];
+                //return Math.Round(left);
+                return scores[middle];
             }
             else
             {

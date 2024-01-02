@@ -49,9 +49,18 @@ namespace automated_classreport
                 {
                  
                     var idValue = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                    if (mount != "")
+                    {
+                        history_Report_frm pnl = new history_Report_frm(Convert.ToInt32(idValue), _id, mount);
+                        pnl.ShowDialog();
 
-                    history_Report_frm pnl = new history_Report_frm(Convert.ToInt32(idValue), _id,mount);
-                    pnl.ShowDialog();
+
+                    }
+                    else {
+                        MessageBox.Show("Please Fill Up the field");
+                    
+                    }
+       
                    
                 }
 

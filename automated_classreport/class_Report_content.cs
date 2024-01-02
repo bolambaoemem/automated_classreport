@@ -22,6 +22,7 @@ namespace automated_classreport
         String Semister_name;
         String mount;
         int _id;
+        int o = 0;
         bool isquiz = false;
         bool isoral = false;
         bool isperformance = false;
@@ -244,11 +245,49 @@ namespace automated_classreport
                         if (dta != null)
                         {
                             // Assuming the code to retrieve the weight is correct and the corresponding table is _context.high_Record
-                            var wgt = _context.high_Score.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == dta.typeof_column);
+                            var wgt = _context.high_Score.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == type && q.mount == dta.mount);
 
                             if (wgt != null)
                             {
-                                existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total /wgt.total) * wgt.wgt ?? 0), 1);
+                                if (wgt.typeof_column == "Performance" || wgt.typeof_column == "Project" && wgt.mount == "lab")
+                                {
+                                    if (wgt.typeof_column == "Performance")
+                                    {
+                                        var wgts = _context.class_Record.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == "Project" && q.mount == "lab" && q.stud_Id == existingEntity.stud_Id );
+                                        if (wgts != null)
+                                        {
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 1);
+                                            _context.SaveChanges();
+                                            SetGades(existingEntity.term_total_wgt, rowId,wgts.stud_Id,wgts.typeof_column);
+                                          
+                                        }
+                                        else
+                                        {
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                            _context.SaveChanges();
+                                            SetGrade(existingEntity.total, rowId);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        var wgtss = _context.class_Record.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == "Performance" && q.mount == "lab" && q.stud_Id == existingEntity.stud_Id);
+                                        if (wgtss != null)
+                                        {
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 1);
+                                            _context.SaveChanges();
+                                            SetGades(existingEntity.term_total_wgt, rowId, wgtss.stud_Id, wgtss.typeof_column);
+                                        }
+                                        else {
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                            _context.SaveChanges();
+                                            SetGrade(existingEntity.total, rowId);
+                                        }
+                                    }                            
+                                    }
+                                else
+                                {
+                                    existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                }
                             }
                             else
                             {
@@ -257,7 +296,11 @@ namespace automated_classreport
                         
                         }
                         _context.SaveChanges();
-                        SetGrade(existingEntity.total, rowId);
+                        if (existingEntity.typeof_column !="Performance" || existingEntity.typeof_column != "Project" && existingEntity.mount != "lab") {
+                            SetGrade(existingEntity.total, rowId);
+                        
+                        }
+                       
                         MessageBox.Show("Successfully Added");
                         RefreshData();
 
@@ -279,6 +322,413 @@ namespace automated_classreport
             catch (Exception ex)
             {
                 MessageBox.Show($"Error updating the database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void SetGades(decimal? total, int IDrow, int? id, string columntype)
+        {
+            try
+            {
+                if (total.HasValue)
+                {
+                    
+                    int gtotal = 0;
+                    var dta = _context.class_Record.FirstOrDefault(q => q.ID == IDrow);
+
+                    string targetType = (dta.typeof_column == "Project") ? "Performance" : "Project";
+
+                    var dtas = _context.class_Record.FirstOrDefault(q =>
+                        q.stud_Id == dta.stud_Id &&
+                        q.typeof_column == targetType &&
+                        q.term_exam == dta.term_exam &&
+                        q.sem == dta.sem && 
+                        q.mount == dta.mount);
+
+                    gtotal = (int)Math.Round(((dta.term_total_wgt + dtas.term_total_wgt) ?? 0), 0);
+
+
+                    MessageBox.Show(gtotal.ToString()) ;
+                    if (gtotal == 100)
+                    {
+                        dta.set_Grade = 95;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 95;
+                        }
+
+                    }
+                    else if (gtotal == 99)
+                    {
+                        dta.set_Grade = 94;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 94;
+                        }
+                    }
+                    else if (gtotal == 98)
+                    {
+                        dta.set_Grade = 93;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 93;
+                        }
+                    }
+                    else if (gtotal == 97)
+                    {
+                        dta.set_Grade = 92;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 92;
+                        }
+                    }
+                    else if (gtotal == 96)
+                    {
+                        dta.set_Grade = 91;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 91;
+                        }
+
+                    }
+                    else if (gtotal == 95)
+                    {
+                        dta.set_Grade = 90;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 90;
+                        }
+
+                    }
+
+                    else if (gtotal >= 93 && gtotal <= 94)
+                    {
+                        dta.set_Grade = 89;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 89;
+                        }
+
+
+                    }
+                    else if (gtotal >= 91 && gtotal <= 92)
+                    {
+                        dta.set_Grade = 88;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 88;
+                        }
+
+                    }
+
+                    else if (gtotal >= 89 && gtotal <= 90)
+                    {
+                        dta.set_Grade = 87;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 87;
+                        }
+
+                    }
+                    else if (gtotal >= 87 && gtotal <= 88)
+                    {
+                        dta.set_Grade = 86;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 86;
+                        }
+                    }
+
+                    else if (gtotal >= 85 && gtotal <= 86)
+                    {
+                        dta.set_Grade = 85;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 85;
+                        }
+
+
+                    }
+                    else if (gtotal >= 83 && gtotal <= 84)
+                    {
+                        dta.set_Grade = 84;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 84;
+                        }
+
+                    }
+
+                    else if (gtotal >= 81 && gtotal <= 82)
+                    {
+                        dta.set_Grade = 83;
+
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 83;
+                        }
+                    }
+                    else if (gtotal >= 79 && gtotal <= 80)
+                    {
+                        dta.set_Grade = 82;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 82;
+                        }
+                    }
+
+                    else if (gtotal >= 77 && gtotal <= 78)
+                    {
+                        dta.set_Grade = 81;
+
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 81;
+                        }
+                    }
+                    else if (gtotal >= 75 && gtotal <= 76)
+                    {
+                        dta.set_Grade = 80;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 80;
+                        }
+                    }
+
+                    else if (gtotal >= 70 && gtotal <= 74)
+                    {
+                        dta.set_Grade = 79;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 79;
+                        }
+
+                    }
+                    else if (gtotal >= 65 && gtotal <= 69)
+                    {
+                        dta.set_Grade = 78;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 78;
+                        }
+                    }
+
+                    else if (gtotal >= 60 && gtotal <= 64)
+                    {
+                        dta.set_Grade = 77;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 77;
+                        }
+
+                    }
+                    else if (gtotal >= 55 && gtotal <= 59)
+                    {
+                        dta.set_Grade = 76;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 76;
+                        }
+                    }
+
+                    else if (gtotal >= 50 && gtotal <= 54)
+                    {
+                        dta.set_Grade = 75;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 75;
+                        }
+
+                    }
+                    else if (gtotal >= 47 && gtotal <= 49)
+                    {
+                        dta.set_Grade = 74;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 74;
+                        }
+                    }
+
+                    else if (gtotal >= 44 && gtotal <= 46)
+                    {
+                        dta.set_Grade = 73;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 73;
+                        }
+
+                    }
+                    else if (gtotal >= 41 && gtotal <= 43)
+                    {
+                        dta.set_Grade = 72;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 72;
+                        }
+                    }
+
+                    else if (gtotal >= 38 && gtotal <= 40)
+                    {
+                        dta.set_Grade = 71;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 71;
+                        }
+
+                    }
+                    else if (gtotal >= 35 && gtotal <= 37)
+                    {
+                        dta.set_Grade = 70;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 70;
+                        }
+                    }
+
+                    else if (gtotal >= 32 && gtotal <= 34)
+                    {
+                        dta.set_Grade = 69;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 69;
+                        }
+
+                    }
+                    else if (gtotal >= 29 && gtotal <= 31)
+                    {
+                        dta.set_Grade = 68;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 68;
+                        }
+
+                    }
+
+                    else if (gtotal >= 26 && gtotal <= 28)
+                    {
+                        dta.set_Grade = 67;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 67;
+                        }
+
+                    }
+                    else if (gtotal >= 23 && gtotal <= 25)
+                    {
+                        dta.set_Grade = 66;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 66;
+                        }
+                    }
+
+                    else if (gtotal >= 20 && gtotal <= 22)
+                    {
+                        dta.set_Grade = 65;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 65;
+                        }
+
+                    }
+                    else if (gtotal >= 18 && gtotal <= 19)
+                    {
+                        dta.set_Grade = 64;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 64;
+                        }
+                    }
+
+                    else if (gtotal >= 16 && gtotal <= 17)
+                    {
+                        dta.set_Grade = 63;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 63;
+                        }
+
+                    }
+                    else if (gtotal >= 14 && gtotal <= 15)
+                    {
+                        dta.set_Grade = 62;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 62;
+                        }
+                    }
+
+                    else if (gtotal >= 12 && gtotal <= 13)
+                    {
+                        dta.set_Grade = 61;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 61;
+                        }
+
+                    }
+                    else if (gtotal >= 10 && gtotal <= 11)
+                    {
+                        dta.set_Grade = 60;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 60;
+                        }
+                    }
+
+                    else if (gtotal >= 8 && gtotal <= 9)
+                    {
+                        dta.set_Grade = 59;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 59;
+                        }
+
+                    }
+                    else if (gtotal >= 6 && gtotal <= 7)
+                    {
+                        dta.set_Grade = 58;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 58;
+                        }
+                    }
+                    else if (gtotal >= 4 && gtotal <= 5)
+                    {
+                        dta.set_Grade = 57;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 57;
+                        }
+                    }
+
+                    else if (gtotal >= 2 && gtotal <= 3)
+                    {
+                        dta.set_Grade = 56;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 56;
+                        }
+
+                    }
+                    else if (gtotal >= 0 && gtotal <= 1)
+                    {
+                        dta.set_Grade = 55;
+                        if (dtas != null)
+                        {
+                            dtas.set_Grade = 55;
+                        }
+                    }
+
+
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("Total is null. Cannot set grade.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error setting grade: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -730,6 +1180,21 @@ namespace automated_classreport
                         guna2Button5.FillColor = Color.DarkKhaki;
                         guna2Button6.FillColor = Color.DarkKhaki;
                         changedataonclickbtn(typec);
+                        if (mount == "lec") {
+
+                            guna2Button3.Visible = false;
+                            guna2Button6.Location = new Point(guna2Button6.Location.X -69, guna2Button6.Location.Y + 0);
+                            o = 1;
+                        }
+                        if (mount == "lab") {
+                            guna2Button3.Visible = true;
+                            if (o == 1)
+                            {
+                                guna2Button6.Location = new Point(guna2Button6.Location.X +69, guna2Button6.Location.Y + 0);
+                             
+                                o = 0;
+                            }
+                        }
 
                     }
                     else
@@ -1268,6 +1733,23 @@ namespace automated_classreport
                         guna2Button5.FillColor = Color.DarkKhaki;
                         guna2Button6.FillColor = Color.DarkKhaki;
                         changedataonclickbtn(typec);
+                        if (mount == "lec")
+                        {
+
+                            guna2Button3.Visible = false;
+                            guna2Button6.Location = new Point(guna2Button6.Location.X - 69, guna2Button6.Location.Y + 0);
+                            o = 1;
+                        }
+                        if (mount == "lab")
+                        {
+                            guna2Button3.Visible = true;
+                            if (o == 1)
+                            {
+                                guna2Button6.Location = new Point(guna2Button6.Location.X + 69, guna2Button6.Location.Y + 0);
+
+                                o = 0;
+                            }
+                        }
                     }
                     else
                     {
@@ -1798,7 +2280,6 @@ namespace automated_classreport
             if (moun == 0)
             {
                 mount = "lec";
-
             }
             else {
 

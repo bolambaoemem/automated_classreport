@@ -458,13 +458,12 @@ namespace automated_classreport
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(969, 697);
+            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.guna2ComboBox3);
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.guna2HtmlLabel1);
-            this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.guna2ComboBox2);
             this.Controls.Add(this.gunaControlBox1);
-            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.guna2Button5);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
@@ -478,6 +477,7 @@ namespace automated_classreport
             this.Controls.Add(this.gunaTextBox3);
             this.Controls.Add(this.gunaTextBox2);
             this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.reportViewer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "final_Ratings";
             this.ShowInTaskbar = false;

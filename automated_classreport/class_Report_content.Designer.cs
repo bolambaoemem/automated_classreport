@@ -46,13 +46,13 @@ namespace automated_classreport
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
@@ -104,6 +104,33 @@ namespace automated_classreport
             this.highViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.totalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.semDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teachIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column4DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column5DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column6DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column7DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column8DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column9DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column10DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.highscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeofcolumnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termexamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wgtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termtotalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.termScoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typetotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.middlenameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,33 +164,6 @@ namespace automated_classreport
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.semDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subjectDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teachIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column1DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column2DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column3DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column4DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column5DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column6DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column7DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column8DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column9DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column10DataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.highscoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeofcolumnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termexamDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.wgtDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termtotalwgtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termScoreDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typetotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstnameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.middlenameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studendtViewModelBindingSource)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -1010,6 +1010,220 @@ namespace automated_classreport
             this.guna2DataGridView1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.guna2DataGridView1_Scroll);
             this.guna2DataGridView1.SelectionChanged += new System.EventHandler(this.guna2DataGridView1_SelectionChanged);
             // 
+            // iDDataGridViewTextBoxColumn1
+            // 
+            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
+            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // semDataGridViewTextBoxColumn1
+            // 
+            this.semDataGridViewTextBoxColumn1.DataPropertyName = "sem";
+            this.semDataGridViewTextBoxColumn1.HeaderText = "sem";
+            this.semDataGridViewTextBoxColumn1.Name = "semDataGridViewTextBoxColumn1";
+            this.semDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.semDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // subjectDataGridViewTextBoxColumn1
+            // 
+            this.subjectDataGridViewTextBoxColumn1.DataPropertyName = "subject";
+            this.subjectDataGridViewTextBoxColumn1.HeaderText = "subject";
+            this.subjectDataGridViewTextBoxColumn1.Name = "subjectDataGridViewTextBoxColumn1";
+            this.subjectDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.subjectDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // courseDataGridViewTextBoxColumn1
+            // 
+            this.courseDataGridViewTextBoxColumn1.DataPropertyName = "course";
+            this.courseDataGridViewTextBoxColumn1.HeaderText = "course";
+            this.courseDataGridViewTextBoxColumn1.Name = "courseDataGridViewTextBoxColumn1";
+            this.courseDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.courseDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // teachIdDataGridViewTextBoxColumn1
+            // 
+            this.teachIdDataGridViewTextBoxColumn1.DataPropertyName = "teach_Id";
+            this.teachIdDataGridViewTextBoxColumn1.HeaderText = "teach_Id";
+            this.teachIdDataGridViewTextBoxColumn1.Name = "teachIdDataGridViewTextBoxColumn1";
+            this.teachIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.teachIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // column1DataGridViewTextBoxColumn1
+            // 
+            this.column1DataGridViewTextBoxColumn1.DataPropertyName = "column_1";
+            this.column1DataGridViewTextBoxColumn1.HeaderText = "1";
+            this.column1DataGridViewTextBoxColumn1.Name = "column1DataGridViewTextBoxColumn1";
+            this.column1DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column2DataGridViewTextBoxColumn1
+            // 
+            this.column2DataGridViewTextBoxColumn1.DataPropertyName = "column_2";
+            this.column2DataGridViewTextBoxColumn1.HeaderText = "2";
+            this.column2DataGridViewTextBoxColumn1.Name = "column2DataGridViewTextBoxColumn1";
+            this.column2DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column3DataGridViewTextBoxColumn1
+            // 
+            this.column3DataGridViewTextBoxColumn1.DataPropertyName = "column_3";
+            this.column3DataGridViewTextBoxColumn1.HeaderText = "3";
+            this.column3DataGridViewTextBoxColumn1.Name = "column3DataGridViewTextBoxColumn1";
+            this.column3DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column4DataGridViewTextBoxColumn1
+            // 
+            this.column4DataGridViewTextBoxColumn1.DataPropertyName = "column_4";
+            this.column4DataGridViewTextBoxColumn1.HeaderText = "4";
+            this.column4DataGridViewTextBoxColumn1.Name = "column4DataGridViewTextBoxColumn1";
+            this.column4DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column5DataGridViewTextBoxColumn1
+            // 
+            this.column5DataGridViewTextBoxColumn1.DataPropertyName = "column_5";
+            this.column5DataGridViewTextBoxColumn1.HeaderText = "5";
+            this.column5DataGridViewTextBoxColumn1.Name = "column5DataGridViewTextBoxColumn1";
+            this.column5DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column6DataGridViewTextBoxColumn1
+            // 
+            this.column6DataGridViewTextBoxColumn1.DataPropertyName = "column_6";
+            this.column6DataGridViewTextBoxColumn1.HeaderText = "6";
+            this.column6DataGridViewTextBoxColumn1.Name = "column6DataGridViewTextBoxColumn1";
+            this.column6DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column7DataGridViewTextBoxColumn1
+            // 
+            this.column7DataGridViewTextBoxColumn1.DataPropertyName = "column_7";
+            this.column7DataGridViewTextBoxColumn1.HeaderText = "7";
+            this.column7DataGridViewTextBoxColumn1.Name = "column7DataGridViewTextBoxColumn1";
+            this.column7DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column8DataGridViewTextBoxColumn1
+            // 
+            this.column8DataGridViewTextBoxColumn1.DataPropertyName = "column_8";
+            this.column8DataGridViewTextBoxColumn1.HeaderText = "8";
+            this.column8DataGridViewTextBoxColumn1.Name = "column8DataGridViewTextBoxColumn1";
+            this.column8DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column9DataGridViewTextBoxColumn1
+            // 
+            this.column9DataGridViewTextBoxColumn1.DataPropertyName = "column_9";
+            this.column9DataGridViewTextBoxColumn1.HeaderText = "9";
+            this.column9DataGridViewTextBoxColumn1.Name = "column9DataGridViewTextBoxColumn1";
+            this.column9DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column10DataGridViewTextBoxColumn1
+            // 
+            this.column10DataGridViewTextBoxColumn1.DataPropertyName = "column_10";
+            this.column10DataGridViewTextBoxColumn1.HeaderText = "10";
+            this.column10DataGridViewTextBoxColumn1.Name = "column10DataGridViewTextBoxColumn1";
+            this.column10DataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // studIdDataGridViewTextBoxColumn
+            // 
+            this.studIdDataGridViewTextBoxColumn.DataPropertyName = "stud_Id";
+            this.studIdDataGridViewTextBoxColumn.HeaderText = "stud_Id";
+            this.studIdDataGridViewTextBoxColumn.Name = "studIdDataGridViewTextBoxColumn";
+            this.studIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.studIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // highscoreDataGridViewTextBoxColumn
+            // 
+            this.highscoreDataGridViewTextBoxColumn.DataPropertyName = "high_score";
+            this.highscoreDataGridViewTextBoxColumn.HeaderText = "high_score";
+            this.highscoreDataGridViewTextBoxColumn.Name = "highscoreDataGridViewTextBoxColumn";
+            this.highscoreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.highscoreDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // typeofcolumnDataGridViewTextBoxColumn1
+            // 
+            this.typeofcolumnDataGridViewTextBoxColumn1.DataPropertyName = "typeof_column";
+            this.typeofcolumnDataGridViewTextBoxColumn1.HeaderText = "typeof_column";
+            this.typeofcolumnDataGridViewTextBoxColumn1.Name = "typeofcolumnDataGridViewTextBoxColumn1";
+            this.typeofcolumnDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typeofcolumnDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // termexamDataGridViewTextBoxColumn1
+            // 
+            this.termexamDataGridViewTextBoxColumn1.DataPropertyName = "term_exam";
+            this.termexamDataGridViewTextBoxColumn1.HeaderText = "term_exam";
+            this.termexamDataGridViewTextBoxColumn1.Name = "termexamDataGridViewTextBoxColumn1";
+            this.termexamDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.termexamDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // wgtDataGridViewTextBoxColumn1
+            // 
+            this.wgtDataGridViewTextBoxColumn1.DataPropertyName = "wgt";
+            this.wgtDataGridViewTextBoxColumn1.HeaderText = "wgt";
+            this.wgtDataGridViewTextBoxColumn1.Name = "wgtDataGridViewTextBoxColumn1";
+            this.wgtDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.wgtDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // totalDataGridViewTextBoxColumn1
+            // 
+            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.totalDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
+            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
+            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // termtotalwgtDataGridViewTextBoxColumn
+            // 
+            this.termtotalwgtDataGridViewTextBoxColumn.DataPropertyName = "term_total_wgt";
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            this.termtotalwgtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.termtotalwgtDataGridViewTextBoxColumn.HeaderText = "Wgt";
+            this.termtotalwgtDataGridViewTextBoxColumn.Name = "termtotalwgtDataGridViewTextBoxColumn";
+            this.termtotalwgtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // termScoreDataGridViewTextBoxColumn1
+            // 
+            this.termScoreDataGridViewTextBoxColumn1.DataPropertyName = "term_Score";
+            this.termScoreDataGridViewTextBoxColumn1.HeaderText = "term_Score";
+            this.termScoreDataGridViewTextBoxColumn1.Name = "termScoreDataGridViewTextBoxColumn1";
+            this.termScoreDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.termScoreDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // typetotalDataGridViewTextBoxColumn1
+            // 
+            this.typetotalDataGridViewTextBoxColumn1.DataPropertyName = "type_total";
+            this.typetotalDataGridViewTextBoxColumn1.HeaderText = "type_total";
+            this.typetotalDataGridViewTextBoxColumn1.Name = "typetotalDataGridViewTextBoxColumn1";
+            this.typetotalDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.typetotalDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // lastnameDataGridViewTextBoxColumn1
+            // 
+            this.lastnameDataGridViewTextBoxColumn1.DataPropertyName = "lastname";
+            this.lastnameDataGridViewTextBoxColumn1.HeaderText = "lastname";
+            this.lastnameDataGridViewTextBoxColumn1.Name = "lastnameDataGridViewTextBoxColumn1";
+            this.lastnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.lastnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // firstnameDataGridViewTextBoxColumn1
+            // 
+            this.firstnameDataGridViewTextBoxColumn1.DataPropertyName = "firstname";
+            this.firstnameDataGridViewTextBoxColumn1.HeaderText = "firstname";
+            this.firstnameDataGridViewTextBoxColumn1.Name = "firstnameDataGridViewTextBoxColumn1";
+            this.firstnameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.firstnameDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // middlenameDataGridViewTextBoxColumn1
+            // 
+            this.middlenameDataGridViewTextBoxColumn1.DataPropertyName = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn1.HeaderText = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn1.Name = "middlenameDataGridViewTextBoxColumn1";
+            this.middlenameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.middlenameDataGridViewTextBoxColumn1.Visible = false;
+            // 
             // classViewModelBindingSource
             // 
             this.classViewModelBindingSource.DataSource = typeof(automated_classreport.ViewModel.classViewModel);
@@ -1418,220 +1632,6 @@ namespace automated_classreport
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(33, 25);
             this.guna2HtmlLabel2.TabIndex = 41;
             this.guna2HtmlLabel2.Text = "for";
-            // 
-            // iDDataGridViewTextBoxColumn1
-            // 
-            this.iDDataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // semDataGridViewTextBoxColumn1
-            // 
-            this.semDataGridViewTextBoxColumn1.DataPropertyName = "sem";
-            this.semDataGridViewTextBoxColumn1.HeaderText = "sem";
-            this.semDataGridViewTextBoxColumn1.Name = "semDataGridViewTextBoxColumn1";
-            this.semDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.semDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // subjectDataGridViewTextBoxColumn1
-            // 
-            this.subjectDataGridViewTextBoxColumn1.DataPropertyName = "subject";
-            this.subjectDataGridViewTextBoxColumn1.HeaderText = "subject";
-            this.subjectDataGridViewTextBoxColumn1.Name = "subjectDataGridViewTextBoxColumn1";
-            this.subjectDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.subjectDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // courseDataGridViewTextBoxColumn1
-            // 
-            this.courseDataGridViewTextBoxColumn1.DataPropertyName = "course";
-            this.courseDataGridViewTextBoxColumn1.HeaderText = "course";
-            this.courseDataGridViewTextBoxColumn1.Name = "courseDataGridViewTextBoxColumn1";
-            this.courseDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.courseDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // teachIdDataGridViewTextBoxColumn1
-            // 
-            this.teachIdDataGridViewTextBoxColumn1.DataPropertyName = "teach_Id";
-            this.teachIdDataGridViewTextBoxColumn1.HeaderText = "teach_Id";
-            this.teachIdDataGridViewTextBoxColumn1.Name = "teachIdDataGridViewTextBoxColumn1";
-            this.teachIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.teachIdDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // column1DataGridViewTextBoxColumn1
-            // 
-            this.column1DataGridViewTextBoxColumn1.DataPropertyName = "column_1";
-            this.column1DataGridViewTextBoxColumn1.HeaderText = "1";
-            this.column1DataGridViewTextBoxColumn1.Name = "column1DataGridViewTextBoxColumn1";
-            this.column1DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column2DataGridViewTextBoxColumn1
-            // 
-            this.column2DataGridViewTextBoxColumn1.DataPropertyName = "column_2";
-            this.column2DataGridViewTextBoxColumn1.HeaderText = "2";
-            this.column2DataGridViewTextBoxColumn1.Name = "column2DataGridViewTextBoxColumn1";
-            this.column2DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column3DataGridViewTextBoxColumn1
-            // 
-            this.column3DataGridViewTextBoxColumn1.DataPropertyName = "column_3";
-            this.column3DataGridViewTextBoxColumn1.HeaderText = "3";
-            this.column3DataGridViewTextBoxColumn1.Name = "column3DataGridViewTextBoxColumn1";
-            this.column3DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column4DataGridViewTextBoxColumn1
-            // 
-            this.column4DataGridViewTextBoxColumn1.DataPropertyName = "column_4";
-            this.column4DataGridViewTextBoxColumn1.HeaderText = "4";
-            this.column4DataGridViewTextBoxColumn1.Name = "column4DataGridViewTextBoxColumn1";
-            this.column4DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column5DataGridViewTextBoxColumn1
-            // 
-            this.column5DataGridViewTextBoxColumn1.DataPropertyName = "column_5";
-            this.column5DataGridViewTextBoxColumn1.HeaderText = "5";
-            this.column5DataGridViewTextBoxColumn1.Name = "column5DataGridViewTextBoxColumn1";
-            this.column5DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column6DataGridViewTextBoxColumn1
-            // 
-            this.column6DataGridViewTextBoxColumn1.DataPropertyName = "column_6";
-            this.column6DataGridViewTextBoxColumn1.HeaderText = "6";
-            this.column6DataGridViewTextBoxColumn1.Name = "column6DataGridViewTextBoxColumn1";
-            this.column6DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column7DataGridViewTextBoxColumn1
-            // 
-            this.column7DataGridViewTextBoxColumn1.DataPropertyName = "column_7";
-            this.column7DataGridViewTextBoxColumn1.HeaderText = "7";
-            this.column7DataGridViewTextBoxColumn1.Name = "column7DataGridViewTextBoxColumn1";
-            this.column7DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column8DataGridViewTextBoxColumn1
-            // 
-            this.column8DataGridViewTextBoxColumn1.DataPropertyName = "column_8";
-            this.column8DataGridViewTextBoxColumn1.HeaderText = "8";
-            this.column8DataGridViewTextBoxColumn1.Name = "column8DataGridViewTextBoxColumn1";
-            this.column8DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column9DataGridViewTextBoxColumn1
-            // 
-            this.column9DataGridViewTextBoxColumn1.DataPropertyName = "column_9";
-            this.column9DataGridViewTextBoxColumn1.HeaderText = "9";
-            this.column9DataGridViewTextBoxColumn1.Name = "column9DataGridViewTextBoxColumn1";
-            this.column9DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column10DataGridViewTextBoxColumn1
-            // 
-            this.column10DataGridViewTextBoxColumn1.DataPropertyName = "column_10";
-            this.column10DataGridViewTextBoxColumn1.HeaderText = "10";
-            this.column10DataGridViewTextBoxColumn1.Name = "column10DataGridViewTextBoxColumn1";
-            this.column10DataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // studIdDataGridViewTextBoxColumn
-            // 
-            this.studIdDataGridViewTextBoxColumn.DataPropertyName = "stud_Id";
-            this.studIdDataGridViewTextBoxColumn.HeaderText = "stud_Id";
-            this.studIdDataGridViewTextBoxColumn.Name = "studIdDataGridViewTextBoxColumn";
-            this.studIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.studIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // highscoreDataGridViewTextBoxColumn
-            // 
-            this.highscoreDataGridViewTextBoxColumn.DataPropertyName = "high_score";
-            this.highscoreDataGridViewTextBoxColumn.HeaderText = "high_score";
-            this.highscoreDataGridViewTextBoxColumn.Name = "highscoreDataGridViewTextBoxColumn";
-            this.highscoreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.highscoreDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // typeofcolumnDataGridViewTextBoxColumn1
-            // 
-            this.typeofcolumnDataGridViewTextBoxColumn1.DataPropertyName = "typeof_column";
-            this.typeofcolumnDataGridViewTextBoxColumn1.HeaderText = "typeof_column";
-            this.typeofcolumnDataGridViewTextBoxColumn1.Name = "typeofcolumnDataGridViewTextBoxColumn1";
-            this.typeofcolumnDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.typeofcolumnDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // termexamDataGridViewTextBoxColumn1
-            // 
-            this.termexamDataGridViewTextBoxColumn1.DataPropertyName = "term_exam";
-            this.termexamDataGridViewTextBoxColumn1.HeaderText = "term_exam";
-            this.termexamDataGridViewTextBoxColumn1.Name = "termexamDataGridViewTextBoxColumn1";
-            this.termexamDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.termexamDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // wgtDataGridViewTextBoxColumn1
-            // 
-            this.wgtDataGridViewTextBoxColumn1.DataPropertyName = "wgt";
-            this.wgtDataGridViewTextBoxColumn1.HeaderText = "wgt";
-            this.wgtDataGridViewTextBoxColumn1.Name = "wgtDataGridViewTextBoxColumn1";
-            this.wgtDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.wgtDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // totalDataGridViewTextBoxColumn1
-            // 
-            this.totalDataGridViewTextBoxColumn1.DataPropertyName = "total";
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            this.totalDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle16;
-            this.totalDataGridViewTextBoxColumn1.HeaderText = "Total";
-            this.totalDataGridViewTextBoxColumn1.Name = "totalDataGridViewTextBoxColumn1";
-            this.totalDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // termtotalwgtDataGridViewTextBoxColumn
-            // 
-            this.termtotalwgtDataGridViewTextBoxColumn.DataPropertyName = "term_total_wgt";
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
-            this.termtotalwgtDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
-            this.termtotalwgtDataGridViewTextBoxColumn.HeaderText = "Wgt";
-            this.termtotalwgtDataGridViewTextBoxColumn.Name = "termtotalwgtDataGridViewTextBoxColumn";
-            this.termtotalwgtDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // termScoreDataGridViewTextBoxColumn1
-            // 
-            this.termScoreDataGridViewTextBoxColumn1.DataPropertyName = "term_Score";
-            this.termScoreDataGridViewTextBoxColumn1.HeaderText = "term_Score";
-            this.termScoreDataGridViewTextBoxColumn1.Name = "termScoreDataGridViewTextBoxColumn1";
-            this.termScoreDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.termScoreDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // typetotalDataGridViewTextBoxColumn1
-            // 
-            this.typetotalDataGridViewTextBoxColumn1.DataPropertyName = "type_total";
-            this.typetotalDataGridViewTextBoxColumn1.HeaderText = "type_total";
-            this.typetotalDataGridViewTextBoxColumn1.Name = "typetotalDataGridViewTextBoxColumn1";
-            this.typetotalDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.typetotalDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // lastnameDataGridViewTextBoxColumn1
-            // 
-            this.lastnameDataGridViewTextBoxColumn1.DataPropertyName = "lastname";
-            this.lastnameDataGridViewTextBoxColumn1.HeaderText = "lastname";
-            this.lastnameDataGridViewTextBoxColumn1.Name = "lastnameDataGridViewTextBoxColumn1";
-            this.lastnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.lastnameDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // firstnameDataGridViewTextBoxColumn1
-            // 
-            this.firstnameDataGridViewTextBoxColumn1.DataPropertyName = "firstname";
-            this.firstnameDataGridViewTextBoxColumn1.HeaderText = "firstname";
-            this.firstnameDataGridViewTextBoxColumn1.Name = "firstnameDataGridViewTextBoxColumn1";
-            this.firstnameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.firstnameDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // middlenameDataGridViewTextBoxColumn1
-            // 
-            this.middlenameDataGridViewTextBoxColumn1.DataPropertyName = "Middlename";
-            this.middlenameDataGridViewTextBoxColumn1.HeaderText = "Middlename";
-            this.middlenameDataGridViewTextBoxColumn1.Name = "middlenameDataGridViewTextBoxColumn1";
-            this.middlenameDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.middlenameDataGridViewTextBoxColumn1.Visible = false;
             // 
             // class_Report_content
             // 
