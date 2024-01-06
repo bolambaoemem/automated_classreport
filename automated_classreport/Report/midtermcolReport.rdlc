@@ -1084,14 +1084,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="column_101">
+                        <Textbox Name="column_9">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!column_10.Value</Value>
+                                  <Value>=Math.Round(Fields!column_9.Value, 0)</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -1102,7 +1102,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>column_101</rd:DefaultName>
+                          <rd:DefaultName>column_9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>

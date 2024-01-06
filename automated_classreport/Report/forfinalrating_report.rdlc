@@ -908,7 +908,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Math.Round(Fields!column_2.Value, 1)</Value>
+                                  <Value>= Floor(Fields!column_2.Value) + Floor((Fields!column_2.Value Mod 1) * 10) / 10</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -932,6 +932,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1059,7 +1060,6 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>Textbox1</rd:DefaultName>
-                <Top>0cm</Top>
                 <Height>0.49417cm</Height>
                 <Width>2.5cm</Width>
                 <Style>

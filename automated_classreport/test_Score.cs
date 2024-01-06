@@ -21,6 +21,7 @@ namespace automated_classreport
         string _sem;
         string term;
         string mount;
+        int firstload;
         public test_Score()
         {
             InitializeComponent();
@@ -119,8 +120,7 @@ namespace automated_classreport
         private void test_Score_Load(object sender, EventArgs e)
         {
             term = "Midterm";
-            guna2ComboBox1.SelectedIndex = -1;
-            guna2ComboBox2.SelectedIndex = -1;
+            firstload = 0;
             guna2TextBox2.Text = _sem;
             guna2Button2.FillColor = Color.Orange;
             get_datafromdb();
@@ -140,9 +140,10 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var groupedStudents = _context.class_Record
-                        .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null && q.mount == mount)
-                        .GroupBy(q => q.stud_Id)
-                        .ToList();
+               .Where(q => q.teach_Id == _id && q.subject == subjects.ToString() && q.course == course.ToString() && q.sem == name_Sem.ToString() && q.term_exam == "Midterm" && q.term_Score != null && q.mount == mount)
+               .GroupBy(q => q.stud_Id)
+               .ToList();
+
 
                     guna2TextBox3.Text = groupedStudents.Count.ToString();
                     guna2TextBox9.Text = ((int)_context.high_Score
@@ -153,26 +154,23 @@ namespace automated_classreport
                                 ).ToString();
                     decimal highestScore = decimal.MinValue; 
                     decimal lowestScore = decimal.MaxValue; 
-                    decimal medianScore = 0; 
+                    decimal medianScore = 0;
 
-                    foreach (var studentGroup in groupedStudents)
-                    {
-                        var studentScores = studentGroup.Select(q => q.term_Score.Value).OrderBy(score => score).ToList();
+                    // Accumulate all scores from different groups into a single list
+                    List<decimal> allScores = groupedStudents
+                        .SelectMany(studentGroup => studentGroup.Select(q => q.term_Score.Value))
+                        .ToList();
+                    allScores.Sort();
 
-                        // Update highest score if necessary
-                        highestScore = Math.Max(highestScore, studentScores.Max());
+                    highestScore = Math.Max(highestScore, allScores.Max());
 
-                        // Update lowest score if necessary
-                        lowestScore = Math.Min(lowestScore, studentScores.Min());
 
-                        // Update median score
-                        medianScore += GetMedian(studentScores);
-                    }
+                    lowestScore = Math.Min(lowestScore, allScores.Min());
 
-                    // Calculate the final median score
-                    medianScore /= groupedStudents.Count;
 
-                    // Display highest score, median score, and lowest score outside the loop
+                    medianScore = GetMedian(allScores);
+
+
                     guna2TextBox5.Text = $"{Math.Round(highestScore)}";
                     guna2TextBox7.Text = $"{Math.Round(medianScore)}";
                     guna2TextBox8.Text = $"{Math.Round(lowestScore)}";
@@ -235,7 +233,7 @@ namespace automated_classreport
                     }
 
                     // Calculate the final median score
-                    medianScore /= groupedStudents.Count;
+                    //medianScore /= groupedStudents.Count;
 
                     // Display highest score, median score, and lowest score outside the loop
                     guna2TextBox5.Text = $"{Math.Round(highestScore)}";
@@ -256,25 +254,33 @@ namespace automated_classreport
             }
         }
 
-        public static decimal GetMedian(List<decimal> scores)
+        decimal GetMedian(List<decimal> scores)
         {
-            scores.Sort();
-
             int count = scores.Count;
-            int middle = (int)Math.Round((decimal)count / 2);
 
-            if (count % 2 == 0)
+            if (count > 0)
             {
-                //decimal left = scores[middle];
-                //decimal right = scores[middle + 1];
-                //return Math.Round(left);
-                return scores[middle];
+                scores.Sort();
+
+                if (count % 2 == 0)
+                {
+              
+                    int middle = count / 2;
+                    return scores[middle - 1] ;
+                }
+                else
+                {
+                    // If the count is odd, directly return the middle score
+                    return scores[count / 2];
+                }
             }
             else
             {
-                return scores[middle];
+                // Handle the case when the list is empty
+                return 0; // or any other appropriate default value
             }
         }
+
         public void get_datafromdb()
         {
 
@@ -367,13 +373,22 @@ namespace automated_classreport
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setdata();
+    
+            if (firstload != 0) {
+                setdata();
+            }
+          
 
         }
 
         private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setdata();
+  
+            if (firstload != 0)
+            {
+                setdata();
+            }
+
         }
         public void settotable() {
             var semister_Name = guna2TextBox2.Text.Trim();
@@ -389,17 +404,19 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var datas = (
-                                    from cr in _context.class_Record
-                                    join st in _context.Students on cr.stud_Id equals st.t_Id
-                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Midterm" && cr.term_Score != null && cr.mount == mount
-                                    group new { cr, st } by st.t_Id into studentGroup
-                                    select new classTermViewmodel
-                                    {
-                                        stud_Id = studentGroup.Key,
-                                        lastname = studentGroup.Select(s => s.st.LastName + "," + s.st.FirstName + " " + s.st.Middlename.Substring(0, 1) + ".").FirstOrDefault(),
-                                        high_score = (int)Math.Round(studentGroup.Select(s => (decimal?)s.cr.term_Score ?? 0).FirstOrDefault())
-                                    }
-                                ).ToList();
+                             from cr in _context.class_Record
+                             join st in _context.Students on cr.stud_Id equals st.t_Id
+                             where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Midterm" && cr.term_Score != null && cr.mount == mount
+                             group new { cr, st } by st.t_Id into studentGroup
+                             select new classTermViewmodel
+                             {
+                                 stud_Id = studentGroup.Key,
+                                 lastname = studentGroup.Select(s => s.st.LastName + "," + s.st.FirstName + " " + s.st.Middlename.Substring(0, 1) + ".").FirstOrDefault(),
+                                 high_score = (int)Math.Round(studentGroup.Select(s => (decimal?)s.cr.term_Score ?? 0).FirstOrDefault())
+                             }
+                         ).OrderByDescending(item => item.high_score) // Order by high_score in descending order
+                         .ToList();
+
 
                     var highScoreCounts = datas.GroupBy(item => item.high_score)
                                                .ToDictionary(group => group.Key, group => group.Count());
@@ -517,6 +534,25 @@ namespace automated_classreport
                 mount = "lab";
 
             }
+        }
+
+        private void testpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_Click(object sender, EventArgs e)
+        {
+            firstload = 1;
+
+
+        }
+
+        private void guna2ComboBox2_Click(object sender, EventArgs e)
+        {
+            firstload = 1;
+     
+
         }
     }
 }

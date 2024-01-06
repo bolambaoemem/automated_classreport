@@ -397,6 +397,12 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!high_score.Value</Value>
+                <Direction>Descending</Direction>
+              </SortExpression>
+            </SortExpressions>
             <Top>7.66411cm</Top>
             <Left>0.65828cm</Left>
             <Height>1.25292cm</Height>
