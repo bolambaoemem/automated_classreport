@@ -323,6 +323,16 @@ namespace automated_classreport.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Picsart_23_12_16_22_52_47_024 {
+            get {
+                object obj = ResourceManager.GetObject("Picsart_23-12-16_22-52-47-024", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap school_image {
             get {
                 object obj = ResourceManager.GetObject("school-image", resourceCulture);

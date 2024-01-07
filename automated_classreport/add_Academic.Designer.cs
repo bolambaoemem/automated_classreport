@@ -64,7 +64,7 @@ namespace automated_classreport
             this.sem_Name.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.sem_Name.Name = "sem_Name";
             this.sem_Name.PasswordChar = '\0';
-            this.sem_Name.PlaceholderText = "Enter Semister Name";
+            this.sem_Name.PlaceholderText = "Enter Semester Name";
             this.sem_Name.SelectedText = "";
             this.sem_Name.ShadowDecoration.Parent = this.sem_Name;
             this.sem_Name.Size = new System.Drawing.Size(413, 41);
@@ -111,9 +111,9 @@ namespace automated_classreport
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Orange;
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(18, 97);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(136, 20);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(143, 20);
             this.guna2HtmlLabel1.TabIndex = 3;
-            this.guna2HtmlLabel1.Text = "Semister Name";
+            this.guna2HtmlLabel1.Text = "Semester Name";
             // 
             // guna2Panel1
             // 
@@ -133,9 +133,9 @@ namespace automated_classreport
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(108, 12);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(212, 27);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(230, 27);
             this.guna2HtmlLabel2.TabIndex = 0;
-            this.guna2HtmlLabel2.Text = "Add Semiter Name";
+            this.guna2HtmlLabel2.Text = "Add Semester Name";
             // 
             // add_Academic
             // 

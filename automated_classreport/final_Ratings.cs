@@ -297,246 +297,250 @@ namespace automated_classreport
                 data.column_1 = (int)Math.Round(data.column_1);
                 data.column_9 = (int)Math.Round(data.column_9);
 
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
                 }
-
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
+                }
             }
 
             classTermViewmodelBindingSource.DataSource = datas;
@@ -680,244 +684,249 @@ namespace automated_classreport
                 data.column_1 = (int)Math.Round(data.column_1);
                 data.column_9 = (int)Math.Round(data.column_9);
 
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-               else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
-                    data.column_10 =74;
+                    data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1072,244 +1081,249 @@ namespace automated_classreport
             foreach (var data in datas)
             {
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1455,244 +1469,249 @@ namespace automated_classreport
             foreach (var data in datas)
             {
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1997,7 +2016,7 @@ namespace automated_classreport
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            guna2TextBox3.Text = "Final Ratings"; ;
+            guna2TextBox3.Text = "Final Rating"; ;
             guna2Button3.FillColor =Color.Orange;
             guna2Button1.FillColor = Color.MediumTurquoise;
             guna2Button2.FillColor = Color.MediumTurquoise;
@@ -3262,7 +3281,8 @@ namespace automated_classreport
         private void guna2Button5_Click(object sender, EventArgs e)
         {
             var getthevalue = guna2TextBox3.Text.Trim();
-            if (string.IsNullOrEmpty(getthevalue))
+            var getunit = unit_txt.Text.Trim();
+            if (string.IsNullOrEmpty(getthevalue) && string.IsNullOrEmpty(getunit))
             {
                 MessageBox.Show("Please select term", "Empty Value", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -3275,7 +3295,7 @@ namespace automated_classreport
                 String semNames = guna2HtmlLabel4.Text.Trim();
                 String term = guna2TextBox3.Text.Trim();
 
-                midterm_Report_frm frm = new midterm_Report_frm(_id, courses.ToString(), subjects.ToString(), sem_Id, semmean, semNames, term,mount);
+                midterm_Report_frm frm = new midterm_Report_frm(_id, courses.ToString(), subjects.ToString(), sem_Id, semmean, semNames, term,mount,getunit);
                 frm.ShowDialog();
             }
         }
@@ -3299,6 +3319,14 @@ namespace automated_classreport
             else
             {
                 mount = "lab";
+            }
+        }
+
+        private void guna2TextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b' && e.KeyChar != '.')
+            {
+                e.Handled = true;
             }
         }
     }

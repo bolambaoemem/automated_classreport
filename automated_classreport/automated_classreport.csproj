@@ -43,10 +43,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI">
-      <HintPath>..\..\..\..\Downloads\guna dlls\Guna.UI.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\guna dlls\guna dlls\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\..\Downloads\guna dlls\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\guna dlls\guna dlls\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -366,6 +366,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\Picsart_23-12-16_22-52-47-024.jpg" />
     <None Include="Resources\icons8-delete-24.png" />
     <None Include="Resources\icons8-eye-501.png" />
     <None Include="Resources\icons8-delete-100.png" />

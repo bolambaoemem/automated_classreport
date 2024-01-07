@@ -239,7 +239,7 @@ namespace automated_classreport
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.guna2PictureBox2.BorderRadius = 12;
-            this.guna2PictureBox2.Image = global::automated_classreport.Properties.Resources.Picsart_23_11_18_12_33_56_738;
+            this.guna2PictureBox2.Image = global::automated_classreport.Properties.Resources.Picsart_23_12_16_22_52_47_024;
             this.guna2PictureBox2.Location = new System.Drawing.Point(77, 52);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;

@@ -218,22 +218,20 @@ namespace automated_classreport
                     decimal lowestScore = decimal.MaxValue;
                     decimal medianScore = 0;
 
-                    foreach (var studentGroup in groupedStudents)
-                    {
-                        var studentScores = studentGroup.Select(q => q.term_Score.Value).OrderBy(score => score).ToList();
 
-                        // Update highest score if necessary
-                        highestScore = Math.Max(highestScore, studentScores.Max());
+                    // Accumulate all scores from different groups into a single list
+                    List<decimal> allScores = groupedStudents
+                        .SelectMany(studentGroup => studentGroup.Select(q => q.term_Score.Value))
+                        .ToList();
+                    allScores.Sort();
 
-                        // Update lowest score if necessary
-                        lowestScore = Math.Min(lowestScore, studentScores.Min());
+                    highestScore = Math.Max(highestScore, allScores.Max());
 
-                        // Update median score
-                        medianScore += GetMedian(studentScores);
-                    }
 
-                    // Calculate the final median score
-                    //medianScore /= groupedStudents.Count;
+                    lowestScore = Math.Min(lowestScore, allScores.Min());
+
+
+                    medianScore = GetMedian(allScores);
 
                     // Display highest score, median score, and lowest score outside the loop
                     guna2TextBox5.Text = $"{Math.Round(highestScore)}";
@@ -463,17 +461,18 @@ namespace automated_classreport
                     int name_Sem = semester.sem_Id;
 
                     var datas = (
-                                    from cr in _context.class_Record
-                                    join st in _context.Students on cr.stud_Id equals st.t_Id
-                                    where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Final" && cr.term_Score != null && cr.mount == mount
-                                    group new { cr, st } by st.t_Id into studentGroup
-                                    select new classTermViewmodel
-                                    {
-                                        stud_Id = studentGroup.Key,
-                                        lastname = studentGroup.Select(s => s.st.LastName + "," + s.st.FirstName + " " + s.st.Middlename.Substring(0, 1) + ".").FirstOrDefault(),
-                                        high_score = (int)Math.Round(studentGroup.Select(s => (decimal?)s.cr.term_Score ?? 0).FirstOrDefault())
-                                    }
-                                ).ToList();
+                            from cr in _context.class_Record
+                            join st in _context.Students on cr.stud_Id equals st.t_Id
+                            where cr.teach_Id == _id && cr.subject == subjects.ToString() && cr.course == course.ToString() && cr.sem == name_Sem.ToString() && cr.term_exam == "Final" && cr.term_Score != null && cr.mount == mount
+                            group new { cr, st } by st.t_Id into studentGroup
+                            select new classTermViewmodel
+                            {
+                                stud_Id = studentGroup.Key,
+                                lastname = studentGroup.Select(s => s.st.LastName + "," + s.st.FirstName + " " + s.st.Middlename.Substring(0, 1) + ".").FirstOrDefault(),
+                                high_score = (int)Math.Round(studentGroup.Select(s => (decimal?)s.cr.term_Score ?? 0).FirstOrDefault())
+                            }
+                        ).OrderByDescending(item => item.high_score) // Order by high_score in descending order
+                        .ToList();
 
                     var highScoreCounts = datas.GroupBy(item => item.high_score)
                                                .ToDictionary(group => group.Key, group => group.Count());

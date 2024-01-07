@@ -46,7 +46,7 @@ namespace automated_classreport
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             Decimal twgt =Math.Round( _context.class_Record.Where(q => q.teach_Id == _id && q.sem == _sem.ToString() && q.subject == _subject && q.course == _course && q.term_exam ==_termname).Select(s => (decimal)s.wgt).FirstOrDefault(),2);
-
+            Decimal qterm = Math.Round(_context.high_Score.Where(q => q.teach_Id == _id && q.sem == _sem.ToString() && q.subject == _subject && q.course == _course && q.term_exam == _termname && q.typeof_column =="Quizzes" && q.mount ==_mount).Select(s => (decimal?)s.term_Score ?? 0).FirstOrDefault(), 2);
             high_Score high = new high_Score
             {
                 teach_Id = _id,
@@ -57,6 +57,7 @@ namespace automated_classreport
                 typeof_column = type,
                 wgt = Convert.ToDecimal(guna2TextBox2.Text.Trim()),
                 type_total = twgt,
+                term_Score = qterm,
                 mount = _mount
             };
 

@@ -47,14 +47,14 @@ namespace automated_classreport
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.update = new Guna.UI2.WinForms.Guna2Button();
             this.gunaDataGridView1 = new Guna.UI.WinForms.GunaDataGridView();
+            this.studendtViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.save = new Guna.UI2.WinForms.Guna2Button();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middlenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studendtViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.save = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.semesterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studendtViewModelBindingSource)).BeginInit();
@@ -120,7 +120,7 @@ namespace automated_classreport
             this.gunaSem.SelectedText = "";
             this.gunaSem.Size = new System.Drawing.Size(123, 32);
             this.gunaSem.TabIndex = 2;
-            this.gunaSem.Text = "Semister/ A.Y.";
+            this.gunaSem.Text = "Semester/ A.Y.";
             // 
             // gunaTextBox2
             // 
@@ -378,42 +378,6 @@ namespace automated_classreport
             this.gunaDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gunaDataGridView1_CellContentClick);
             this.gunaDataGridView1.SelectionChanged += new System.EventHandler(this.gunaDataGridView1_SelectionChanged);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // studentIDDataGridViewTextBoxColumn
-            // 
-            this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "studentID";
-            this.studentIDDataGridViewTextBoxColumn.HeaderText = "No";
-            this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
-            this.studentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // firstnameDataGridViewTextBoxColumn
-            // 
-            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "Firstname";
-            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Firstname";
-            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
-            this.firstnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // lastnameDataGridViewTextBoxColumn
-            // 
-            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "Lastname";
-            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Lastname";
-            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
-            this.lastnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // middlenameDataGridViewTextBoxColumn
-            // 
-            this.middlenameDataGridViewTextBoxColumn.DataPropertyName = "Middlename";
-            this.middlenameDataGridViewTextBoxColumn.HeaderText = "Middlename";
-            this.middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
-            this.middlenameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // studendtViewModelBindingSource
             // 
             this.studendtViewModelBindingSource.DataSource = typeof(automated_classreport.ViewModel.studendtViewModel);
@@ -460,6 +424,42 @@ namespace automated_classreport
             this.save.Text = "Save";
             this.save.Visible = false;
             this.save.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // studentIDDataGridViewTextBoxColumn
+            // 
+            this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "studentID";
+            this.studentIDDataGridViewTextBoxColumn.HeaderText = "No";
+            this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
+            this.studentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstnameDataGridViewTextBoxColumn
+            // 
+            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "Firstname";
+            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Firstname";
+            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            this.firstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastnameDataGridViewTextBoxColumn
+            // 
+            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "Lastname";
+            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Lastname";
+            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            this.lastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // middlenameDataGridViewTextBoxColumn
+            // 
+            this.middlenameDataGridViewTextBoxColumn.DataPropertyName = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn.HeaderText = "Middlename";
+            this.middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
+            this.middlenameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // enroll_Student
             // 
@@ -513,13 +513,13 @@ namespace automated_classreport
         private System.Windows.Forms.BindingSource studendtViewModelBindingSource;
         private Guna.UI2.WinForms.Guna2Button update;
         private Guna.UI.WinForms.GunaDataGridView gunaDataGridView1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
+        private System.Windows.Forms.BindingSource semesterBindingSource;
+        private Guna.UI2.WinForms.Guna2Button save;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn middlenameDataGridViewTextBoxColumn;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private System.Windows.Forms.BindingSource semesterBindingSource;
-        private Guna.UI2.WinForms.Guna2Button save;
     }
 }

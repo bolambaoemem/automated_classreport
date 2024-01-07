@@ -30,8 +30,8 @@ namespace automated_classreport
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.classTermViewmodelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -55,6 +55,8 @@ namespace automated_classreport
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.unit_txt = new Guna.UI2.WinForms.Guna2TextBox();
+            this.gunaTextBox5 = new Guna.UI.WinForms.GunaTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.classTermViewmodelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -202,7 +204,7 @@ namespace automated_classreport
             this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
             this.guna2Button3.Size = new System.Drawing.Size(133, 38);
             this.guna2Button3.TabIndex = 31;
-            this.guna2Button3.Text = "Final Ratings";
+            this.guna2Button3.Text = "Final Rating";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // gunaTextBox4
@@ -273,9 +275,9 @@ namespace automated_classreport
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Orange;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(311, 23);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(401, 34);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(410, 34);
             this.guna2HtmlLabel2.TabIndex = 38;
-            this.guna2HtmlLabel2.Text = "COLLEGIATE GRADESHEET";
+            this.guna2HtmlLabel2.Text = "COLLEGIATE GRADE SHEET";
             this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // guna2HtmlLabel3
@@ -313,9 +315,9 @@ namespace automated_classreport
             // reportViewer1
             // 
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.classTermViewmodelBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.classTermViewmodelBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "automated_classreport.Report.midtermcolReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(26, 223);
             this.reportViewer1.Name = "reportViewer1";
@@ -376,9 +378,9 @@ namespace automated_classreport
             // 
             // reportViewer2
             // 
-            reportDataSource2.Name = "DataSet2";
-            reportDataSource2.Value = this.classTermViewmodelBindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource4.Name = "DataSet2";
+            reportDataSource4.Value = this.classTermViewmodelBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "automated_classreport.Report.finalRatingReport.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(26, 223);
             this.reportViewer2.Name = "reportViewer2";
@@ -452,12 +454,58 @@ namespace automated_classreport
             this.guna2ComboBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.guna2ComboBox3.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox3_SelectedIndexChanged);
             // 
+            // unit_txt
+            // 
+            this.unit_txt.BorderRadius = 12;
+            this.unit_txt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.unit_txt.DefaultText = "";
+            this.unit_txt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.unit_txt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.unit_txt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.unit_txt.DisabledState.Parent = this.unit_txt;
+            this.unit_txt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.unit_txt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.unit_txt.FocusedState.Parent = this.unit_txt;
+            this.unit_txt.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unit_txt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.unit_txt.HoverState.Parent = this.unit_txt;
+            this.unit_txt.Location = new System.Drawing.Point(769, 178);
+            this.unit_txt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.unit_txt.Name = "unit_txt";
+            this.unit_txt.PasswordChar = '\0';
+            this.unit_txt.PlaceholderText = "";
+            this.unit_txt.SelectedText = "";
+            this.unit_txt.ShadowDecoration.Parent = this.unit_txt;
+            this.unit_txt.Size = new System.Drawing.Size(174, 37);
+            this.unit_txt.TabIndex = 48;
+            this.unit_txt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBox1_KeyPress);
+            // 
+            // gunaTextBox5
+            // 
+            this.gunaTextBox5.BaseColor = System.Drawing.SystemColors.Control;
+            this.gunaTextBox5.BorderColor = System.Drawing.Color.Transparent;
+            this.gunaTextBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox5.FocusedBaseColor = System.Drawing.Color.White;
+            this.gunaTextBox5.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaTextBox5.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaTextBox5.Location = new System.Drawing.Point(660, 185);
+            this.gunaTextBox5.Name = "gunaTextBox5";
+            this.gunaTextBox5.PasswordChar = '\0';
+            this.gunaTextBox5.SelectedText = "";
+            this.gunaTextBox5.Size = new System.Drawing.Size(103, 30);
+            this.gunaTextBox5.TabIndex = 49;
+            this.gunaTextBox5.TabStop = false;
+            this.gunaTextBox5.Text = "No. of Units:";
+            // 
             // final_Ratings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(969, 697);
+            this.Controls.Add(this.gunaTextBox5);
+            this.Controls.Add(this.unit_txt);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.guna2ComboBox3);
             this.Controls.Add(this.guna2HtmlLabel4);
@@ -515,5 +563,7 @@ namespace automated_classreport
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox5;
+        private Guna.UI2.WinForms.Guna2TextBox unit_txt;
     }
 }

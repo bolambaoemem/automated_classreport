@@ -22,7 +22,11 @@ namespace automated_classreport
         String Semister_name;
         String mount;
         int _id;
+        int sam = 0;
+        int samp = 0;
         int o = 0;
+        int mo = 0;
+        int fo = 0;
         bool isquiz = false;
         bool isoral = false;
         bool isperformance = false;
@@ -190,7 +194,7 @@ namespace automated_classreport
                         existingEntity.column_9 = Convert.ToDecimal(record_Table.Rows[rowIndex].Cells[13].Value ?? 0);
                         existingEntity.column_10 = Convert.ToDecimal(record_Table.Rows[rowIndex].Cells[14].Value ?? 0);
                         existingEntity.total = Convert.ToDecimal(existingEntity.column_1 + existingEntity.column_2 + existingEntity.column_3 + existingEntity.column_4 + existingEntity.column_5 + existingEntity.column_6 + existingEntity.column_7 + existingEntity.column_8 + existingEntity.column_9 + existingEntity.column_10 ?? 0);
-           
+                            
                         _context.SaveChanges();
                       
                         //highViewModelBindingSource.DataSource = _context.high_Score.Where(q => q.high_ID == rowId).FirstOrDefault();
@@ -256,14 +260,14 @@ namespace automated_classreport
                                         var wgts = _context.class_Record.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == "Project" && q.mount == "lab" && q.stud_Id == existingEntity.stud_Id );
                                         if (wgts != null)
                                         {
-                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 1);
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 2);
                                             _context.SaveChanges();
                                             SetGades(existingEntity.term_total_wgt, rowId,wgts.stud_Id,wgts.typeof_column);
                                           
                                         }
                                         else
                                         {
-                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 2);
                                             _context.SaveChanges();
                                             SetGrade(existingEntity.total, rowId);
                                         }
@@ -273,12 +277,12 @@ namespace automated_classreport
                                         var wgtss = _context.class_Record.FirstOrDefault(q => q.teach_Id == dta.teach_Id && q.course == dta.course && q.subject == dta.subject && q.term_exam == dta.term_exam && q.typeof_column == "Performance" && q.mount == "lab" && q.stud_Id == existingEntity.stud_Id);
                                         if (wgtss != null)
                                         {
-                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 1);
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal(((existingEntity.total / wgt.total) * wgt.wgt ?? 0)), 2);
                                             _context.SaveChanges();
                                             SetGades(existingEntity.term_total_wgt, rowId, wgtss.stud_Id, wgtss.typeof_column);
                                         }
                                         else {
-                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                            existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 2);
                                             _context.SaveChanges();
                                             SetGrade(existingEntity.total, rowId);
                                         }
@@ -286,7 +290,7 @@ namespace automated_classreport
                                     }
                                 else
                                 {
-                                    existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 1);
+                                    existingEntity.term_total_wgt = Math.Round(Convert.ToDecimal((existingEntity.total / wgt.total) * wgt.wgt ?? 0), 2);
                                 }
                             }
                             else
@@ -333,7 +337,7 @@ namespace automated_classreport
                     
                     int gtotal = 0;
                     var dta = _context.class_Record.FirstOrDefault(q => q.ID == IDrow);
-
+              
                     string targetType = (dta.typeof_column == "Project") ? "Performance" : "Project";
 
                     var dtas = _context.class_Record.FirstOrDefault(q =>
@@ -343,7 +347,11 @@ namespace automated_classreport
                         q.sem == dta.sem && 
                         q.mount == dta.mount);
 
-                    gtotal = (int)Math.Round(((dta.term_total_wgt + dtas.term_total_wgt) ?? 0), 0);
+                    
+                    var hta = _context.high_Score.FirstOrDefault(q => q.typeof_column == "Performance" && q.term_exam == dta.term_exam && q.sem == dta.sem && q.mount == dta.mount);
+                    var htas = _context.high_Score.FirstOrDefault(q => q.typeof_column == "Project" && q.term_exam == dta.term_exam && q.sem == dta.sem && q.mount == dta.mount);
+                    gtotal = (int)Math.Round(((((dta.total + dtas.total) / (hta.total + htas.total)) * 100) ?? 0), 0);
+
 
 
                     MessageBox.Show(gtotal.ToString()) ;
@@ -740,7 +748,13 @@ namespace automated_classreport
                 {
                  
                     var dta = _context.class_Record.FirstOrDefault(q => q.ID == IDrow);
-                    int gtotal = (int)Math.Round(dta.term_total_wgt ?? 0, 0);
+                    var dtas = _context.high_Score.FirstOrDefault(q =>
+                    q.typeof_column == dta.typeof_column &&
+                    q.term_exam == dta.term_exam &&
+                    q.sem == dta.sem &&
+                    q.mount == dta.mount);
+
+                    int gtotal = (int)Math.Round(((dta.total / dtas.total) * 100) ?? 0, 0);
 
                     if (gtotal == 100)
                     {
@@ -1182,9 +1196,21 @@ namespace automated_classreport
                         changedataonclickbtn(typec);
                         if (mount == "lec") {
 
-                            guna2Button3.Visible = false;
-                            guna2Button6.Location = new Point(guna2Button6.Location.X -69, guna2Button6.Location.Y + 0);
-                            o = 1;
+                            if (mo == 0 && fo == 0 )
+                            {
+                                guna2Button3.Visible = false;
+                                guna2Button6.Location = new Point(guna2Button6.Location.X - 69, guna2Button6.Location.Y + 0);
+                                o = 1;
+                                mo = 1;
+                                fo = 0;
+                            }
+                            else {
+                           
+                                    guna2Button3.Visible = false;
+                                    guna2Button6.Location = new Point(guna2Button6.Location.X + 0, guna2Button6.Location.Y + 0);
+                                
+                            }
+
                         }
                         if (mount == "lab") {
                             guna2Button3.Visible = true;
@@ -1193,6 +1219,7 @@ namespace automated_classreport
                                 guna2Button6.Location = new Point(guna2Button6.Location.X +69, guna2Button6.Location.Y + 0);
                              
                                 o = 0;
+                                mo = 0;
                             }
                         }
 
@@ -1268,7 +1295,35 @@ namespace automated_classreport
         }
         public void RefreshData()
         {
-           
+            if (mount == "lec") {
+                if (samp == 0) {
+                    guna2Button3.Visible = false;
+                    guna2Button6.Location = new Point(guna2Button6.Location.X - 69, guna2Button6.Location.Y + 0);
+                    samp = 1;
+                }
+                else {
+                    guna2Button3.Visible = false;
+                    guna2Button6.Location = new Point(guna2Button6.Location.X + 0, guna2Button6.Location.Y + 0);
+                }
+                sam = 0;
+            }
+            if (mount == "lab")
+            {
+                if (sam == 0) {
+                    guna2Button3.Visible = true;
+                    guna2Button6.Location = new Point(guna2Button6.Location.X + 69, guna2Button6.Location.Y + 0);
+                    sam = 1;
+                }
+             
+            else {
+
+                    guna2Button3.Visible = true;
+                    guna2Button6.Location = new Point(guna2Button6.Location.X + 0, guna2Button6.Location.Y + 0);
+
+
+                }
+                samp = 0;
+            }
 
             guna2DataGridView1.Visible = true;
             gunaDataGridView1.Visible = true;
@@ -1736,9 +1791,20 @@ namespace automated_classreport
                         if (mount == "lec")
                         {
 
-                            guna2Button3.Visible = false;
-                            guna2Button6.Location = new Point(guna2Button6.Location.X - 69, guna2Button6.Location.Y + 0);
-                            o = 1;
+                            if (fo == 0 && mo==0)
+                            {
+                                guna2Button3.Visible = false;
+                                guna2Button6.Location = new Point(guna2Button6.Location.X - 69, guna2Button6.Location.Y + 0);
+                                o = 1;
+                                fo = 1;
+                            }
+                            else
+                            {
+                                
+                                    guna2Button3.Visible = false;
+                                    guna2Button6.Location = new Point(guna2Button6.Location.X + 0, guna2Button6.Location.Y + 0);
+                               
+                            }
                         }
                         if (mount == "lab")
                         {
@@ -1748,9 +1814,11 @@ namespace automated_classreport
                                 guna2Button6.Location = new Point(guna2Button6.Location.X + 69, guna2Button6.Location.Y + 0);
 
                                 o = 0;
+                                fo = 0;
+                                mo = 0;
                             }
                         }
-                    }
+                    } 
                     else
                     {
                         // No data found, prompt the user

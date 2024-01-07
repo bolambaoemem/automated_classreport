@@ -315,8 +315,11 @@ namespace automated_classreport
         {
             try
             {
+                int SEm = Convert.ToInt32(semister.SelectedValue);
+                var course_dtb = course.Text.Trim();
+                var subject_dtb = subject.Text.Trim();
                 var students = _context.Students;
-
+                MessageBox.Show(SEm.ToString());
                 if (gunaDataGridView1.SelectedRows.Count > 0)
                 {
 
@@ -329,8 +332,9 @@ namespace automated_classreport
                         {
                             var studentIdCellValue = row.Cells[1].Value;
                             int studentId = Convert.ToInt32(studentIdCellValue);
-
-                            var entityToDelete = _context.Students.SingleOrDefault(q => q.StudentID == studentId);
+                            var dta = _context.Students.FirstOrDefault(q => q.StudentID == studentId && q.course_year == course_dtb && q.subject == subject_dtb && q.sem_Id == SEm && q.teach_id == _id);
+                            MessageBox.Show(dta.t_Id.ToString());
+                            var entityToDelete = _context.Students.SingleOrDefault(q =>q.t_Id == dta.t_Id);
 
                             if (entityToDelete != null)
                             {
@@ -340,12 +344,13 @@ namespace automated_classreport
 
 
                         _context.SaveChanges();
+                        
+                     
 
-                        int SEm = Convert.ToInt32(semister.SelectedValue);
                         var course_tb = course.Text.Trim();
                         var subject_tb = subject.Text.Trim();
                         gunaDataGridView1.ClearSelection();
-                        gunaDataGridView1.DataSource = _context.Students.Where(q => q.teach_id == _id && q.course_year == course_tb && q.subject == subject_tb && q.sem_Id == SEm).ToList();
+                        gunaDataGridView1.DataSource = _context.Students.Where(q => q.teach_id == _id && q.course_year == course_tb && q.subject == subject_tb && q.sem_Id == SEm).OrderBy(q => q.LastName).ToList();
                     }
                 }
                 else
@@ -389,7 +394,7 @@ namespace automated_classreport
 
             if (course_tb != "" && subject_tb != "" && SEm != 0)
             {
-                var checking_data = _context.Students.Where(q => q.teach_id == _id && q.course_year == course_tb && q.subject == subject_tb && q.sem_Id == SEm).ToList();
+                var checking_data = _context.Students.Where(q => q.teach_id == _id && q.course_year == course_tb && q.subject == subject_tb && q.sem_Id == SEm).OrderBy(q => q.LastName).ToList();
                 if (checking_data.Count > 0)
                 {
                     gunaDataGridView1.DataSource = checking_data;
@@ -478,6 +483,7 @@ namespace automated_classreport
             foreach (DataGridViewRow row in gunaDataGridView1.SelectedRows)
             {
                 var checkdata = row.Cells[1].Value;
+
                 if (Convert.ToInt32(checkdata) != 0) {
                     guna2Button1.Visible = true;
                     guna2Button2.Visible = true;

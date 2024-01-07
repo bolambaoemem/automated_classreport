@@ -79,9 +79,9 @@ namespace automated_classreport
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Orange;
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(231, 187);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(140, 25);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(146, 25);
             this.guna2HtmlLabel2.TabIndex = 21;
-            this.guna2HtmlLabel2.Text = "1st Semister";
+            this.guna2HtmlLabel2.Text = "1st Semester";
             this.guna2HtmlLabel2.Visible = false;
             // 
             // guna2HtmlLabel3
@@ -91,9 +91,9 @@ namespace automated_classreport
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.Orange;
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(617, 187);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(147, 25);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(153, 25);
             this.guna2HtmlLabel3.TabIndex = 22;
-            this.guna2HtmlLabel3.Text = "2nd Semister";
+            this.guna2HtmlLabel3.Text = "2nd Semester";
             this.guna2HtmlLabel3.Visible = false;
             this.guna2HtmlLabel3.Click += new System.EventHandler(this.guna2HtmlLabel3_Click);
             // 

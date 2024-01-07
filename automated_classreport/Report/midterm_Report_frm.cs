@@ -18,6 +18,7 @@ namespace automated_classreport.Report
 
         gradingsysEntities _context = new gradingsysEntities();
         int _id;
+        int snum = 0;
         string _courses;
         string _subjects;
          int _sem_Id;
@@ -26,11 +27,12 @@ namespace automated_classreport.Report
         string _term;
         string _teacher_Name;
         string mount;
+        string getunit;
         public midterm_Report_frm()
         {
             InitializeComponent();
         }
-        public midterm_Report_frm(int id,string courses,string subjects,int sem_Id,string semmean, string semNames,string term, string _mount):this()
+        public midterm_Report_frm(int id,string courses,string subjects,int sem_Id,string semmean, string semNames,string term, string _mount,string _getunit):this()
         {
             _id =id;
            _courses = courses;
@@ -40,6 +42,7 @@ namespace automated_classreport.Report
             _semNames = semNames;
            _term = term;
             mount = _mount;
+            getunit = _getunit;
         }
         private void midterm_Report_frm_Load(object sender, EventArgs e)
         {
@@ -74,7 +77,7 @@ namespace automated_classreport.Report
                 this.reportViewer1.RefreshReport();
 
             }
-            if (_term == "Final Ratings")
+            if (_term == "Final Rating")
             {
                 reportViewer1.Visible = false;
                 reportViewer2.Visible = true;
@@ -144,11 +147,11 @@ namespace automated_classreport.Report
                                                             .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == _courses && hs.subject == _subjects && hs.sem == _sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                             .Select(hs => hs.wgt ?? 0)
                                                             .DefaultIfEmpty()
-                                                            .FirstOrDefault())+ (_context.high_Score
+                                                            .FirstOrDefault()) + (_context.high_Score
                                                             .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == _courses && hs.subject == _subjects && hs.sem == _sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                             .Select(hs => hs.wgt ?? 0)
                                                             .DefaultIfEmpty()
-                                                            .FirstOrDefault()) )/ 100))
+                                                            .FirstOrDefault())) / 100))
                                                         .DefaultIfEmpty()
                                                         .FirstOrDefault())
                                         .FirstOrDefault(),
@@ -213,11 +216,11 @@ namespace automated_classreport.Report
                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Performance" && hs.course == _courses && hs.subject == _subjects && hs.sem == _sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
-                                               .FirstOrDefault())+ (_context.high_Score
+                                               .FirstOrDefault()) + (_context.high_Score
                                                .Where(hs => hs.term_exam == "Midterm" && hs.typeof_column == "Project" && hs.course == _courses && hs.subject == _subjects && hs.sem == _sem_Id.ToString() && hs.teach_Id == _id && hs.mount == mount)
                                                .Select(hs => hs.wgt ?? 0)
                                                .DefaultIfEmpty()
-                                               .FirstOrDefault()) )/ 100))
+                                               .FirstOrDefault())) / 100))
                                            .DefaultIfEmpty()
                                            .FirstOrDefault())
                                         .FirstOrDefault()
@@ -232,253 +235,259 @@ namespace automated_classreport.Report
 
                 column_10 = 0,
                 term_total_wgt = 0,
+               
 
             }
                         ).ToList();
 
             foreach (var data in datas)
             {
+              
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
                 }
-
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
+                }
             }
 
             classTermViewmodelBindingSource.DataSource = datas;
@@ -494,11 +503,12 @@ namespace automated_classreport.Report
             group new { cr, st } by st.t_Id into studentGroup
             select new classTermViewmodel
             {
-
+              
                 stud_Id = studentGroup.Key,
                 lastname = studentGroup.Select(s => s.st.LastName + "," + s.st.FirstName + " " + s.st.Middlename.Substring(0, 1))
                         .FirstOrDefault(),
-
+                Middlename = studentGroup.Select(s => s.st.StudentID.ToString())
+                        .FirstOrDefault(),
                 column_1 = studentGroup.SelectMany(s => _context.class_Record
                                                                                 .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Quizzes" && q.course == _courses && q.subject == _subjects && q.sem == _sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
                                                                                 .Select(q => Math.Round((q.set_Grade ?? 0), 1))
@@ -576,7 +586,7 @@ namespace automated_classreport.Report
                                             .DefaultIfEmpty()
                                             .FirstOrDefault())
                                         .FirstOrDefault()
-             
+
                     +
                        studentGroup.Select(s => _context.class_Record
                                            .Where(q => q.stud_Id == s.st.t_Id && q.term_exam == "Midterm" && q.typeof_column == "Oral" && q.course == _courses && q.subject == _subjects && q.sem == _sem_Id.ToString() && q.teach_Id == _id && q.mount == mount)
@@ -610,251 +620,260 @@ namespace automated_classreport.Report
 
                 column_10 = 0,
                 term_total_wgt = 0,
-
+                 
             }
                         ).ToList();
 
             foreach (var data in datas)
             {
+                
+                //data.Middlename = (snum + 1).ToString();
+                //snum = Convert.ToInt32(data.Middlename);
+              
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1004,244 +1023,249 @@ select new classTermViewmodel
             foreach (var data in datas)
             {
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1383,244 +1407,249 @@ select new classTermViewmodel
             foreach (var data in datas)
             {
                 data.column_9 = (int)Math.Round(data.column_9);
-                if (data.column_9 == 100)
+                if (data.column_9 == 95)
                 {
                     data.column_10 = 95;
                     data.term_total_wgt = (decimal)1.0;
                 }
-                else if (data.column_9 == 99)
+                else if (data.column_9 == 94)
                 {
                     data.column_10 = 94;
                     data.term_total_wgt = (decimal)1.1;
                 }
-                else if (data.column_9 == 98)
+                else if (data.column_9 == 93)
                 {
                     data.column_10 = 93;
                     data.term_total_wgt = (decimal)1.2;
                 }
-                else if (data.column_9 == 97)
+                else if (data.column_9 == 92)
                 {
                     data.column_10 = 92;
                     data.term_total_wgt = (decimal)1.3;
                 }
-                else if (data.column_9 == 96)
+                else if (data.column_9 == 91)
                 {
                     data.column_10 = 91;
                     data.term_total_wgt = (decimal)1.4;
                 }
-                else if (data.column_9 == 95)
+                else if (data.column_9 == 90)
                 {
                     data.column_10 = 90;
                     data.term_total_wgt = (decimal)1.5;
                 }
 
-                else if (data.column_9 >= 93 && data.column_9 <= 94)
+                else if (data.column_9 == 89)
                 {
                     data.column_10 = 89;
                     data.term_total_wgt = (decimal)1.6;
 
                 }
-                else if (data.column_9 >= 91 && data.column_9 <= 92)
+                else if (data.column_9 == 88)
                 {
                     data.column_10 = 88;
                     data.term_total_wgt = (decimal)1.7;
                 }
 
-                else if (data.column_9 >= 89 && data.column_9 <= 90)
+                else if (data.column_9 == 87)
                 {
                     data.column_10 = 87;
                     data.term_total_wgt = (decimal)1.8;
 
                 }
-                else if (data.column_9 >= 87 && data.column_9 <= 88)
+                else if (data.column_9 == 86)
                 {
                     data.column_10 = 86;
                     data.term_total_wgt = (decimal)1.9;
                 }
 
-                else if (data.column_9 >= 85 && data.column_9 <= 86)
+                else if (data.column_9 == 85)
                 {
                     data.column_10 = 85;
                     data.term_total_wgt = (decimal)2.0;
 
                 }
-                else if (data.column_9 >= 83 && data.column_9 <= 84)
+                else if (data.column_9 == 84)
                 {
                     data.column_10 = 84;
                     data.term_total_wgt = (decimal)2.1;
                 }
 
-                else if (data.column_9 >= 81 && data.column_9 <= 82)
+                else if (data.column_9 == 83)
                 {
                     data.column_10 = 83;
                     data.term_total_wgt = (decimal)2.2;
 
                 }
-                else if (data.column_9 >= 79 && data.column_9 <= 80)
+                else if (data.column_9 == 82)
                 {
                     data.column_10 = 82;
                     data.term_total_wgt = (decimal)2.3;
                 }
 
-                else if (data.column_9 >= 77 && data.column_9 <= 78)
+                else if (data.column_9 == 81)
                 {
                     data.column_10 = 81;
                     data.term_total_wgt = (decimal)2.4;
 
                 }
-                else if (data.column_9 >= 75 && data.column_9 <= 76)
+                else if (data.column_9 == 80)
                 {
                     data.column_10 = 80;
                     data.term_total_wgt = (decimal)2.5;
                 }
 
-                else if (data.column_9 >= 70 && data.column_9 <= 74)
+                else if (data.column_9 == 79)
                 {
                     data.column_10 = 79;
                     data.term_total_wgt = (decimal)2.6;
 
                 }
-                else if (data.column_9 >= 65 && data.column_9 <= 69)
+                else if (data.column_9 == 78)
                 {
                     data.column_10 = 78;
                     data.term_total_wgt = (decimal)2.7;
                 }
 
-                else if (data.column_9 >= 60 && data.column_9 <= 64)
+                else if (data.column_9 == 77)
                 {
                     data.column_10 = 77;
                     data.term_total_wgt = (decimal)2.8;
 
                 }
-                else if (data.column_9 >= 55 && data.column_9 <= 59)
+                else if (data.column_9 == 76)
                 {
                     data.column_10 = 76;
                     data.term_total_wgt = (decimal)2.9;
                 }
 
-                else if (data.column_9 >= 50 && data.column_9 <= 54)
+                else if (data.column_9 == 75)
                 {
                     data.column_10 = 75;
                     data.term_total_wgt = (decimal)3.0;
 
                 }
-                else if (data.column_9 >= 47 && data.column_9 <= 49)
+                else if (data.column_9 == 74)
                 {
                     data.column_10 = 74;
                     data.term_total_wgt = (decimal)3.1;
                 }
 
-                else if (data.column_9 >= 44 && data.column_9 <= 46)
+                else if (data.column_9 == 73)
                 {
                     data.column_10 = 73;
                     data.term_total_wgt = (decimal)3.2;
 
                 }
-                else if (data.column_9 >= 41 && data.column_9 <= 43)
+                else if (data.column_9 == 72)
                 {
                     data.column_10 = 72;
                     data.term_total_wgt = (decimal)3.3;
                 }
 
-                else if (data.column_9 >= 38 && data.column_9 <= 40)
+                else if (data.column_9 == 71)
                 {
                     data.column_10 = 71;
                     data.term_total_wgt = (decimal)3.4;
 
                 }
-                else if (data.column_9 >= 35 && data.column_9 <= 37)
+                else if (data.column_9 == 70)
                 {
                     data.column_10 = 70;
                     data.term_total_wgt = (decimal)3.5;
                 }
 
-                else if (data.column_9 >= 32 && data.column_9 <= 34)
+                else if (data.column_9 == 69)
                 {
                     data.column_10 = 69;
                     data.term_total_wgt = (decimal)3.6;
 
                 }
-                else if (data.column_9 >= 29 && data.column_9 <= 31)
+                else if (data.column_9 == 68)
                 {
                     data.column_10 = 68;
                     data.term_total_wgt = (decimal)3.7;
                 }
 
-                else if (data.column_9 >= 26 && data.column_9 <= 28)
+                else if (data.column_9 == 67)
                 {
                     data.column_10 = 67;
                     data.term_total_wgt = (decimal)3.8;
 
                 }
-                else if (data.column_9 >= 23 && data.column_9 <= 25)
+                else if (data.column_9 == 66)
                 {
                     data.column_10 = 66;
                     data.term_total_wgt = (decimal)3.9;
                 }
 
-                else if (data.column_9 >= 20 && data.column_9 <= 22)
+                else if (data.column_9 == 65)
                 {
                     data.column_10 = 65;
                     data.term_total_wgt = (decimal)4.0;
 
                 }
-                else if (data.column_9 >= 18 && data.column_9 <= 19)
+                else if (data.column_9 == 64)
                 {
                     data.column_10 = 64;
                     data.term_total_wgt = (decimal)4.1;
                 }
 
-                else if (data.column_9 >= 16 && data.column_9 <= 17)
+                else if (data.column_9 == 63)
                 {
                     data.column_10 = 63;
                     data.term_total_wgt = (decimal)4.2;
 
                 }
-                else if (data.column_9 >= 14 && data.column_9 <= 15)
+                else if (data.column_9 == 62)
                 {
                     data.column_10 = 62;
                     data.term_total_wgt = (decimal)4.3;
                 }
 
-                else if (data.column_9 >= 12 && data.column_9 <= 13)
+                else if (data.column_9 == 61)
                 {
                     data.column_10 = 61;
                     data.term_total_wgt = (decimal)4.4;
 
                 }
-                else if (data.column_9 >= 10 && data.column_9 <= 11)
+                else if (data.column_9 == 60)
                 {
                     data.column_10 = 60;
                     data.term_total_wgt = (decimal)4.5;
                 }
 
-                else if (data.column_9 >= 8 && data.column_9 <= 9)
+                else if (data.column_9 == 59)
                 {
                     data.column_10 = 59;
                     data.term_total_wgt = (decimal)4.6;
 
                 }
-                else if (data.column_9 >= 6 && data.column_9 <= 7)
+                else if (data.column_9 == 58)
                 {
                     data.column_10 = 58;
                     data.term_total_wgt = (decimal)4.7;
                 }
-                else if (data.column_9 >= 4 && data.column_9 <= 5)
+                else if (data.column_9 == 57)
                 {
                     data.column_10 = 57;
                     data.term_total_wgt = (decimal)4.8;
                 }
 
-                else if (data.column_9 >= 2 && data.column_9 <= 3)
+                else if (data.column_9 == 56)
                 {
                     data.column_10 = 56;
                     data.term_total_wgt = (decimal)4.9;
 
                 }
-                else if (data.column_9 >= 0 && data.column_9 <= 1)
+                else if (data.column_9 == 55)
                 {
                     data.column_10 = 55;
                     data.term_total_wgt = (decimal)5.0;
+                }
+                else if (data.column_9 < 55)
+                {
+                    data.column_10 = 0;
+                    data.term_total_wgt = (decimal)0.0;
                 }
 
             }
@@ -1683,7 +1712,7 @@ select new classTermViewmodel
             {
                 parameters.Add(new ReportParameter("quiz", "N/A"));
             }
-
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("project", "Performance"));
             parameters.Add(new ReportParameter("term", $"{jyz.ToString("N0")}%"));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
@@ -1745,6 +1774,7 @@ select new classTermViewmodel
             {
                 parameters.Add(new ReportParameter("performance", "N/A"));
             }
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("project", "Project"));
             parameters.Add(new ReportParameter("term", $"{jyz.ToString("N0")}%"));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
@@ -1815,7 +1845,7 @@ select new classTermViewmodel
             {
                 parameters.Add(new ReportParameter("quiz", "N/A"));
             }
-           
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("project", "Performance"));
             parameters.Add(new ReportParameter("term", $"{jyz.ToString("N0")}%"));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
@@ -1878,6 +1908,7 @@ select new classTermViewmodel
             {
                 parameters.Add(new ReportParameter("performance", "N/A"));
             }
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("project", "Project"));
             parameters.Add(new ReportParameter("term", $"{jyz.ToString("N0")}%"));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
@@ -2504,6 +2535,7 @@ select new classTermViewmodel
             classTermViewmodelBindingSource.DataSource = datas;
 
             List<ReportParameter> parameters = new List<ReportParameter>();
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
             parameters.Add(new ReportParameter("term_Name", _semNames));
             parameters.Add(new ReportParameter("term_Stat", _term));
@@ -3134,6 +3166,7 @@ select new classTermViewmodel
             classTermViewmodelBindingSource.DataSource = datas;
 
             List<ReportParameter> parameters = new List<ReportParameter>();
+            parameters.Add(new ReportParameter("unit", getunit));
             parameters.Add(new ReportParameter("term_Mean", _semmean));
             parameters.Add(new ReportParameter("term_Name", _semNames));
             parameters.Add(new ReportParameter("term_Stat", _term));
